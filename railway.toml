@@ -1,0 +1,10 @@
+[build]
+builder = "dockerfile"
+dockerfilePath = "backend/Dockerfile"
+dockerContext = "backend"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "always"

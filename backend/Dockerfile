@@ -15,12 +15,11 @@ COPY . .
 # Compiler TypeScript
 RUN npm run build
 
-# Exposer le port
+# Exposer le port dynamique de Railway
 EXPOSE $PORT
 
 # Variables d'environnement par défaut
 ENV NODE_ENV=production
-ENV PORT=3001
 
 # Démarrer l'application
 CMD ["npm", "start"]
