@@ -12,11 +12,14 @@ RUN npm ci
 # Copier le code source du backend
 COPY backend/ .
 
+# Installer tsx globalement pour s'assurer qu'il est disponible
+RUN npm install -g tsx
+
 # Exposer le port dynamique de Railway
 EXPOSE $PORT
 
 # Variables d'environnement par défaut
 ENV NODE_ENV=production
 
-# Démarrer l'application directement avec tsx (skip build)
-CMD ["npx", "tsx", "src/index.ts"]
+# Démarrer l'application avec gestion d'erreurs
+CMD ["sh", "-c", "echo 'Starting app on port $PORT' && tsx src/index.ts"]
