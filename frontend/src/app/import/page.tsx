@@ -335,7 +335,9 @@ export default function ImportPage() {
                         ) : (
                           <>
                             <input
-                              ref={(el) => fileInputRefs.current[doc.name] = el}
+                              ref={(el) => {
+                                fileInputRefs.current[doc.name] = el
+                              }}
                               type="file"
                               accept=".pdf,.xlsx,.xls,.csv"
                               className="hidden"
