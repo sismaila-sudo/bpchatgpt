@@ -1,0 +1,78 @@
+/* Styles d'impression pour la fiche synoptique */
+@media print {
+  /* Masquer les éléments non nécessaires à l'impression */
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-no-padding {
+    padding: 0 !important;
+  }
+
+  .print-no-shadow {
+    box-shadow: none !important;
+  }
+
+  .print-header {
+    background-color: #1e293b !important;
+    color: white !important;
+  }
+
+  /* Optimiser la page pour l'impression */
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  /* Forcer les couleurs de fond à s'imprimer */
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* Style spécifique pour les tableaux */
+  table {
+    page-break-inside: avoid;
+    border-collapse: collapse !important;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #000 !important;
+    padding: 8px !important;
+  }
+
+  /* En-têtes de sections */
+  .bg-gray-100 {
+    background-color: #f3f4f6 !important;
+  }
+
+  .bg-slate-800 {
+    background-color: #1e293b !important;
+    color: white !important;
+  }
+
+  .bg-gray-50 {
+    background-color: #f9fafb !important;
+  }
+
+  /* Éviter les coupures de page dans les sections importantes */
+  .synoptic-section {
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  /* Assurer la lisibilité du texte */
+  .text-white {
+    color: white !important;
+  }
+
+  /* Bordures pour les tableaux */
+  .border-gray-300 {
+    border-color: #d1d5db !important;
+  }
+}
