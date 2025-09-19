@@ -29,6 +29,12 @@ async function buildApp() {
 
 async function start() {
   try {
+    console.log('=== DEBUG ENVIRONMENT VARIABLES ===')
+    console.log('SUPABASE_URL:', process.env.SUPABASE_URL || 'UNDEFINED')
+    console.log('SUPABASE_SERVICE_KEY:', process.env.SUPABASE_SERVICE_KEY ? 'SET (length: ' + process.env.SUPABASE_SERVICE_KEY.length + ')' : 'UNDEFINED')
+    console.log('NODE_ENV:', process.env.NODE_ENV || 'UNDEFINED')
+    console.log('=====================================')
+
     const fastify = await buildApp()
     const port = parseInt(process.env.PORT || '3001')
 

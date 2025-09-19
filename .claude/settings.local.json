@@ -19,7 +19,8 @@
       "Bash(git push:*)",
       "Bash(git filter-branch:*)",
       "Read(//c/Users/admin/desktop/**)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(SUPABASE_URL=\"https://nddimpfyofoopjnroswf.supabase.co\" SUPABASE_SERVICE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5kZGltcGZ5b2Zvb3BqbnJvc3dmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1ODAzOTc2NywiZXhwIjoyMDczNjE1NzY3fQ.SF6tlQBLdtHUFZhPBri5Ha4bwOC7zDO51iJpKZprGPU\" npm start)"
     ],
     "deny": [],
     "ask": []
