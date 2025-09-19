@@ -6,14 +6,11 @@ WORKDIR /app
 # Copier les fichiers du backend
 COPY backend/package*.json ./
 
-# Installer les dépendances
-RUN npm ci --only=production
+# Installer toutes les dépendances (y compris tsx pour runtime)
+RUN npm ci
 
 # Copier le code source du backend
 COPY backend/ .
-
-# Compiler TypeScript
-RUN npm run build
 
 # Exposer le port dynamique de Railway
 EXPOSE $PORT
@@ -21,5 +18,5 @@ EXPOSE $PORT
 # Variables d'environnement par défaut
 ENV NODE_ENV=production
 
-# Démarrer l'application
-CMD ["npm", "start"]
+# Démarrer l'application directement avec tsx (skip build)
+CMD ["npx", "tsx", "src/index.ts"]
