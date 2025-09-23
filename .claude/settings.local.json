@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:izzobpchatgpt3.vercel.app)"
+      "WebFetch(domain:izzobpchatgpt3.vercel.app)",
+      "Bash(git tag:*)",
+      "Bash(git fetch:*)"
     ],
     "deny": [],
     "ask": []
