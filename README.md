@@ -1,386 +1,197 @@
-# Business Plan Generator
+# Business Plan Generator 📊
 
-Application web complète pour créer des business plans bancables à partir de données financières réelles.
+Une application moderne de génération de business plans avec analyse financière intelligente pour les entreprises nouvelles et en activité.
 
-## Vue d'ensemble
+## 🚀 Fonctionnalités
 
-Cette application transforme les données comptables (bilans, comptes de résultats, relevés bancaires) en business plans professionnels acceptables par les banques et investisseurs.
+### 📈 Analyse Financière Complète
+- **Entreprises Nouvelles** : Projections financières complètes sur 3-10 ans
+- **Entreprises en Activité** : Analyse de documents existants (bilans, comptes de résultat)
+- Calculs automatiques de ratios et indicateurs clés
+- Visualisations interactives avec graphiques
 
-### Fonctionnalités principales
+### 🤖 Intelligence Artificielle
+- **Auto-remplissage** : Génération automatique du business plan basée sur vos données
+- **IA Enhanced** : Amélioration par GPT-4o pour un contenu professionnel
+- Analyse intelligente des documents financiers uploadés
 
-- **Import de données** : Excel, CSV, PDF avec OCR
-- **Calculs financiers robustes** : VAN, TRI, DSCR, ratios bancaires
-- **Interface type Excel** : Navigation par onglets, tableaux dynamiques
-- **Exports multi-formats** : PDF, Word, Excel selon l'audience
-- **Collaboration** : Rôles utilisateurs, commentaires, verrouillage
-- **Multi-tenant** : Organisations avec sécurité RLS
+### 📋 Gestion de Projets
+- Interface en onglets intuitive et moderne
+- Système conditionnel selon le type d'entreprise
+- Export Excel complet pour présentation aux investisseurs
+- Sauvegarde automatique en temps réel
 
-## Architecture
+## 🛠 Technologies
 
-```
-├── frontend/          # Next.js 14 + TypeScript + Tailwind
-├── backend/           # Fastify + TypeScript + Supabase
-├── supabase-schema.sql # Schéma de base de données complet
-└── docs/              # Documentation technique
-```
+- **Frontend** : Next.js 15.5.3, React 19, TypeScript
+- **Backend** : Supabase (PostgreSQL + Auth + Storage)
+- **IA** : OpenAI GPT-4o
+- **UI** : Radix UI, Tailwind CSS, Lucide Icons
+- **Charts** : Recharts
+- **Export** : SheetJS (xlsx)
 
-### Stack technique
-
-**Frontend :**
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS + shadcn/ui
-- Supabase Auth
-- React Query + Zustand
-- Recharts pour les graphiques
-
-**Backend :**
-- Fastify (API REST)
-- Supabase (PostgreSQL + Auth + Storage)
-- TypeScript
-- Decimal.js pour la précision financière
-- Bulls + Redis pour les tâches async
-
-**Infrastructure :**
-- Supabase (base de données, auth, storage)
-- Vercel (frontend)
-- Edge Functions (calculs lourds)
-
-## Installation
+## 📦 Installation
 
 ### Prérequis
-
 - Node.js 18+
-- Compte Supabase Pro
-- Redis (optionnel, pour le cache)
+- npm ou yarn
+- Compte Supabase
+- Clé API OpenAI
 
-### Configuration Supabase
+### Configuration
 
-1. Créer un nouveau projet Supabase
-2. Exécuter le schéma de base de données :
-
-```sql
--- Copier le contenu de supabase-schema.sql
--- dans l'éditeur SQL de Supabase
+1. Cloner le repository
+```bash
+git clone https://github.com/sismaila-sudo/bpchatgpt.git
+cd bpchatgpt
 ```
 
-3. Configurer l'authentification Google OAuth
-4. Activer Row Level Security (RLS)
-
-### Frontend
-
+2. Installer les dépendances
 ```bash
 cd frontend
 npm install
+```
 
-# Copier les variables d'environnement
-cp .env.local.example .env.local
+3. Configurer les variables d'environnement
+```bash
+cp ../.env.example .env.local
+```
 
-# Modifier .env.local avec vos clés Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+Remplir les variables dans `.env.local`:
+```env
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://votre-projet.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=votre-anon-key
+SUPABASE_SERVICE_ROLE_KEY=votre-service-key
 
-# Lancer en développement
+# OpenAI Configuration
+OPENAI_API_KEY=votre-openai-api-key
+
+# App Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+4. Lancer l'application
+```bash
 npm run dev
 ```
 
-### Backend
+L'application sera disponible sur `http://localhost:3000`
 
+## 🗃 Structure de la Base de Données
+
+### Tables Principales
+- `projects` : Projets et métadonnées
+- `products_services` : Produits et services
+- `sales_projections` : Projections de vente
+- `opex_items` : Charges opérationnelles
+- `capex_items` : Investissements
+- `financial_outputs` : Résultats calculés
+- `uploaded_documents` : Documents uploadés
+
+### Schéma de Déploiement Supabase
+Le projet inclut des scripts SQL pour créer toutes les tables et configurer les RLS (Row Level Security).
+
+## 🚀 Déploiement
+
+### Vercel (Recommandé)
+
+1. Connecter votre repository GitHub à Vercel
+2. Configurer les variables d'environnement dans Vercel
+3. Déployer automatiquement
+
+### Variables d'Environnement Vercel
+```
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+SUPABASE_SERVICE_ROLE_KEY
+OPENAI_API_KEY
+NEXT_PUBLIC_APP_URL
+```
+
+## 📱 Utilisation
+
+### 1. Création de Projet
+- Choisir le type : **Nouvelle Entreprise** ou **Entreprise en Activité**
+- Remplir les informations de base
+- Définir l'horizon de projection (3-10 ans)
+
+### 2. Saisie des Données
+- **Identité** : Informations de l'entreprise
+- **Données Financières** : Produits, ventes, charges, investissements
+- **Analyse Existant** : Upload de documents (entreprises en activité)
+
+### 3. Calculs et Résultats
+- Calculs automatiques des projections
+- Visualisation des ratios et indicateurs
+- Tableaux de bord interactifs
+
+### 4. Business Plan
+- Auto-remplissage basé sur vos données
+- Édition manuelle de toutes les sections
+- Amélioration IA optionnelle (premium)
+
+### 5. Export
+- Export Excel complet
+- Formats FONGIP, FAISE, Standard
+- Aperçu avant export
+
+## 🔧 Développement
+
+### Structure des Fichiers
+```
+frontend/
+├── src/
+│   ├── app/                    # App Router Next.js
+│   ├── components/             # Composants React
+│   │   ├── project/           # Composants projet
+│   │   │   ├── tabs/          # Onglets du workbook
+│   │   │   └── sections/      # Sections business plan
+│   │   └── ui/                # Composants UI Radix
+│   ├── lib/                   # Utilitaires
+│   └── services/              # Services (API, calculs, etc.)
+```
+
+### Scripts Disponibles
 ```bash
-cd backend
-npm install
-
-# Copier les variables d'environnement
-cp .env.example .env
-
-# Modifier .env avec vos clés Supabase
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_KEY=your-service-role-key
-JWT_SECRET=your-jwt-secret
-
-# Lancer en développement
-npm run dev
+npm run dev          # Développement
+npm run build        # Build production
+npm run start        # Serveur production
+npm run lint         # Linting
 ```
 
-## Utilisation
-
-### 1. Création d'un projet
-
-1. Se connecter via Google OAuth
-2. Créer une nouvelle organisation
-3. Créer un projet avec :
-   - Secteur d'activité
-   - Taille (TPE/PME/ETI/GE)
-   - Horizon (3-7 ans)
-   - Date de début
-
-### 2. Saisie des données
-
-**Onglet Produits/Services :**
-- Ajouter les produits/services
-- Définir prix, coûts, modèle de revenu
-- Configurer la saisonnalité
-
-**Onglet Ventes :**
-- Projections mensuelles par produit
-- Volumes et prix par période
-
-**Onglet CAPEX :**
-- Investissements prévus
-- Durées d'amortissement
-- Méthodes de calcul
-
-**Onglet OPEX :**
-- Charges fixes et variables
-- Indexation sur l'inflation
-- Périodicité
-
-**Onglet Paie :**
-- Rôles et salaires
-- Plan d'embauche
-- Charges sociales
-
-**Onglet Financement :**
-- Prêts bancaires
-- Apports en capital
-- Conditions (taux, durée, différés)
-
-### 3. Calculs automatiques
-
-Lancer les calculs via l'API :
-
-```javascript
-POST /api/calculations/calculate
-{
-  "project_id": "uuid",
-  "scenario_id": "uuid", // optionnel
-  "force_recalculation": false
-}
-```
-
-### 4. Visualisation
-
-- **Tableaux financiers** : Compte de résultat, flux de trésorerie, bilans
-- **Graphiques** : Évolution CA, marges, ratios, DSCR
-- **Ratios bancaires** : VAN, TRI, DSCR, gearing, coverage
-- **Scénarios** : Base, optimiste, pessimiste avec comparaisons
-
-### 5. Exports
-
-Génération de documents professionnels :
-
-```javascript
-POST /api/exports/generate
-{
-  "project_id": "uuid",
-  "format": "pdf|docx|xlsx",
-  "theme": "bank|investor|guarantee",
-  "sections": ["summary", "financials", "risks"]
-}
-```
-
-## Modèle financier
-
-### Calculs mensuels
-
-1. **Chiffre d'affaires** = Σ(Volume × Prix × Saisonnalité)
-2. **Marge brute** = CA - Coût des ventes
-3. **EBITDA** = Marge brute - OPEX
-4. **EBIT** = EBITDA - Amortissements
-5. **Résultat net** = EBIT - Intérêts - IS
-6. **CAF** = RN + Amortissements ± ΔBFR
-7. **BFR** = DSO × ventes/jour + Stock - DPO × achats/jour
-
-### Ratios clés
-
-- **DSCR** = Cash flow opérationnel / Service de la dette
-- **VAN** = Σ(Flux actualisés au WACC) - Investissement initial
-- **TRI** = Taux qui annule la VAN
-- **Point mort** = Charges fixes / (1 - COGS/CA)
-
-### Contrôles qualité
-
-- Actif = Passif
-- Produits - Charges = Résultat
-- CAF = Flux opérationnel
-- DSCR ≥ 1,2 (alerte bancaire)
-
-## API Endpoints
-
-### Projets
-- `GET /api/projects` - Liste des projets
-- `POST /api/projects` - Créer un projet
-- `GET /api/projects/:id` - Détails d'un projet
-- `PUT /api/projects/:id` - Modifier un projet
-- `DELETE /api/projects/:id` - Supprimer un projet
-
-### Calculs
-- `POST /api/calculations/calculate` - Lancer les calculs
-- `GET /api/calculations/status/:project_id` - Statut des calculs
-- `POST /api/calculations/validate/:project_id` - Valider le modèle
-
-### Métriques
-- `GET /api/metrics/:project_id` - Métriques du projet
-- `GET /api/metrics/:project_id/dashboard` - Données dashboard
-- `GET /api/metrics/:project_id/timeseries` - Séries temporelles
-- `GET /api/metrics/:project_id/sensitivity` - Analyse de sensibilité
-
-### Imports
-- `POST /api/imports/excel/:project_id` - Import Excel/CSV
-- `POST /api/imports/bank-statements/:project_id` - Import relevés bancaires
-- `GET /api/imports/templates/:type` - Templates d'import
-
-### Exports
-- `POST /api/exports/generate` - Générer un export
-- `GET /api/exports/download/:export_id` - Télécharger un export
-- `GET /api/exports/status/:export_id` - Statut de l'export
-
-## Sécurité
-
-### Row Level Security (RLS)
-
-Tous les accès aux données sont protégés par RLS Supabase :
-
-```sql
--- Exemple de politique RLS
-CREATE POLICY "Users can access their projects" ON projects
-FOR ALL USING (
-  id IN (
-    SELECT project_id FROM project_collaborators
-    WHERE user_id = auth.uid()
-  )
-);
-```
-
-### Authentification
-
-- OAuth Google via Supabase Auth
-- JWT tokens pour l'API
-- Refresh automatique des sessions
-
-### Audit
-
-Toutes les modifications sont tracées :
-
-```sql
-CREATE TRIGGER audit_projects
-AFTER INSERT OR UPDATE OR DELETE ON projects
-FOR EACH ROW EXECUTE FUNCTION audit_trigger_function();
-```
-
-## Performance
-
-### Optimisations
-
-- **Index composites** sur project_id + year + month
-- **Calculs en arrière-plan** avec Bulls/Redis
-- **Cache Redis** pour les métriques fréquentes
-- **Pagination** sur les grandes listes
-
-### Limites
-
-- Recalcul complet : < 300ms pour 10k lignes
-- Import PDF : < 90s avec OCR
-- Export PDF : ≤ 40 pages
-- Précision : 28 décimales (Decimal.js)
-
-## Tests
-
-```bash
-# Backend
-cd backend
-npm test
-
-# Frontend
-cd frontend
-npm test
-```
-
-Coverage minimale :
-- Calculs financiers : 90%
-- API endpoints : 80%
-- Composants UI : 70%
-
-## Déploiement
-
-### Production
-
-1. **Frontend** → Vercel
-2. **Backend** → Railway/Render
-3. **Base de données** → Supabase
-4. **CDN** → Vercel/Cloudflare
-
-### Variables d'environnement
-
-```bash
-# Production
-NODE_ENV=production
-SUPABASE_URL=https://prod.supabase.co
-SUPABASE_SERVICE_KEY=prod-service-key
-REDIS_URL=redis://prod-redis:6379
-```
-
-### CI/CD
-
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy
-on:
-  push:
-    branches: [main]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: npm test
-      - run: npm run build
-      - run: vercel --prod
-```
-
-## Support
-
-### Secteurs supportés
-
-Templates pré-configurés pour :
-- Commerce/Retail
-- Services BtoB
-- Industrie/Manufacturing
-- Technologies/SaaS
-- Immobilier/Construction
-
-### Devises
-
-- XOF (Franc CFA) - par défaut
-- EUR, USD, MAD - support complet
-- Taux de change automatiques
-
-### Réglementations
-
-- **SYSCOHADA** (Afrique de l'Ouest)
-- **IFRS** (International)
-- **Fiscalité** paramétrable par pays
-
-## Contribuer
+## 🤝 Contribution
 
 1. Fork le repository
-2. Créer une branche feature
-3. Ajouter des tests
-4. Créer une Pull Request
+2. Créer une branche feature (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Commit les changements (`git commit -am 'Ajouter nouvelle fonctionnalité'`)
+4. Push la branche (`git push origin feature/nouvelle-fonctionnalite`)
+5. Ouvrir une Pull Request
 
-### Standards de code
+## 📄 License
 
-- **TypeScript strict** mode
-- **ESLint + Prettier**
-- **Conventional Commits**
-- **Tests obligatoires** pour nouveaux features
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
-## Licence
+## 🆘 Support
 
-MIT - voir [LICENSE](LICENSE)
+Pour toute question ou problème :
+- Ouvrir une issue GitHub
+- Consulter la documentation Supabase
+- Vérifier les logs Vercel en cas de problème de déploiement
 
-## Contact
+## 🎯 Roadmap
 
-- **Documentation** : https://docs.business-plan-generator.com
-- **Support** : support@business-plan-generator.com
-- **Issues** : GitHub Issues
+- [ ] Authentification utilisateur complète
+- [ ] Collaboration multi-utilisateurs
+- [ ] Templates de business plans sectoriels
+- [ ] Intégration comptabilité (Sage, Ciel)
+- [ ] API REST complète
+- [ ] Application mobile
+
+
+
+
+
+---
+
+**Business Plan Generator** - Générez des business plans professionnels en quelques clics ! 🚀
