@@ -44,8 +44,50 @@ export function SalesTab({ project }: SalesTabProps) {
   ]
 
   useEffect(() => {
-    loadData()
+    loadData().then(() => {
+      // Nettoyer automatiquement les données après le chargement
+      cleanDataBeforeStartDate()
+    })
   }, [project.id])
+
+  // Fonction pour nettoyer les données avant la date de démarrage
+  const cleanDataBeforeStartDate = async () => {
+    try {
+      const projectStartDate = new Date(project.start_date)
+      const startYear = projectStartDate.getFullYear()
+      const startMonth = projectStartDate.getMonth() + 1 // +1 car getMonth() retourne 0-11
+
+      // D'abord supprimer toutes les projections des années antérieures
+      const { error: yearError } = await supabase
+        .from('sales_projections')
+        .delete()
+        .eq('project_id', project.id)
+        .lt('year', startYear)
+
+      if (yearError) {
+        console.error('Erreur nettoyage années:', yearError)
+      }
+
+      // Ensuite supprimer les mois antérieurs de l'année de démarrage
+      const { error: monthError } = await supabase
+        .from('sales_projections')
+        .delete()
+        .eq('project_id', project.id)
+        .eq('year', startYear)
+        .lt('month', startMonth)
+
+      if (monthError) {
+        console.error('Erreur nettoyage mois:', monthError)
+      }
+
+      if (!yearError && !monthError) {
+        console.log('Données avant date de démarrage nettoyées')
+        await loadData() // Recharger les données
+      }
+    } catch (error) {
+      console.error('Erreur nettoyage:', error)
+    }
+  }
 
   const loadData = async () => {
     try {
@@ -82,6 +124,15 @@ export function SalesTab({ project }: SalesTabProps) {
   }
 
   const getProjectionValue = (productId: string, year: number, month: number): number => {
+    // Vérifier si cette date est avant la date de démarrage du projet
+    const projectStartDate = new Date(project.start_date)
+    const inputDate = new Date(year, month - 1, 1)
+
+    // Si c'est avant la date de démarrage, retourner 0
+    if (inputDate < projectStartDate) {
+      return 0
+    }
+
     const projection = projections.find(p =>
       p.product_id === productId && p.year === year && p.month === month
     )
@@ -91,6 +142,15 @@ export function SalesTab({ project }: SalesTabProps) {
   const updateProjection = async (productId: string, year: number, month: number, volume: number) => {
     const product = products.find(p => p.id === productId)
     if (!product) return
+
+    // Vérifier que la date n'est pas antérieure à la date de démarrage
+    const projectStartDate = new Date(project.start_date)
+    const inputDate = new Date(year, month - 1, 1) // month - 1 car les mois JS sont 0-indexed
+
+    if (inputDate < projectStartDate) {
+      alert(`⚠️ Impossible de saisir des données avant la date de démarrage du projet (${projectStartDate.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })})`)
+      return
+    }
 
     console.log('Updating projection:', { productId, year, month, volume })
 
@@ -183,6 +243,57 @@ export function SalesTab({ project }: SalesTabProps) {
     return { totalVolume, totalRevenue }
   }
 
+  // Calculer le total pour TOUS les produits sur une année
+  const calculateAllProductsTotals = (year: number) => {
+    let totalRevenue = 0
+    let totalVolumeByUnit = {}
+
+    console.log(`🔍 Debug calculateAllProductsTotals pour ${year}:`)
+
+    products.forEach(product => {
+      let productRevenue = 0
+      for (let month = 1; month <= 12; month++) {
+        const volume = getProjectionValue(product.id, year, month)
+        if (volume > 0) {
+          const monthRevenue = volume * product.unit_price
+          totalRevenue += monthRevenue
+          productRevenue += monthRevenue
+
+          // Grouper les volumes par unité
+          if (!totalVolumeByUnit[product.unit]) {
+            totalVolumeByUnit[product.unit] = 0
+          }
+          totalVolumeByUnit[product.unit] += volume
+        }
+      }
+      if (productRevenue > 0) {
+        console.log(`- ${product.name}: ${productRevenue} (prix: ${product.unit_price})`)
+      }
+    })
+
+    console.log(`- Total année ${year}: ${totalRevenue}`)
+    return { totalRevenue, totalVolumeByUnit }
+  }
+
+  // Calculer le total pour TOUS les produits sur TOUTES les années
+  const calculateGrandTotal = () => {
+    let grandTotalRevenue = 0
+
+    console.log('🔍 Debug calculateGrandTotal:')
+    console.log('- Products:', products.length, products.map(p => ({ name: p.name, price: p.unit_price })))
+    console.log('- Years:', years)
+    console.log('- Projections total:', projections.length)
+
+    years.forEach(year => {
+      const { totalRevenue } = calculateAllProductsTotals(year)
+      console.log(`- CA année ${year}:`, totalRevenue)
+      grandTotalRevenue += totalRevenue
+    })
+
+    console.log('- Grand Total:', grandTotalRevenue)
+    return grandTotalRevenue
+  }
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('fr-FR', {
       style: 'currency',
@@ -245,6 +356,112 @@ export function SalesTab({ project }: SalesTabProps) {
           </Button>
         </div>
       </div>
+
+      {/* Récapitulatif Global - TOUS les produits */}
+      <Card className="border-l-4 border-l-green-500 bg-green-50">
+        <CardHeader>
+          <CardTitle className="flex items-center text-green-700">
+            <Calculator className="h-5 w-5 mr-2" />
+            Récapitulatif Global - Tous les Produits
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-green-600">
+                {formatCurrency(calculateGrandTotal())}
+              </div>
+              <div className="text-sm text-gray-600">CA Total {years[0]} - {years[years.length - 1]}</div>
+            </div>
+            {years.map(year => {
+              const { totalRevenue } = calculateAllProductsTotals(year)
+              return (
+                <div key={year} className="text-center">
+                  <div className="text-lg font-semibold text-gray-800">
+                    {formatCurrency(totalRevenue)}
+                  </div>
+                  <div className="text-sm text-gray-600">CA {year}</div>
+                </div>
+              )
+            })}
+          </div>
+          <div className="mt-4 text-xs text-gray-500">
+            💡 Ce récapitulatif inclut tous les produits et toutes les années du projet
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Tableau récapitulatif par produit */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center">
+            <Eye className="h-5 w-5 mr-2 text-blue-600" />
+            Détail par Produit et par Année
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="border border-gray-300 py-2 px-4 text-left">Produit</th>
+                  <th className="border border-gray-300 py-2 px-4 text-right">Prix Unitaire</th>
+                  {years.map(year => (
+                    <th key={year} className="border border-gray-300 py-2 px-4 text-right">{year}</th>
+                  ))}
+                  <th className="border border-gray-300 py-2 px-4 text-right font-bold">TOTAL</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map(product => (
+                  <tr key={product.id} className="hover:bg-gray-50">
+                    <td className="border border-gray-300 py-2 px-4 font-medium">
+                      {product.name}
+                    </td>
+                    <td className="border border-gray-300 py-2 px-4 text-right">
+                      {formatCurrency(product.unit_price)}/{product.unit}
+                    </td>
+                    {years.map(year => {
+                      const { totalRevenue } = calculateTotals(product.id, year)
+                      return (
+                        <td key={year} className="border border-gray-300 py-2 px-4 text-right">
+                          {formatCurrency(totalRevenue)}
+                        </td>
+                      )
+                    })}
+                    <td className="border border-gray-300 py-2 px-4 text-right font-bold">
+                      {(() => {
+                        let productTotal = 0
+                        years.forEach(year => {
+                          const { totalRevenue } = calculateTotals(product.id, year)
+                          productTotal += totalRevenue
+                        })
+                        return formatCurrency(productTotal)
+                      })()}
+                    </td>
+                  </tr>
+                ))}
+                <tr className="bg-blue-100 font-bold">
+                  <td className="border border-gray-300 py-2 px-4" colSpan="2">
+                    TOTAL TOUS PRODUITS
+                  </td>
+                  {years.map(year => {
+                    const { totalRevenue } = calculateAllProductsTotals(year)
+                    return (
+                      <td key={year} className="border border-gray-300 py-2 px-4 text-right">
+                        {formatCurrency(totalRevenue)}
+                      </td>
+                    )
+                  })}
+                  <td className="border border-gray-300 py-2 px-4 text-right text-blue-600">
+                    {formatCurrency(calculateGrandTotal())}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Sélecteurs */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -318,15 +535,21 @@ export function SalesTab({ project }: SalesTabProps) {
                     const product = products.find(p => p.id === selectedProduct)
                     const revenue = volume * (product?.unit_price || 0)
 
+                    // Vérifier si ce mois est avant la date de démarrage du projet
+                    const projectStartDate = new Date(project.start_date)
+                    const inputDate = new Date(selectedYear, month - 1, 1)
+                    const isBeforeStart = inputDate < projectStartDate
+
                     return (
-                      <tr key={month} className="border-b hover:bg-gray-50">
-                        <td className="py-3 px-4 font-medium">{monthName}</td>
+                      <tr key={month} className={`border-b hover:bg-gray-50 ${isBeforeStart ? 'bg-gray-100' : ''}`}>
+                        <td className={`py-3 px-4 font-medium ${isBeforeStart ? 'text-gray-400' : ''}`}>{monthName}</td>
                         <td className="py-3 px-4">
                           <input
                             type="number"
                             min="0"
                             step="1"
                             value={volume || ''}
+                            disabled={isBeforeStart}
                             onChange={(e) => {
                               const newVolume = parseInt(e.target.value) || 0
                               updateProjection(selectedProduct, selectedYear, month, newVolume)
@@ -336,7 +559,12 @@ export function SalesTab({ project }: SalesTabProps) {
                                 updateProjection(selectedProduct, selectedYear, month, 0)
                               }
                             }}
-                            className="w-full px-2 py-1 text-right border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            className={`w-full px-2 py-1 text-right border rounded focus:outline-none ${
+                              isBeforeStart
+                                ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
+                                : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
+                            }`}
+                            title={isBeforeStart ? `Saisie non autorisée avant la date de démarrage (${projectStartDate.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })})` : ''}
                           />
                         </td>
                         <td className="py-3 px-4 text-right font-mono text-gray-600">

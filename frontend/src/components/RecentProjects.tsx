@@ -14,7 +14,7 @@ interface Project {
   sector: string
   start_date: string
   horizon_years: number
-  status: string
+  status?: string
   created_at: string
   updated_at: string
 }
@@ -141,15 +141,14 @@ export function RecentProjects({ user }: RecentProjectsProps) {
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
         <div>
-          <CardTitle>Projets récents</CardTitle>
+          <CardTitle>5 Projets Récents</CardTitle>
           <CardDescription>
-            Vos derniers business plans en cours
+            Vos derniers business plans modifiés
           </CardDescription>
         </div>
-        <Button asChild>
-          <Link href="/projects/new">
-            <PlusCircle className="h-4 w-4 mr-2" />
-            Nouveau
+        <Button variant="outline" asChild>
+          <Link href="/projects">
+            Voir tous
           </Link>
         </Button>
       </CardHeader>
@@ -172,8 +171,8 @@ export function RecentProjects({ user }: RecentProjectsProps) {
                     <span className="text-sm text-gray-500">
                       {project.sector}
                     </span>
-                    <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(project.status)}`}>
-                      {getStatusText(project.status)}
+                    <span className={`px-2 py-1 text-xs font-medium rounded-full ${getStatusColor(project.status || 'active')}`}>
+                      {getStatusText(project.status || 'active')}
                     </span>
                   </div>
                   <div className="flex items-center space-x-4 mt-1 text-xs text-gray-400">
@@ -191,9 +190,9 @@ export function RecentProjects({ user }: RecentProjectsProps) {
                 </div>
               </div>
               <div className="flex-shrink-0">
-                <Button variant="ghost" size="sm" asChild>
+                <Button variant="default" size="sm" asChild>
                   <Link href={`/projects/${project.id}`}>
-                    <ArrowRight className="h-4 w-4" />
+                    Ouvrir
                   </Link>
                 </Button>
               </div>

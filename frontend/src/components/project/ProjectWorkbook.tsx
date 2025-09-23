@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
@@ -15,119 +16,121 @@ import {
   Settings,
   ArrowLeft,
   Building,
-  Receipt
+  Receipt,
+  Cog
 } from 'lucide-react'
 import Link from 'next/link'
 import { OverviewTab } from './tabs/OverviewTab'
-import { ProductsTab } from './tabs/ProductsTab'
-import { SalesTab } from './tabs/SalesTab'
-import { OpexTab } from './tabs/OpexTab'
-import { CapexTab } from './tabs/CapexTab'
-import { PayrollTab } from './tabs/PayrollTab'
-import { TaxesTab } from './tabs/TaxesTab'
-import { WorkingCapitalTab } from './tabs/WorkingCapitalTab'
-import { RatiosTab } from './tabs/RatiosTab'
+import { IdentityTab } from './tabs/IdentityTab'
+import { FinancialDataTab } from './tabs/FinancialDataTab'
 import { ResultsTab } from './tabs/ResultsTab'
-import { ScenariosTab } from './tabs/ScenariosTab'
-import { FinancingTab } from './tabs/FinancingTab'
+import { TechnicalImpactTab } from './tabs/TechnicalImpactTab'
 import { BusinessPlanTab } from './tabs/BusinessPlanTab'
+import { ExistingFinancialAnalysisTab } from './tabs/ExistingFinancialAnalysisTab'
 import { ExcelExportService } from '@/services/excelExport'
+import { FinancialCalculationsService } from '@/services/financialCalculations'
 import { createClient } from '@/lib/supabase/client'
 
-const tabs = [
+// Tabs de base pour tous les projets
+const baseTabs = [
   {
     id: 'overview',
-    label: 'Synoptique',
-    icon: FileText,
+    label: 'Dashboard',
+    icon: BarChart3,
     component: OverviewTab
   },
   {
-    id: 'products',
-    label: 'Produits/Services',
-    icon: Package,
-    component: ProductsTab
-  },
-  {
-    id: 'sales',
-    label: 'Ventes',
-    icon: TrendingUp,
-    component: SalesTab
-  },
-  {
-    id: 'capex',
-    label: 'CAPEX',
-    icon: DollarSign,
-    component: CapexTab
-  },
-  {
-    id: 'opex',
-    label: 'OPEX',
+    id: 'identity',
+    label: 'Identité',
     icon: Building,
-    component: OpexTab
+    component: IdentityTab
   },
   {
-    id: 'payroll',
-    label: 'Paie',
-    icon: Users,
-    component: PayrollTab
-  },
-  {
-    id: 'taxes',
-    label: 'Taxes',
-    icon: Receipt,
-    component: TaxesTab
-  },
-  {
-    id: 'working-capital',
-    label: 'BFR',
+    id: 'financial-data',
+    label: 'Données Financières',
     icon: Calculator,
-    component: WorkingCapitalTab
+    component: FinancialDataTab
   },
   {
-    id: 'ratios',
-    label: 'Ratios',
+    id: 'results-ratios',
+    label: 'Ratios & Résultats',
     icon: TrendingUp,
-    component: RatiosTab
-  },
-  {
-    id: 'results',
-    label: 'Résultats',
-    icon: BarChart3,
     component: ResultsTab
   },
   {
-    id: 'scenarios',
-    label: 'Scénarios',
-    icon: Settings,
-    component: ScenariosTab
+    id: 'technical-impact',
+    label: 'Étude Technique & Impact',
+    icon: Cog,
+    component: TechnicalImpactTab
   },
   {
     id: 'business-plan',
-    label: 'Business Plan IA',
-    icon: FileText,
+    label: 'Business Plan',
+    icon: Receipt,
     component: BusinessPlanTab
-  },
-  {
-    id: 'financing',
-    label: 'Financements',
-    icon: DollarSign,
-    component: FinancingTab
   }
 ]
+
+// Onglet spécial pour entreprises en activité
+const existingCompanyTab = {
+  id: 'existing-analysis',
+  label: 'Analyse Financière Existant',
+  icon: FileText,
+  component: ExistingFinancialAnalysisTab
+}
 
 interface ProjectWorkbookProps {
   project: any
 }
 
 export function ProjectWorkbook({ project }: ProjectWorkbookProps) {
-  const [activeTab, setActiveTab] = useState('overview')
+  const searchParams = useSearchParams()
+  const defaultTab = searchParams.get('tab') || 'overview'
+  const [activeTab, setActiveTab] = useState(defaultTab)
   const [isCalculating, setIsCalculating] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
+  const [existingCompanyAnalysis, setExistingCompanyAnalysis] = useState<any>(null)
   const supabase = createClient()
+
+  // Gérer les entreprises en activité avec analyse pré-remplie
+  useEffect(() => {
+    // Pour les entreprises en activité, vérifier s'il y a des données d'analyse stockées
+    if (project.mode === 'existing-company' || project.company_type === 'existing') {
+      const storedAnalysis = localStorage.getItem('existing_company_analysis')
+      if (storedAnalysis) {
+        try {
+          const analysisData = JSON.parse(storedAnalysis)
+          if (analysisData.projectId === project.id) {
+            setExistingCompanyAnalysis(analysisData.analysis)
+            console.log('✅ Données d\'entreprise en activité chargées:', analysisData.analysis)
+          }
+        } catch (error) {
+          console.error('Erreur parsing données analysis:', error)
+        }
+      }
+    }
+  }, [project.id, project.mode, project.company_type])
+
+  // Construire la liste des tabs selon le type d'entreprise
+  const isExistingCompany = project.mode === 'existing-company' || project.company_type === 'existing'
+
+  const tabs = isExistingCompany
+    ? [baseTabs[0], existingCompanyTab, ...baseTabs.slice(1)] // Dashboard, Analyse Existant, puis le reste
+    : baseTabs
 
   const activeTabData = tabs.find(tab => tab.id === activeTab)
   const ActiveComponent = activeTabData?.component || OverviewTab
+
+  // Écouter l'événement de calcul depuis l'onglet Aperçu
+  useEffect(() => {
+    const handleCalculation = () => {
+      handleCalculate()
+    }
+
+    window.addEventListener('triggerCalculation', handleCalculation)
+    return () => window.removeEventListener('triggerCalculation', handleCalculation)
+  }, [])
 
   const handleExport = async () => {
     setIsExporting(true)
@@ -181,7 +184,35 @@ export function ProjectWorkbook({ project }: ProjectWorkbookProps) {
     try {
       console.log('Démarrage calcul pour projet:', project.id)
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/simple/calculate`, {
+      // Vérifier que les données nécessaires sont présentes
+      const [productsResult, salesResult] = await Promise.all([
+        supabase.from('products_services').select('*').eq('project_id', project.id),
+        supabase.from('sales_projections').select('*').eq('project_id', project.id)
+      ])
+
+      const products = productsResult.data || []
+      const sales = salesResult.data || []
+
+      // Validation des données
+      if (products.length === 0) {
+        alert('⚠️ Aucun produit ou service défini !\n\nVeuillez d\'abord ajouter vos produits/services dans l\'onglet "Données Financières" avant de lancer le calcul.')
+        return
+      }
+
+      if (sales.length === 0) {
+        alert('⚠️ Aucune projection de vente définie !\n\nVeuillez d\'abord ajouter vos prévisions de vente dans l\'onglet "Données Financières" avant de lancer le calcul.')
+        return
+      }
+
+      // Vérifier que les projections de vente ont des quantités
+      const hasValidSales = sales.some(sale => sale.volume && sale.volume > 0)
+      if (!hasValidSales) {
+        alert('⚠️ Aucune quantité de vente définie !\n\nVeuillez définir des quantités de vente réalistes dans vos projections avant de lancer le calcul.')
+        return
+      }
+
+      // 🔧 UTILISER L'API LOCALE au lieu de l'ancienne API externe défaillante
+      const response = await fetch(`/api/simple/calculate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -198,13 +229,16 @@ export function ProjectWorkbook({ project }: ProjectWorkbookProps) {
         throw new Error(result.message || 'Erreur lors du calcul')
       }
 
-      alert(`Calcul terminé ! Revenue total: ${result.summary?.total_revenue?.toLocaleString()} XOF`)
+      // ✅ Utiliser le service centralisé pour afficher le vrai CA
+      const realRevenue = await FinancialCalculationsService.calculateRealRevenue(project.id)
+
+      alert(`✅ Calcul terminé avec succès !\n\nCA Total (recalculé): ${FinancialCalculationsService.formatCurrency(realRevenue.totalRevenue)}`)
 
       // Rafraîchir la page pour voir les résultats
       window.location.reload()
     } catch (error) {
       console.error('Erreur calcul:', error)
-      alert('Erreur lors du calcul: ' + error.message)
+      alert('❌ Erreur lors du calcul: ' + error.message)
     } finally {
       setIsCalculating(false)
     }
@@ -225,10 +259,21 @@ export function ProjectWorkbook({ project }: ProjectWorkbookProps) {
                 <ArrowLeft className="h-6 w-6" />
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-white drop-shadow-sm">
-                  {project.name}
-                </h1>
-                <p className="text-blue-100 text-base mt-1">
+                <div className="flex items-center space-x-3 mb-1">
+                  <h1 className="text-2xl font-bold text-white drop-shadow-sm">
+                    {project.name}
+                  </h1>
+                  {project.mode && (
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      project.mode === 'existing-company'
+                        ? 'bg-orange-100 text-orange-800 border border-orange-200'
+                        : 'bg-green-100 text-green-800 border border-green-200'
+                    }`}>
+                      {project.mode === 'existing-company' ? 'Entreprise en Activité' : 'Nouvelle Entreprise'}
+                    </span>
+                  )}
+                </div>
+                <p className="text-blue-100 text-base">
                   {project.sector} • {project.horizon_years} ans • {project.organizations?.currency || 'XOF'}
                 </p>
               </div>
@@ -359,7 +404,10 @@ export function ProjectWorkbook({ project }: ProjectWorkbookProps) {
             </div>
           </div>
         ) : (
-          <ActiveComponent project={project} />
+          <ActiveComponent
+            project={project}
+            existingCompanyAnalysis={existingCompanyAnalysis}
+          />
         )}
       </main>
 

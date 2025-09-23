@@ -139,7 +139,7 @@ export function TemplateSelector({ onTemplateSelected, onBack }: TemplateSelecto
                 <div className="flex-1">
                   <div className="flex items-center space-x-2">
                     <Building2 className="h-4 w-4 text-green-600" />
-                    <span className="font-medium">Entreprise Existante</span>
+                    <span className="font-medium">Entreprise en Activité</span>
                   </div>
                   <p className="text-sm text-gray-600 mt-1">
                     Expansion ou développement d'une activité existante

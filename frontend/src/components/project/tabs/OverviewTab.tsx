@@ -9,41 +9,22 @@ import {
   DollarSign,
   Package,
   Calendar,
-  Target,
   AlertTriangle,
   CheckCircle,
-  User,
-  Edit3,
-  Mail,
-  Phone,
-  MapPin,
   Building,
-  FileText
+  FileText,
+  Calculator
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 import { SynopticSheet } from '../SynopticSheet'
+import { FinancialCalculationsService } from '@/services/financialCalculations'
 
 interface OverviewTabProps {
   project: any
+  existingCompanyAnalysis?: any
 }
 
-interface ProjectOwner {
-  id?: string
-  first_name?: string
-  last_name?: string
-  email?: string
-  phone?: string
-  title?: string
-  company?: string
-  experience_years?: number
-  motivation?: string
-  vision?: string
-}
-
-export function OverviewTab({ project }: OverviewTabProps) {
+export function OverviewTab({ project, existingCompanyAnalysis }: OverviewTabProps) {
   const [stats, setStats] = useState({
     products_count: 0,
     total_revenue: 0,
@@ -53,16 +34,12 @@ export function OverviewTab({ project }: OverviewTabProps) {
     min_cash_balance: 0
   })
   const [loading, setLoading] = useState(true)
-  const [owner, setOwner] = useState<ProjectOwner>({})
-  const [editingOwner, setEditingOwner] = useState(false)
-  const [savingOwner, setSavingOwner] = useState(false)
   const [showSynopticSheet, setShowSynopticSheet] = useState(false)
 
   const supabase = createClient()
 
   useEffect(() => {
     loadStats()
-    loadOwnerInfo()
   }, [project.id])
 
   async function loadStats() {
@@ -73,7 +50,11 @@ export function OverviewTab({ project }: OverviewTabProps) {
           .select('*', { count: 'exact', head: true })
           .eq('project_id', project.id)
 
-        // Obtenir les données financières
+        // 🔄 Utiliser le service centralisé pour garantir la cohérence
+        const realRevenueSummary = await FinancialCalculationsService.calculateRealRevenue(project.id)
+        const totalRevenue = realRevenueSummary.totalRevenue
+
+        // Pour les autres stats, on peut toujours utiliser financial_outputs si elles existent
         const { data: financialData } = await supabase
           .from('financial_outputs')
           .select('*')
@@ -81,13 +62,11 @@ export function OverviewTab({ project }: OverviewTabProps) {
           .order('year')
           .order('month')
 
-        let totalRevenue = 0
         let totalProfit = 0
         let minCashBalance = 0
         let breakEvenMonth = null
 
         if (financialData && financialData.length > 0) {
-          totalRevenue = financialData.reduce((sum, row) => sum + (row.revenue || 0), 0)
           totalProfit = financialData.reduce((sum, row) => sum + (row.net_income || 0), 0)
           minCashBalance = Math.min(...financialData.map(row => row.cash_balance || 0))
 
@@ -101,7 +80,7 @@ export function OverviewTab({ project }: OverviewTabProps) {
 
         setStats({
           products_count: productsCount || 0,
-          total_revenue: totalRevenue,
+          total_revenue: totalRevenue, // ✅ Maintenant calculé directement depuis les vraies données
           total_profit: totalProfit,
           months_calculated: financialData?.length || 0,
           break_even_month: breakEvenMonth,
@@ -113,59 +92,6 @@ export function OverviewTab({ project }: OverviewTabProps) {
         setLoading(false)
       }
     }
-
-  async function loadOwnerInfo() {
-    try {
-      const { data: ownerData } = await supabase
-        .from('project_owners')
-        .select('*')
-        .eq('project_id', project.id)
-        .single()
-
-      if (ownerData) {
-        setOwner(ownerData)
-      }
-    } catch (error) {
-      console.log('Aucune information porteur trouvée, ce qui est normal pour un nouveau projet')
-    }
-  }
-
-  async function saveOwnerInfo() {
-    setSavingOwner(true)
-    try {
-      const ownerData = {
-        project_id: project.id,
-        ...owner
-      }
-
-      if (owner.id) {
-        // Mise à jour
-        const { error } = await supabase
-          .from('project_owners')
-          .update(ownerData)
-          .eq('id', owner.id)
-
-        if (error) throw error
-      } else {
-        // Création
-        const { data, error } = await supabase
-          .from('project_owners')
-          .insert([ownerData])
-          .select()
-          .single()
-
-        if (error) throw error
-        if (data) setOwner(data)
-      }
-
-      setEditingOwner(false)
-    } catch (error) {
-      console.error('Erreur sauvegarde porteur:', error)
-      alert('Erreur lors de la sauvegarde des informations')
-    } finally {
-      setSavingOwner(false)
-    }
-  }
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('fr-FR', {
@@ -217,233 +143,72 @@ export function OverviewTab({ project }: OverviewTabProps) {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Informations du projet */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center">
-            <Target className="h-5 w-5 mr-2 text-blue-600" />
-            Informations du projet
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Nom du projet
-              </label>
-              <p className="text-lg font-semibold">{project.name}</p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Secteur d'activité
-              </label>
-              <p className="text-lg font-semibold">{project.sector}</p>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Date de début
-              </label>
-              <p className="text-lg font-semibold">
-                {new Date(project.start_date).toLocaleDateString('fr-FR')}
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
 
-      {/* Informations du porteur de projet */}
-      <Card>
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="flex items-center">
-              <User className="h-5 w-5 mr-2 text-blue-600" />
-              Porteur de Projet
+      {/* Données d'entreprise en activité */}
+      {existingCompanyAnalysis && (
+        <Card className="border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+          <CardHeader>
+            <CardTitle className="text-xl font-bold text-blue-800 flex items-center">
+              <Building className="h-6 w-6 mr-3" />
+              Données d'Entreprise en Activité - Pré-remplies
             </CardTitle>
-            {!editingOwner && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setEditingOwner(true)}
-              >
-                <Edit3 className="h-4 w-4 mr-2" />
-                {owner.first_name ? 'Modifier' : 'Ajouter'}
-              </Button>
-            )}
-          </div>
-        </CardHeader>
-        <CardContent>
-          {editingOwner ? (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="first_name">Prénom</Label>
-                  <Input
-                    id="first_name"
-                    value={owner.first_name || ''}
-                    onChange={(e) => setOwner({ ...owner, first_name: e.target.value })}
-                    placeholder="Votre prénom"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="last_name">Nom</Label>
-                  <Input
-                    id="last_name"
-                    value={owner.last_name || ''}
-                    onChange={(e) => setOwner({ ...owner, last_name: e.target.value })}
-                    placeholder="Votre nom"
-                  />
+          </CardHeader>
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <h4 className="font-semibold text-blue-800">Identité</h4>
+                <div className="space-y-1 text-sm">
+                  <p><strong>Dénomination:</strong> {existingCompanyAnalysis.identite?.denomination}</p>
+                  <p><strong>Forme juridique:</strong> {existingCompanyAnalysis.identite?.forme_juridique}</p>
+                  <p><strong>Capital:</strong> {existingCompanyAnalysis.identite?.capital_social}</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={owner.email || ''}
-                    onChange={(e) => setOwner({ ...owner, email: e.target.value })}
-                    placeholder="votre.email@exemple.com"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="phone">Téléphone</Label>
-                  <Input
-                    id="phone"
-                    value={owner.phone || ''}
-                    onChange={(e) => setOwner({ ...owner, phone: e.target.value })}
-                    placeholder="+221 XX XXX XX XX"
-                  />
+              <div className="space-y-3">
+                <h4 className="font-semibold text-blue-800">Performance</h4>
+                <div className="space-y-1 text-sm">
+                  <p><strong>Score global:</strong> {existingCompanyAnalysis.synthese?.score_global}/100</p>
+                  <p><strong>CA dernier exercice:</strong> {existingCompanyAnalysis.finances?.[existingCompanyAnalysis.finances.length - 1]?.chiffre_affaires ? `${(existingCompanyAnalysis.finances[existingCompanyAnalysis.finances.length - 1].chiffre_affaires / 1000000).toFixed(0)}M FCFA` : 'N/A'}</p>
+                  <p><strong>Évolution:</strong> {existingCompanyAnalysis.synthese?.evolution_ca}</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="title">Titre / Fonction</Label>
-                  <Input
-                    id="title"
-                    value={owner.title || ''}
-                    onChange={(e) => setOwner({ ...owner, title: e.target.value })}
-                    placeholder="Ex: Directeur Général, Entrepreneur"
-                  />
+              <div className="space-y-3">
+                <h4 className="font-semibold text-blue-800">Actions</h4>
+                <div className="space-y-2">
+                  <p className="text-sm text-blue-700">✅ Données automatiquement pré-remplies dans les onglets</p>
+                  <p className="text-sm text-blue-700">🎯 Prêt pour business plan futur</p>
                 </div>
-                <div>
-                  <Label htmlFor="experience_years">Années d'expérience</Label>
-                  <Input
-                    id="experience_years"
-                    type="number"
-                    value={owner.experience_years || ''}
-                    onChange={(e) => setOwner({ ...owner, experience_years: parseInt(e.target.value) || 0 })}
-                    placeholder="5"
-                    min="0"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <Label htmlFor="motivation">Motivation pour ce projet</Label>
-                <Textarea
-                  id="motivation"
-                  value={owner.motivation || ''}
-                  onChange={(e) => setOwner({ ...owner, motivation: e.target.value })}
-                  placeholder="Décrivez ce qui vous motive à réaliser ce projet..."
-                  rows={3}
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="vision">Vision à long terme</Label>
-                <Textarea
-                  id="vision"
-                  value={owner.vision || ''}
-                  onChange={(e) => setOwner({ ...owner, vision: e.target.value })}
-                  placeholder="Quelle est votre vision pour l'avenir de ce projet ?"
-                  rows={3}
-                />
-              </div>
-
-              <div className="flex justify-end space-x-2">
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setEditingOwner(false)
-                    loadOwnerInfo() // Recharger les données originales
-                  }}
-                  disabled={savingOwner}
-                >
-                  Annuler
-                </Button>
-                <Button
-                  onClick={saveOwnerInfo}
-                  disabled={savingOwner}
-                >
-                  {savingOwner ? 'Sauvegarde...' : 'Sauvegarder'}
-                </Button>
               </div>
             </div>
-          ) : (
-            <div className="space-y-4">
-              {owner.first_name ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-2">
-                      <User className="h-4 w-4 text-gray-500" />
-                      <span className="font-medium">{owner.first_name} {owner.last_name}</span>
-                    </div>
-                    {owner.email && (
-                      <div className="flex items-center space-x-2">
-                        <Mail className="h-4 w-4 text-gray-500" />
-                        <span className="text-sm text-gray-600">{owner.email}</span>
-                      </div>
-                    )}
-                    {owner.phone && (
-                      <div className="flex items-center space-x-2">
-                        <Phone className="h-4 w-4 text-gray-500" />
-                        <span className="text-sm text-gray-600">{owner.phone}</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="space-y-3">
-                    {owner.title && (
-                      <div className="flex items-center space-x-2">
-                        <Building className="h-4 w-4 text-gray-500" />
-                        <span className="text-sm text-gray-600">{owner.title}</span>
-                      </div>
-                    )}
-                    {owner.experience_years && (
-                      <div>
-                        <span className="text-sm font-medium text-gray-700">Expérience :</span>
-                        <span className="text-sm text-gray-600 ml-2">{owner.experience_years} ans</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center py-8 text-gray-500">
-                  <User className="h-12 w-12 mx-auto mb-3 text-gray-300" />
-                  <p className="text-sm">Aucune information sur le porteur de projet</p>
-                  <p className="text-xs text-gray-400">Cliquez sur "Ajouter" pour compléter votre profil</p>
-                </div>
-              )}
+          </CardContent>
+        </Card>
+      )}
 
-              {(owner.motivation || owner.vision) && (
-                <div className="border-t pt-4 space-y-3">
-                  {owner.motivation && (
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-700 mb-1">Motivation</h4>
-                      <p className="text-sm text-gray-600">{owner.motivation}</p>
-                    </div>
-                  )}
-                  {owner.vision && (
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-700 mb-1">Vision</h4>
-                      <p className="text-sm text-gray-600">{owner.vision}</p>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
+      {/* Bouton de calcul principal */}
+      <Card className="bg-gradient-to-r from-emerald-50 to-emerald-100 border-emerald-200">
+        <CardContent className="p-8 text-center">
+          <h3 className="text-xl font-bold text-emerald-800 mb-4">
+            {existingCompanyAnalysis ? 'Créer le Business Plan Futur' : 'Prêt à calculer votre business plan ?'}
+          </h3>
+          <p className="text-emerald-700 mb-6">
+            {existingCompanyAnalysis ?
+              'Utilisez les données existantes pour projeter l\'avenir de votre entreprise' :
+              'Lancez les calculs financiers pour obtenir vos projections, ratios et analyses complètes'
+            }
+          </p>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-8 py-4 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            onClick={() => {
+              // Déclencher le calcul depuis le parent
+              const event = new CustomEvent('triggerCalculation');
+              window.dispatchEvent(event);
+            }}
+          >
+            <Calculator className="h-6 w-6 mr-3" />
+            {existingCompanyAnalysis ? 'Projeter l\'Avenir' : 'Calculer le Business Plan'}
+          </Button>
         </CardContent>
       </Card>
 
@@ -580,8 +345,11 @@ export function OverviewTab({ project }: OverviewTabProps) {
           </CardContent>
         </Card>
 
-        {/* Fiche Synoptique */}
-        <Card>
+      </div>
+
+      {/* Fiche Synoptique - Centrée */}
+      <div className="flex justify-center">
+        <Card className="w-full max-w-2xl">
           <CardHeader>
             <CardTitle className="flex items-center justify-between">
               <div className="flex items-center">
@@ -597,7 +365,7 @@ export function OverviewTab({ project }: OverviewTabProps) {
               </Button>
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="text-center">
             <p className="text-gray-600">
               Générez une fiche synoptique professionnelle de votre projet incluant toutes les informations
               essentielles : présentation de l'entreprise, détails du projet, conditions de financement

@@ -49,12 +49,45 @@ export function SynopticSheet({ project, onBack }: SynopticSheetProps) {
 
   const loadProjectData = async () => {
     try {
-      // Charger les données du porteur
-      const { data: ownerData } = await supabase
+      // Charger les données du porteur depuis company_identity ou project_owners
+      let ownerData = null
+
+      // D'abord essayer de charger depuis project_owners
+      const { data: projectOwnerData } = await supabase
         .from('project_owners')
         .select('*')
         .eq('project_id', project.id)
         .single()
+
+      if (projectOwnerData) {
+        ownerData = projectOwnerData
+      } else {
+        // Sinon charger depuis company_identity si les données y sont
+        const { data: companyData } = await supabase
+          .from('company_identity')
+          .select('*')
+          .eq('project_id', project.id)
+          .single()
+
+        if (companyData && companyData.dirigeants) {
+          try {
+            const dirigeants = JSON.parse(companyData.dirigeants)
+            if (dirigeants.length > 0) {
+              // Utiliser le premier dirigeant comme porteur
+              const firstDirigeant = dirigeants[0]
+              ownerData = {
+                first_name: firstDirigeant.name?.split(' ')[0] || '',
+                last_name: firstDirigeant.name?.split(' ').slice(1).join(' ') || '',
+                title: firstDirigeant.function || '',
+                email: companyData.email || '',
+                phone: companyData.phone || ''
+              }
+            }
+          } catch (e) {
+            console.log('Erreur parsing dirigeants JSON')
+          }
+        }
+      }
 
       if (ownerData) {
         setOwner(ownerData)

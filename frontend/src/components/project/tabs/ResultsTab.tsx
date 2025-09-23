@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import { BarChart3, TrendingUp, DollarSign, AlertTriangle, LineChart, Download } from 'lucide-react'
 import { FinancialCharts } from '../charts/FinancialCharts'
 import { ExcelExportService } from '@/services/excelExport'
+import { FinancialCalculationsService } from '@/services/financialCalculations'
 import { Button } from '@/components/ui/button'
 
 interface FinancialOutput {
@@ -30,6 +31,7 @@ interface ResultsTabProps {
 
 export function ResultsTab({ project }: ResultsTabProps) {
   const [financialData, setFinancialData] = useState<FinancialOutput[]>([])
+  const [realRevenueSummary, setRealRevenueSummary] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [selectedView, setSelectedView] = useState<'monthly' | 'annual' | 'charts'>('annual')
   const [exporting, setExporting] = useState(false)
@@ -42,6 +44,19 @@ export function ResultsTab({ project }: ResultsTabProps) {
 
   const loadFinancialData = async () => {
     try {
+      // 🔄 Utiliser le service centralisé pour obtenir les vrais calculs
+      const realData = await FinancialCalculationsService.calculateRealRevenue(project.id)
+      setRealRevenueSummary(realData)
+
+      // Comparer avec les données stockées pour diagnostic
+      const comparison = await FinancialCalculationsService.compareWithStoredData(project.id)
+      if (!comparison.isConsistent) {
+        console.warn('⚠️ Incohérence détectée entre données réelles et stockées')
+        console.warn(`CA Réel: ${comparison.realRevenue.toLocaleString()}`)
+        console.warn(`CA Stocké: ${comparison.storedRevenue.toLocaleString()}`)
+      }
+
+      // Toujours charger financial_outputs pour les autres données (profit, cash flow, etc.)
       const { data, error } = await supabase
         .from('financial_outputs')
         .select('*')
@@ -50,11 +65,50 @@ export function ResultsTab({ project }: ResultsTabProps) {
         .order('month')
 
       if (error) throw error
-      setFinancialData(data || [])
+
+      // ✅ Corriger les revenues dans financial_outputs avec les vraies données
+      const correctedData = await Promise.all((data || []).map(async row => ({
+        ...row,
+        // Remplacer le revenue stocké par le vrai calcul pour cette période
+        revenue: await calculateMonthRevenue(row.year, row.month)
+      })))
+
+      setFinancialData(correctedData)
     } catch (error) {
       console.error('Erreur chargement données financières:', error)
     } finally {
       setLoading(false)
+    }
+  }
+
+  // Fonction helper pour calculer le CA d'un mois spécifique (avec filtrage par date de démarrage)
+  const calculateMonthRevenue = async (year: number, month: number): Promise<number> => {
+    try {
+      // Vérifier si cette date est avant la date de démarrage du projet (comme SalesTab)
+      const projectStartDate = new Date(project.start_date)
+      const inputDate = new Date(year, month - 1, 1)
+
+      // Si c'est avant la date de démarrage, retourner 0
+      if (inputDate < projectStartDate) {
+        return 0
+      }
+
+      const { data: projections } = await supabase
+        .from('sales_projections')
+        .select('*, products_services(*)')
+        .eq('project_id', project.id)
+        .eq('year', year)
+        .eq('month', month)
+
+      return (projections || []).reduce((sum: number, proj: any) => {
+        if (proj.products_services && proj.volume > 0) {
+          return sum + (proj.volume * proj.products_services.unit_price)
+        }
+        return sum
+      }, 0)
+    } catch (error) {
+      console.error('Erreur calcul revenue mensuel:', error)
+      return 0
     }
   }
 

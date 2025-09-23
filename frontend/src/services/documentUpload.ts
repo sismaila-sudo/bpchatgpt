@@ -22,7 +22,7 @@ export class DocumentUploadService {
   private supabase = createClient()
 
   /**
-   * Upload un document vers Supabase Storage
+   * Upload un document vers Supabase Storage (via API pour contourner RLS)
    */
   async uploadDocument(
     file: File,
@@ -30,45 +30,31 @@ export class DocumentUploadService {
     projectId: string
   ): Promise<{ success: boolean; fileUrl?: string; error?: string }> {
     try {
-      // Générer un nom de fichier unique
-      const fileExt = file.name.split('.').pop()
-      const fileName = `${projectId}/${documentType}_${Date.now()}.${fileExt}`
+      // Utiliser l'API route pour contourner les problèmes RLS
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('projectId', projectId)
+      formData.append('documentType', documentType)
 
-      // Upload vers Supabase Storage
-      const { data: uploadData, error: uploadError } = await this.supabase.storage
-        .from('documents')
-        .upload(fileName, file, {
-          cacheControl: '3600',
-          upsert: false
-        })
+      const response = await fetch('/api/upload-document', {
+        method: 'POST',
+        body: formData
+      })
 
-      if (uploadError) {
-        console.error('Upload error:', uploadError)
-        return { success: false, error: uploadError.message }
+      const result = await response.json()
+
+      if (!response.ok) {
+        console.error('API error:', result.error)
+        return { success: false, error: result.error || 'Erreur lors de l\'upload' }
       }
 
-      // Obtenir l'URL publique
-      const { data: urlData } = this.supabase.storage
-        .from('documents')
-        .getPublicUrl(fileName)
-
-      // Enregistrer en base de données
-      const { error: dbError } = await this.supabase
-        .from('uploaded_documents')
-        .insert({
-          project_id: projectId,
-          document_type: documentType,
-          file_name: file.name,
-          file_url: urlData.publicUrl,
-          processing_status: 'pending'
-        })
-
-      if (dbError) {
-        console.error('Database error:', dbError)
-        return { success: false, error: dbError.message }
+      console.log('Upload success:', result.message)
+      return {
+        success: true,
+        fileUrl: result.fileUrl,
+        documentId: result.documentId
       }
 
-      return { success: true, fileUrl: urlData.publicUrl }
     } catch (error) {
       console.error('Upload service error:', error)
       return { success: false, error: 'Erreur lors de l\'upload' }

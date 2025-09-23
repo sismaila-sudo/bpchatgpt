@@ -94,3 +94,30 @@ apply-database-fix.js
 # Backup files
 *.bak
 *.backup
+
+# Temporary analysis files
+analyze-*.js
+check-*.js
+clean-*.js
+complete-*.js
+create-*.js
+final-*.js
+fix-*.js
+opex-*.js
+validate-*.js
+add-status-column.js
+test-*.js
+
+# Temporary documentation
+CHANGELOG_*.md
+CORRECTION_*.md
+ETAT_*.md
+MODULE_*.md
+RAPPORT-*.md
+SOLUTION_*.md
+
+# Temporary directories
+"identification entreprise/"
+
+# Claude settings
+.claude/settings.local.json

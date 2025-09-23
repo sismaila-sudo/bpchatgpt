@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { useDashboardStats } from '@/hooks/useDashboardStats'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { PlusCircle, FileText, BarChart3, Users, TrendingUp, Eye, UserPlus, Building2, Upload } from 'lucide-react'
+import { PlusCircle, FileText, BarChart3, Users, TrendingUp, Eye, UserPlus, Building2 } from 'lucide-react'
 import { RecentProjects } from '@/components/RecentProjects'
 import Link from 'next/link'
 
@@ -91,144 +91,86 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-            <CardContent className="p-6">
+        {/* Statistics Cards - Seulement 2 KPI */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg">
+            <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-blue-100 text-sm font-medium">Total Projets</p>
-                  <p className="text-2xl font-bold">{stats.loading ? '...' : stats.totalProjects}</p>
-                  <p className="text-blue-100 text-xs">Tous projets</p>
+                  <p className="text-blue-100 text-lg font-medium">Total Projets</p>
+                  <p className="text-4xl font-bold mt-2">{stats.loading ? '...' : stats.totalProjects}</p>
+                  <p className="text-blue-100 text-sm mt-1">Tous statuts confondus</p>
                 </div>
-                <FileText className="h-8 w-8 text-blue-200" />
+                <FileText className="h-12 w-12 text-blue-200" />
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-            <CardContent className="p-6">
+          <Card className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg">
+            <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-green-100 text-sm font-medium">CA Total Prévisionnel</p>
-                  <p className="text-2xl font-bold">
-                    {stats.loading ? '...' : `${stats.totalRevenue.toLocaleString()} XOF`}
-                  </p>
-                  <p className="text-green-100 text-xs">Tous projets</p>
+                  <p className="text-emerald-100 text-lg font-medium">Projets en Cours</p>
+                  <p className="text-4xl font-bold mt-2">{stats.loading ? '...' : stats.activeProjects}</p>
+                  <p className="text-emerald-100 text-sm mt-1">Brouillon + En création</p>
                 </div>
-                <TrendingUp className="h-8 w-8 text-green-200" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-purple-100 text-sm font-medium">Projets Actifs</p>
-                  <p className="text-2xl font-bold">{stats.loading ? '...' : stats.activeProjects}</p>
-                  <p className="text-purple-100 text-xs">En cours</p>
-                </div>
-                <Eye className="h-8 w-8 text-purple-200" />
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-orange-100 text-sm font-medium">Collaborateurs</p>
-                  <p className="text-2xl font-bold">{stats.loading ? '...' : stats.totalCollaborators}</p>
-                  <p className="text-orange-100 text-xs">Total</p>
-                </div>
-                <UserPlus className="h-8 w-8 text-orange-200" />
+                <TrendingUp className="h-12 w-12 text-emerald-200" />
               </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+        {/* Gros bouton Nouveau Projet centré */}
+        <div className="text-center mb-12">
           <Link href="/projects/new">
-            <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-emerald-50 border-emerald-200">
-              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-emerald-800">
-                  Nouveau Projet
-                </CardTitle>
-                <PlusCircle className="h-4 w-4 text-emerald-600 ml-auto" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-emerald-700">
-                  Créer un nouveau business plan
-                </p>
-              </CardContent>
-            </Card>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white px-12 py-6 text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            >
+              <PlusCircle className="h-8 w-8 mr-4" />
+              Nouveau Projet
+            </Button>
           </Link>
+          <p className="text-gray-600 mt-4 text-lg">
+            Créez un nouveau business plan adapté au modèle bancaire sénégalais
+          </p>
+        </div>
 
-          <Link href="/import">
-            <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-indigo-50 border-indigo-200">
-              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-indigo-800">
-                  Entreprise Existante
-                </CardTitle>
-                <Building2 className="h-4 w-4 text-indigo-600 ml-auto" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-indigo-700">
-                  Import automatique documents
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
+        {/* Actions secondaires */}
+        <div className="flex justify-center mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+            <Link href="/projects">
+              <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-blue-50 border-blue-200 w-full">
+                <CardHeader className="flex flex-row items-center space-y-0 pb-2">
+                  <CardTitle className="text-lg font-medium text-blue-800">
+                    Tous mes Projets
+                  </CardTitle>
+                  <FileText className="h-6 w-6 text-blue-600 ml-auto" />
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-blue-700">
+                    Gérer l'ensemble de vos business plans
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
 
-          <Link href="/projects">
-            <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-blue-50 border-blue-200">
-              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-blue-800">
-                  Mes Projets
-                </CardTitle>
-                <FileText className="h-4 w-4 text-blue-600 ml-auto" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-blue-700">
-                  Voir tous vos projets
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/analytics">
-            <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-purple-50 border-purple-200">
-              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-purple-800">
-                  Analytics
-                </CardTitle>
-                <BarChart3 className="h-4 w-4 text-purple-600 ml-auto" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-purple-700">
-                  Analyses et ratios
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/collaboration">
-            <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-orange-50 border-orange-200">
-              <CardHeader className="flex flex-row items-center space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-orange-800">
-                  Collaboration
-                </CardTitle>
-                <Users className="h-4 w-4 text-orange-600 ml-auto" />
-              </CardHeader>
-              <CardContent>
-                <p className="text-xs text-orange-700">
-                  Partager et collaborer
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
+            <Link href="/projects?filter=archived">
+              <Card className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-gray-50 border-gray-200 w-full">
+                <CardHeader className="flex flex-row items-center space-y-0 pb-2">
+                  <CardTitle className="text-lg font-medium text-gray-800">
+                    Archives
+                  </CardTitle>
+                  <Building2 className="h-6 w-6 text-gray-600 ml-auto" />
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-700">
+                    Consulter les projets archivés
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
         </div>
 
         {/* Recent Projects */}

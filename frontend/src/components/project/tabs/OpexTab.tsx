@@ -48,9 +48,10 @@ export function OpexTab({ project }: OpexTabProps) {
     amount: 0,
     frequency: 'monthly',
     start_year: new Date(project.start_date).getFullYear(),
-    start_month: 1,
+    start_month: new Date(project.start_date).getMonth() + 1, // Vraie date projet par défaut
     escalation_rate: 0,
-    description: ''
+    description: '',
+    use_custom_date: false // Nouvelle option pour personnaliser
   })
 
   const supabase = createClient()
@@ -58,6 +59,18 @@ export function OpexTab({ project }: OpexTabProps) {
   useEffect(() => {
     loadOpexItems()
   }, [project.id])
+
+  // Effet pour gérer la synchronisation automatique avec la date projet
+  useEffect(() => {
+    if (!formData.use_custom_date) {
+      const projectStartDate = new Date(project.start_date)
+      setFormData(prev => ({
+        ...prev,
+        start_year: projectStartDate.getFullYear(),
+        start_month: projectStartDate.getMonth() + 1
+      }))
+    }
+  }, [formData.use_custom_date, project.start_date])
 
   const loadOpexItems = async () => {
     try {
@@ -89,7 +102,15 @@ export function OpexTab({ project }: OpexTabProps) {
       return
     }
 
-    console.log('Sauvegarde OPEX:', { project_id: project.id, formData })
+    // Calculer les vraies dates à utiliser (par défaut = date projet)
+    const finalStartYear = formData.use_custom_date ? formData.start_year : new Date(project.start_date).getFullYear()
+    const finalStartMonth = formData.use_custom_date ? formData.start_month : new Date(project.start_date).getMonth() + 1
+
+    console.log('Sauvegarde OPEX:', {
+      project_id: project.id,
+      formData,
+      finalDates: { finalStartYear, finalStartMonth }
+    })
 
     try {
       if (editingItem) {
@@ -101,8 +122,8 @@ export function OpexTab({ project }: OpexTabProps) {
             category: formData.category,
             amount: formData.amount,
             frequency: formData.frequency,
-            start_year: formData.start_year,
-            start_month: formData.start_month,
+            start_year: finalStartYear,
+            start_month: finalStartMonth,
             escalation_rate: formData.escalation_rate,
             description: formData.description.trim()
           })
@@ -122,8 +143,8 @@ export function OpexTab({ project }: OpexTabProps) {
           category: formData.category,
           amount: formData.amount,
           frequency: formData.frequency,
-          start_year: formData.start_year,
-          start_month: formData.start_month,
+          start_year: finalStartYear,
+          start_month: finalStartMonth,
           escalation_rate: formData.escalation_rate,
           description: formData.description.trim()
         }
@@ -149,9 +170,10 @@ export function OpexTab({ project }: OpexTabProps) {
         amount: 0,
         frequency: 'monthly',
         start_year: new Date(project.start_date).getFullYear(),
-        start_month: 1,
+        start_month: new Date(project.start_date).getMonth() + 1,
         escalation_rate: 0,
-        description: ''
+        description: '',
+        use_custom_date: false
       })
       setEditingItem(null)
       setShowForm(false)
@@ -165,6 +187,12 @@ export function OpexTab({ project }: OpexTabProps) {
   }
 
   const handleEdit = (item: OpexItem) => {
+    // Déterminer si l'item utilise une date personnalisée
+    const projectStartDate = new Date(project.start_date)
+    const projectStartYear = projectStartDate.getFullYear()
+    const projectStartMonth = projectStartDate.getMonth() + 1
+    const isCustomDate = item.start_year !== projectStartYear || item.start_month !== projectStartMonth
+
     setFormData({
       name: item.name,
       category: item.category,
@@ -173,7 +201,8 @@ export function OpexTab({ project }: OpexTabProps) {
       start_year: item.start_year,
       start_month: item.start_month,
       escalation_rate: item.escalation_rate,
-      description: item.description
+      description: item.description,
+      use_custom_date: isCustomDate
     })
     setEditingItem(item)
     setShowForm(true)
@@ -272,9 +301,10 @@ export function OpexTab({ project }: OpexTabProps) {
                 amount: 0,
                 frequency: 'monthly',
                 start_year: new Date(project.start_date).getFullYear(),
-                start_month: 1,
+                start_month: new Date(project.start_date).getMonth() + 1,
                 escalation_rate: 0,
-                description: ''
+                description: '',
+                use_custom_date: false
               })
               setEditingItem(null)
               setShowForm(true)
@@ -361,18 +391,78 @@ export function OpexTab({ project }: OpexTabProps) {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Année de début
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    📅 Date de début de la charge
                   </label>
-                  <input
-                    type="number"
-                    min={new Date(project.start_date).getFullYear()}
-                    max={new Date(project.start_date).getFullYear() + project.horizon_years}
-                    value={formData.start_year}
-                    onChange={(e) => setFormData({ ...formData, start_year: parseInt(e.target.value) })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-                  />
+
+                  {/* Option par défaut */}
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        id="use_custom_date"
+                        checked={formData.use_custom_date}
+                        onChange={(e) => setFormData({ ...formData, use_custom_date: e.target.checked })}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                      />
+                      <label htmlFor="use_custom_date" className="text-sm text-gray-700">
+                        Personnaliser la date de début
+                      </label>
+                    </div>
+
+                    {/* Affichage conditionnel */}
+                    {!formData.use_custom_date ? (
+                      <div className="bg-green-50 border border-green-200 rounded-md p-3">
+                        <p className="text-sm text-green-800">
+                          <strong>✅ Date automatique :</strong> {new Date(project.start_date).toLocaleDateString('fr-FR', {
+                            year: 'numeric',
+                            month: 'long'
+                          })}
+                        </p>
+                        <p className="text-xs text-green-600 mt-1">
+                          Cette charge démarrera avec le projet. Idéal pour la plupart des charges opérationnelles.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="bg-yellow-50 border border-yellow-200 rounded-md p-3">
+                        <p className="text-sm text-yellow-800 mb-3">
+                          <strong>⚙️ Date personnalisée :</strong> Utile pour cas spéciaux (ex: loyer pour aménagements, décalage marketing)
+                        </p>
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
+                              Année de début
+                            </label>
+                            <input
+                              type="number"
+                              min={new Date(project.start_date).getFullYear()}
+                              max={new Date(project.start_date).getFullYear() + project.horizon_years}
+                              value={formData.start_year}
+                              onChange={(e) => setFormData({ ...formData, start_year: parseInt(e.target.value) })}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-medium text-gray-700 mb-1">
+                              Mois de début
+                            </label>
+                            <select
+                              value={formData.start_month}
+                              onChange={(e) => setFormData({ ...formData, start_month: parseInt(e.target.value) })}
+                              className="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                            >
+                              {Array.from({ length: 12 }, (_, i) => i + 1).map(month => (
+                                <option key={month} value={month}>
+                                  {new Date(2000, month - 1).toLocaleDateString('fr-FR', { month: 'long' })}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="md:col-span-2">

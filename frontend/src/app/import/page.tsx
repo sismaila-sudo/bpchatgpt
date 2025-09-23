@@ -77,16 +77,45 @@ export default function ImportPage() {
     }
   ]
 
-  // Créer un projet temporaire pour l'entreprise existante
-  const createTempProject = async () => {
+  // Créer un projet pour l'entreprise en activité
+  const createExistingCompanyProject = async () => {
     if (!user) return null
 
     try {
+      // Créer ou récupérer l'organisation par défaut de l'utilisateur
+      let organization_id: string
+
+      const { data: existingOrg } = await supabase
+        .from('organizations')
+        .select('id')
+        .eq('created_by', user.id)
+        .single()
+
+      if (existingOrg) {
+        organization_id = existingOrg.id
+      } else {
+        // Créer une organisation par défaut pour l'utilisateur
+        const { data: newOrg, error: orgError } = await supabase
+          .from('organizations')
+          .insert({
+            name: `Organisation de ${user.user_metadata?.full_name || user.email}`,
+            slug: `org-${user.id.slice(0, 8)}`,
+            created_by: user.id
+          })
+          .select()
+          .single()
+
+        if (orgError) throw orgError
+        organization_id = newOrg.id
+      }
+
       const { data, error } = await supabase
         .from('projects')
         .insert({
-          name: `Entreprise Existante - ${new Date().toLocaleDateString('fr-FR')}`,
+          organization_id,
+          name: `Entreprise en Activité - ${new Date().toLocaleDateString('fr-FR')}`,
           sector: 'À définir',
+          mode: 'existing-company', // Mode explicite pour entreprise en activité
           start_date: new Date().toISOString().split('T')[0],
           horizon_years: 3,
           created_by: user.id
@@ -95,9 +124,21 @@ export default function ImportPage() {
         .single()
 
       if (error) throw error
+
+      // Ajouter l'utilisateur comme collaborateur admin du projet
+      await supabase
+        .from('project_collaborators')
+        .insert({
+          project_id: data.id,
+          user_id: user.id,
+          role: 'admin',
+          invited_by: user.id,
+          accepted_at: new Date().toISOString()
+        })
+
       return data.id
     } catch (error) {
-      console.error('Erreur création projet:', error)
+      console.error('Erreur création projet entreprise en activité:', error)
       return null
     }
   }
@@ -118,7 +159,7 @@ export default function ImportPage() {
         // Créer un projet si pas encore fait
         let projectId = newProjectId
         if (!projectId) {
-          projectId = await createTempProject()
+          projectId = await createExistingCompanyProject()
           if (!projectId) throw new Error('Impossible de créer le projet')
           setNewProjectId(projectId)
         }
@@ -220,14 +261,34 @@ export default function ImportPage() {
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Link
-              href="/"
-              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="h-5 w-5 mr-2" />
-              Retour au tableau de bord
-            </Link>
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/projects/new/select"
+                className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <ArrowLeft className="h-5 w-5 mr-2" />
+                Retour à la sélection
+              </Link>
+              <div className="h-6 w-px bg-gray-300" />
+              <div className="flex items-center space-x-2">
+                <Building2 className="h-5 w-5 text-blue-600" />
+                <span className="text-lg font-semibold text-gray-900">Entreprise en Activité</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <span className="text-sm text-gray-600">Étape {step}/3</span>
+              <div className="flex items-center space-x-1">
+                {[1, 2, 3].map((num) => (
+                  <div
+                    key={num}
+                    className={`w-2 h-2 rounded-full ${
+                      step >= num ? 'bg-blue-600' : 'bg-gray-300'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -272,7 +333,7 @@ export default function ImportPage() {
             <div className="text-center mb-8">
               <Building2 className="h-16 w-16 text-blue-600 mx-auto mb-4" />
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Entreprise Existante
+                Entreprise en Activité
               </h1>
               <p className="text-lg text-gray-600">
                 Importez vos documents comptables pour générer automatiquement votre business plan
