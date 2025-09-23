@@ -3,7 +3,10 @@
     "allow": [
       "WebFetch(domain:izzobpchatgpt3.vercel.app)",
       "Bash(git tag:*)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []
