@@ -59,22 +59,24 @@ export function useAuthState() {
   }
 
   const signUp = async (email: string, password: string, userData?: any) => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
         data: userData,
-        emailRedirectTo: `${window.location.origin}/auth/callback`
+        emailRedirectTo: `${origin}/auth/callback`
       }
     })
     if (error) throw error
   }
 
   const signInWithGoogle = async () => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`
+        redirectTo: `${origin}/auth/callback`
       }
     })
     if (error) throw error
@@ -86,8 +88,9 @@ export function useAuthState() {
   }
 
   const resetPassword = async (email: string) => {
+    const origin = typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/auth/reset-password`
+      redirectTo: `${origin}/auth/reset-password`
     })
     if (error) throw error
   }

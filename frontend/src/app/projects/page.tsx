@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { projectService, Project } from '@/services/projectService'
 import Link from 'next/link'
 
-export default function ProjectsPage() {
+function ProjectsContent() {
   const searchParams = useSearchParams()
   const [activeProjects, setActiveProjects] = useState<Project[]>([])
   const [archivedProjects, setArchivedProjects] = useState<Project[]>([])
@@ -165,5 +165,21 @@ export default function ProjectsPage() {
         )}
       </div>
     </div>
+  )
+}
+
+export default function ProjectsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+          </div>
+        </div>
+      </div>
+    }>
+      <ProjectsContent />
+    </Suspense>
   )
 }
