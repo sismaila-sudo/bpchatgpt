@@ -1,0 +1,4 @@
+Version: 2.0.0
+Build Date: 2025-09-23T21:00:00Z
+Features: Enhanced Business Plan Generator with AI auto-fill, conditional tabs, existing company analysis
+Commit: 8b60875
