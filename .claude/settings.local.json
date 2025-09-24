@@ -6,7 +6,8 @@
       "Bash(git fetch:*)",
       "WebFetch(domain:github.com)",
       "Bash(git checkout:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

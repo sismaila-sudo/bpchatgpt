@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "cd frontend && npm ci --legacy-peer-deps && npm run build",
-  "outputDirectory": "frontend/.next",
+  "buildCommand": "npm ci --legacy-peer-deps && npm run build",
+  "outputDirectory": ".next",
   "framework": "nextjs",
-  "installCommand": "npm ci --prefix frontend --legacy-peer-deps",
-  "devCommand": "cd frontend && npm run dev",
+  "installCommand": "npm ci --legacy-peer-deps",
+  "devCommand": "npm run dev",
   "env": {
     "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
@@ -12,14 +12,8 @@
     "OPENAI_API_KEY": "@openai_api_key"
   },
   "functions": {
-    "frontend/src/app/api/**": {
+    "src/app/api/**": {
       "runtime": "nodejs18.x"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/frontend/src/app/api/$1"
-    }
-  ]
+  }
 }
