@@ -66,7 +66,7 @@ export default function TestAuthPage() {
           name: "Connexion base de données",
           status: "success",
           message: "Connexion Supabase établie",
-          details: `Projets trouvés pour l'utilisateur: ${data?.[0]?.count || 0}`
+          details: `Projets trouvés pour l'utilisateur: ${data?.length || 0}`
         })
       } catch (error) {
         results.push({

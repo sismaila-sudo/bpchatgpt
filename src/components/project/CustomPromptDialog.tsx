@@ -90,8 +90,8 @@ export function CustomPromptDialog({ project, onClose, onSectionGenerated }: Cus
 
       if (templateType === 'personnalise') {
         finalPrompt = customPrompt
-      } else if (templateType && promptTemplates[templateType]) {
-        finalPrompt = promptTemplates[templateType].prompt.replace('[SECTEUR]', project.sector)
+      } else if (templateType && promptTemplates[templateType as keyof typeof promptTemplates]) {
+        finalPrompt = promptTemplates[templateType as keyof typeof promptTemplates].prompt.replace('[SECTEUR]', project.sector)
       }
 
       // Ajouter le contexte du projet
@@ -200,7 +200,7 @@ CONTRAINTES :
             </Select>
             {templateType && templateType !== 'personnalise' && (
               <div className="mt-2 p-3 bg-gray-50 rounded text-sm">
-                <strong>Aperçu :</strong> {promptTemplates[templateType].prompt.replace('[SECTEUR]', project.sector)}
+                <strong>Aperçu :</strong> {promptTemplates[templateType as keyof typeof promptTemplates].prompt.replace('[SECTEUR]', project.sector)}
               </div>
             )}
           </div>

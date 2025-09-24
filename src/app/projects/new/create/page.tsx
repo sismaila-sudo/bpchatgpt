@@ -24,6 +24,8 @@ export default function CreateNewCompanyProjectPage() {
   }, [user, loading, router])
 
   const createProjectDirectly = async () => {
+    if (!user) return
+
     try {
       // Créer ou récupérer l'organisation par défaut de l'utilisateur
       let organization_id: string

@@ -120,7 +120,7 @@ export function DocumentView({ project, onBack }: DocumentViewProps) {
       'risques': 6,
       'conclusion': 7
     }
-    return order[sectionType] || 999
+    return order[sectionType as keyof typeof order] || 999
   }
 
   const sortedSections = sections.sort((a, b) =>
@@ -311,7 +311,7 @@ export function DocumentView({ project, onBack }: DocumentViewProps) {
 
             <div className="mt-6 pt-4 border-t border-gray-200 text-sm text-gray-500 print:hidden">
               <div className="flex justify-between">
-                <span>{section.word_count || 0} mots</span>
+                <span>Section {index + 1}</span>
                 <span>Mis à jour le {new Date(section.last_updated).toLocaleDateString('fr-FR')}</span>
               </div>
             </div>

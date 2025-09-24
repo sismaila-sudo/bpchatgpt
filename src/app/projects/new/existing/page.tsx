@@ -130,7 +130,7 @@ export default function ExistingCompanyAnalysisPage() {
 
     } catch (error) {
       console.error('❌ Erreur traitement:', error)
-      alert('Erreur lors de l\'analyse des documents: ' + error.message)
+      alert('Erreur lors de l\'analyse des documents: ' + (error instanceof Error ? error.message : String(error)))
       setStep('upload')
     } finally {
       setProcessing(false)
@@ -154,21 +154,21 @@ export default function ExistingCompanyAnalysisPage() {
 
     setExportingDocument(true)
     try {
-      const result = await aiAnalysisService.generateExportDocument(analysis)
+      // Créer un export simple en JSON
+      const exportData = JSON.stringify(analysis, null, 2)
+      const blob = new Blob([exportData], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
 
-      if (result.success && result.downloadUrl) {
-        // Télécharger le document
-        const link = document.createElement('a')
-        link.href = result.downloadUrl
-        link.download = `Analyse_${analysis.identite.denomination}_${new Date().toISOString().split('T')[0]}.txt`
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
+      // Télécharger le document
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `Analyse_${analysis.identite.denomination}_${new Date().toISOString().split('T')[0]}.json`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      URL.revokeObjectURL(url)
 
-        console.log('✅ Document exporté avec succès')
-      } else {
-        alert('Erreur lors de l\'export: ' + result.error)
-      }
+      console.log('✅ Document exporté avec succès')
     } catch (error) {
       console.error('❌ Erreur export:', error)
       alert('Erreur lors de l\'export du document')
@@ -227,7 +227,7 @@ export default function ExistingCompanyAnalysisPage() {
 
     } catch (error) {
       console.error('Erreur création business plan:', error)
-      alert('Erreur lors de la création du business plan: ' + (error.message || error))
+      alert('Erreur lors de la création du business plan: ' + (error instanceof Error ? error.message : String(error)))
     } finally {
       setProcessing(false)
     }
@@ -740,23 +740,24 @@ export default function ExistingCompanyAnalysisPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               {/* Scoring bancaire */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">{scoring.cip}</div>
-                    <div className="text-sm text-blue-700">Scoring CIP</div>
+              {scoring && (
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-600">{scoring.note_globale}</div>
+                      <div className="text-sm text-blue-700">Note Globale</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-600">{scoring.risque_credit}</div>
+                      <div className="text-sm text-blue-700">Risque Crédit</div>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-blue-600">{scoring.prob_defaut}</div>
-                    <div className="text-sm text-blue-700">Prob. Défaut</div>
+                  <div className="mt-3 text-sm text-gray-600">
+                    Capacité de remboursement: {scoring.capacite_remboursement}
                   </div>
-                </div>
-                {scoring.alerte !== "Aucune" && (
-                  <div className="mt-3 text-sm text-red-600 font-medium">
-                    ⚠️ Alerte: {scoring.alerte}
                   </div>
-                )}
-              </div>
+                )
+              }
 
               {/* Financements en cours */}
               {banques.length > 0 && (
@@ -1066,8 +1067,9 @@ Valorisation estimée: ${synthese_executive.valorisation_estimee}` : ''}
               <h1 className="text-xl font-semibold text-gray-900">Analyse Entreprise en Activité</h1>
             </div>
             <Badge variant="outline" className="text-blue-600 border-blue-200">
-              {step === 'collect' ? 'Collecte des données' :
-               step === 'analyze' ? 'Analyse' : 'Résultats'}
+              {step === 'upload' ? 'Upload des documents' :
+               step === 'processing' ? 'Traitement en cours' :
+               step === 'analysis' ? 'Analyse' : 'Création du projet'}
             </Badge>
           </div>
         </div>
@@ -1113,11 +1115,6 @@ Valorisation estimée: ${synthese_executive.valorisation_estimee}` : ''}
           </div>
         )}
 
-        {step === 'collect_manual' && (
-          <div className="text-center py-16">
-            <p className="text-gray-500">Saisie manuelle - À implémenter</p>
-          </div>
-        )}
       </main>
     </div>
   )
