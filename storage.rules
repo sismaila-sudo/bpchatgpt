@@ -1,0 +1,64 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Règles pour les documents de projets
+    match /projects/{userId}/{projectId}/{allPaths=**} {
+      // Permettre l'accès en lecture aux propriétaires du projet
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // Permettre l'accès en lecture aux admins
+      allow read: if request.auth != null &&
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin';
+
+      // Écriture: propriétaire ou admin ET taille < 10MB
+      allow write: if request.auth != null && (
+        (
+          request.auth.uid == userId ||
+          firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        ) && request.resource.size < 10 * 1024 * 1024
+      );
+    }
+
+    // Règles pour les avatars utilisateurs
+    match /users/{userId}/{avatar} {
+      // Les utilisateurs peuvent gérer leur propre avatar
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // Limiter aux images et à 5MB
+      allow write: if request.resource.contentType.matches('image/.*') &&
+                      request.resource.size < 5 * 1024 * 1024;
+    }
+
+    // Règles pour les documents temporaires
+    match /temp/{userId}/{allPaths=**} {
+      // Accès temporaire pour l'upload, nettoyage après 24h
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow write: if request.resource.size < 50 * 1024 * 1024; // 50MB max
+    }
+
+    // Règles pour les analyses financières
+    // Note: Storage ne peut pas vérifier Firestore directement
+    // On fait confiance à l'authentification et à la logique applicative
+    match /analyses/{analysisId}/{allPaths=**} {
+      // Lecture restreinte au propriétaire (doc d'autorité Firestore) ou admin
+      // Doc d'autorité: /projectAnalyses/{analysisId} avec champ userId
+      allow read: if request.auth != null && (
+        firestore.get(/databases/(default)/documents/projectAnalyses/$(analysisId)).data.userId == request.auth.uid ||
+        firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin'
+      );
+
+      // Écriture: propriétaire ou admin ET taille < 50MB
+      allow write: if request.auth != null && (
+        (
+          firestore.get(/databases/(default)/documents/projectAnalyses/$(analysisId)).data.userId == request.auth.uid ||
+          firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        ) && request.resource.size < 50 * 1024 * 1024
+      );
+    }
+
+    // Règles par défaut - refuser tout accès non spécifié
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

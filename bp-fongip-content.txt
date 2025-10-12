@@ -1,0 +1,1680 @@
+
+
+ 
+1 
+ 
+ 
+ 
+                     
+                    
+                  
+                     
+ 
+ 
+ 
+ 
+ 
+
+ 
+2 
+ 
+ 
+Table des matières 
+CONTEXTE ET JUSTIFICATION .............................................................................................................................................................................................. 6 
+FICHE SYNPOTIQUE .............................................................................................................................................................................................................. 7 
+I - Historique et présentation de TAVISET SAS ..................................................................................................................................................................... 9 
+1-1 Présentation du promoteur ........................................................................................................................................................................................... 9 
+1-2 Objet social et activités .................................................................................................................................................................................................. 9 
+1-3 Le personnel ................................................................................................................................................................................................................. 10 
+1-4 Les équipements et infrastructures ............................................................................................................................................................................ 10 
+1-5 Les principaux fournisseurs .......................................................................................................................................................................................... 13 
+1-6 La clientèle ................................................................................................................................................................................................................... 13 
+II- ANALYSE FINANCIERE DE TAVISET ................................................................................................................................................................................. 14 
+2-1 Activité et rentabilité ................................................................................................................................................................................................... 14 
+2-2 Diagnostic de la structure financière ........................................................................................................................................................................... 15 
+2-2-1 Actif du bilan ........................................................................................................................................................................................................................ 15 
+2-2-2 Au passif du bilan ................................................................................................................................................................................................................ 15 
+2-2-3 Le fonds de roulement et besoin en fonds de roulement ........................................................................................................................................ 18 
+2-3 Analyse des ratios ........................................................................................................................................................................................................ 18 
+III – RELATIONS BANCAIRES ................................................................................................................................................................................................ 19 
+3-1 Analyse des flux créditeurs .......................................................................................................................................................................................... 19 
+3-2 Analyse des engagements bancaires ........................................................................................................................................................................... 19 
+IV - ANALYSE DU SECTEUR DE L’AVICULTURE .................................................................................................................................................................... 20 
+4-1 Présentation générale du secteur ................................................................................................................................................................................ 20 
+4-2 Facteurs de succès du secteur de l’industrie de production de poulets ..................................................................................................................... 20 
+4-3 Analyse de la concurrence de la filière de production de poulets .............................................................................................................................. 22 
+V- ANALYSE SWOT DE TAVISET SAS .................................................................................................................................................................................... 23 
+VI - ETUDE TECHNIQUE DU PROJET DE TAVISET ................................................................................................................................................................ 24 
+
+ 
+3 
+ 
+ 
+6-1 Présentation générale du projet .................................................................................................................................................................................. 24 
+6-2 Descriptif technique des bâtiments fermés ................................................................................................................................................................. 24 
+6-3 Présentation du fournisseur Masson & Fils ................................................................................................................................................................. 26 
+6-4 Renforcement du personnel ........................................................................................................................................................................................ 26 
+6-5 Planning d’exécution du projet .................................................................................................................................................................................... 27 
+6-6 Cycle d’élevage des 70 000 sujets ................................................................................................................................................................................ 28 
+6-7 Calendrier d’évolution du poids en fonction de l’alimentation ................................................................................................................................... 29 
+VII- BESOIN DE FINANCEMENT DE TAVISET ....................................................................................................................................................................... 30 
+7-1 Coût total d’investissement ......................................................................................................................................................................................... 30 
+7-2 Besoin en fonds de roulement ..................................................................................................................................................................................... 31 
+7-3 Plan de financement .................................................................................................................................................................................................... 31 
+7-4 Modalités et conditions du financement bancaire ...................................................................................................................................................... 32 
+1 7-5 Garanties proposées ............................................................................................................................................................................................. 32 
+VIII -ETUDE FINANCIERE DU PROJET .................................................................................................................................................................................. 33 
+8-1 Hypothèses d’élaboration des prévisions d’activités .................................................................................................................................................. 33 
+8-1-1 Hypothèses liées à la production ............................................................................................................................................................................................. 33 
+8-1-2 Hypothèses d’approvisionnements poussins, aliments et autres intrants .............................................................................................................................. 34 
+8-1-3 Hypothèses sur la croissance des charges ............................................................................................................................................................................... 35 
+8-1-4 Hypothèses sur les conditions des concours sollicités ............................................................................................................................................................. 36 
+8-2 Prévisions de chiffre d’affaires 2025 – 2031 ................................................................................................................................................................ 37 
+8-2-1 Autres charges .......................................................................................................................................................................................................................... 37 
+8-2-2 Transport .................................................................................................................................................................................................................................. 38 
+8-2-3 Services extérieurs ............................................................................................................................................................................................................... 38 
+8-2-4 Impôts et taxes ......................................................................................................................................................................................................................... 39 
+8-2-5 Charges de personnel ............................................................................................................................................................................................................... 39 
+8-2-6 Dotations aux amortissements et provisions ........................................................................................................................................................................... 39 
+8-2-7 Charges et revenus financiers .................................................................................................................................................................................................. 40 
+8-2-8 Impôts sur le résultat ............................................................................................................................................................................................................... 40 
+8-3 Compte d’exploitation prévisionnelle 2025 – 2031 ..................................................................................................................................................... 41 
+
+ 
+4 
+ 
+ 
+8-4 Analyse des prévisions d’activité ................................................................................................................................................................................. 42 
+8-4-1 Analyse de l’activité ................................................................................................................................................................................................................. 42 
+8-4-2 Évolution de la rentabilité ........................................................................................................................................................................................................ 42 
+8-5-3 Test de sensibilité ..................................................................................................................................................................................................................... 43 
+IX RISQUES IDENTIFIÉS ET FACTEURS DE MITIGATION ...................................................................................................................................................... 45 
+X- ETUDE D’IMPACT DU PROJET ......................................................................................................................................................................................... 46 
+CONCLUSION & AVIS .......................................................................................................................................................................................................... 46 
+ 
+LISTE DES TABLEAUX  
+Tableau 1 : Liste des fournisseurs de TAVISET .......................................................................................................................................................................................... 13 
+Tableau 2 : Liste des principaux clients de TAVISET .................................................................................................................................................................................. 13 
+Tableau 3 : Compte de résultat 2022-2023-2024 ...................................................................................................................................................................................... 14 
+Tableau 4 : Actif bilans 2022-2023-2024 ................................................................................................................................................................................................... 16 
+Tableau 5 : Passif bilans 2021-2022-2023 ................................................................................................................................................................................................. 17 
+Tableau 6 : Evolution FDR, BFR et Trésorerie ............................................................................................................................................................................................ 18 
+Tableau 7 : Analyse des ratios de décision ................................................................................................................................................................................................ 18 
+Tableau 8 : Evolution des flux créditeurs CBAO 2023 -2024 ..................................................................................................................................................................... 19 
+Tableau 9 : Situation des engagements de TAVISET à la CBAO au 31/07/2025 ........................................................................................................................................ 19 
+Tableau 10 : Situation des sept plus grands producteurs de poulets de chair .......................................................................................................................................... 22 
+Tableau 11 : Coût total de l'investissement projet TAVISET ..................................................................................................................................................................... 30 
+Tableau 12 : Plan de financement projet TAVISET .................................................................................................................................................................................... 31 
+Tableau 13 : Modalités et conditions des concours sollicités ................................................................................................................................................................... 32 
+Tableau 14 : Hypothèses liées à la production .......................................................................................................................................................................................... 33 
+Tableau 15 : Hypothèses liées aux approvisionnements aliments et autres achats ................................................................................................................................. 35 
+Tableau 16 : Hypothèses liées aux charges ............................................................................................................................................................................................... 36 
+Tableau 17 : Hypothèses liées aux conditions des concours sollicités ...................................................................................................................................................... 36 
+Tableau 18 : Evolution du chiffre d'affaires de 2025 à 20318-3 Les charges prévisionnelles 2025 – 2031 .............................................................................................. 37 
+Tableau 19 : Evolution des achats 2025 - 2031 ......................................................................................................................................................................................... 37 
+Tableau 20 : Evolution du poste transport de 2025 - 2031 ....................................................................................................................................................................... 38 
+Tableau 21 : Evolution services extérieurs 2025 - 2031 ............................................................................................................................................................................ 38 
+Tableau 22 : Evolution impôts et taxes 2025-2027 ................................................................................................................................................................................... 39 
+
+ 
+5 
+ 
+ 
+Tableau 23 : Évolution charges de personnel 2025 -2031 ........................................................................................................................................................................ 39 
+Tableau 24 : Evolution des dotations aux amortissements 2025 – 2031 .................................................................................................................................................. 40 
+Tableau 25 : Evolution des charges financières 2025 – 2031 .................................................................................................................................................................... 40 
+Tableau 26 : Compte d’exploitation prévisionnelle 2025 - 2031 .............................................................................................................................................................. 41 
+Tableau 27: Tableau analyse – rentabilité – VAN, TRI et DRCI .................................................................................................................................................................. 43 
+Tableau 28 : Critères de détermination du stess test ............................................................................................................................................................................... 43 
+29 : Compte d'exploitation prévisionnelle 2025 -2031 après Stress Test ................................................................................................................................................. 44 
+ 
+LISTE DES FIGURES 
+ 
+Figure 1 : Localisation Google de la ferme 14°28'35.1"N 17°03'37.7"W .................................................................................................................................................... 9 
+Figure 2 : Vue de la ferme de TAVISET ...................................................................................................................................................................................................... 12 
+Figure 3 : Facteurs de succès de l'aviculture au Sénégal ........................................................................................................................................................................... 21 
+Figure 4 : Analyse swot TAVISET ................................................................................................................................................................................................................ 23 
+Figure 5 : Planning d'exécution du projet TAVISET ................................................................................................................................................................................... 27 
+Figure 6 : Cycle d'élevage TAVISET ............................................................................................................................................................................................................ 28 
+Figure 7 : Calendrier évolution du poids en fonction de l'alimentation .................................................................................................................................................... 29 
+Figure 8 : Evolution du chiffre d'affaires de 2025 à 2031 .......................................................................................................................................................................... 42 
+
+ 
+6 
+ 
+ 
+CONTEXTE ET JUSTIFICATION 
+ 
+ 
+Le secteur avicole sénégalais est un pilier de l'économie, en pleine expansion et crucial pour la sécurité alimentaire. Il englobe une variété 
+de systèmes de production, des élevages familiaux traditionnels aux exploitations avicoles modernes et intensives.  
+ 
+Un plan stratégique de compétitivité a été élaboré en collaboration avec l’Inter Profession des Aviculteurs du Sénégal (IPAS). Les pouvoirs 
+publics veulent renforcer et moderniser la filière à travers l'amélioration de la qualité et de la sécurité des produits, le soutien à la production 
+locale, la structuration de la filière et le développement des marchés.  
+ 
+Les  défis  persistants  incluent  les  coûts  élevés  de  l'alimentation  animale,  les  risques  de  maladies  aviaires,  la  nécessité  d'améliorer  les 
+pratiques  de  biosécurité,  l'impact  des  variations  climatiques,  la  gestion  des  déjections  animales,  ainsi  que  la  maîtrise  des  coûts  de 
+production et des circuits de distribution.  
+ 
+Malgré ces défis, le secteur avicole sénégalais présente un potentiel de croissance significatif, grâce à une demande croissante en produits 
+avicoles et à des politiques gouvernementales favorables.  
+ 
+Les industriels nationaux ont répondu à cet élan en investissant dans la modernisation des élevages, l'adoption de techniques de production 
+avancées, et l'amélioration de la qualité des intrants. 
+ 
+Cela se traduit par l'adoption de systèmes d'élevage intensifs, l'utilisation d'équipements automatisés pour l'alimentation et l'abreuvement, 
+et la mise en place de protocoles de biosécurité rigoureux. 
+ 
+La filière a également progressé dans la maîtrise de l'ensemble de la chaîne de valeur, de la production à la commercialisation. 
+ 
+TAVISET, acteur majeur de la filière avicole sénégalaise, a initié un programme d'expansion stratégique de ses installations de production. 
+Ce projet est axé sur une augmentation significative de sa capacité de production. 
+ 
+La réalisation de ce programme d'expansion nécessite un apport financier conséquent. Le présent dossier constitue une étude de faisabilité 
+détaillée, élaborée à l'intention des partenaires financiers potentiels.  
+ 
+ 
+ 
+ 
+
+ 
+7 
+ 
+ 
+FICHE SYNPOTIQUE 
+ 
+PRESENTATION DE TAVISET SAS 
+Raison sociale TAVISET SAS 
+Date de création 2015 
+Forme juridique Société par Actions Simplifiées 
+Registre de commerce SN-THS-2015-M-2090 
+Identification fiscale 005226990 2F2 
+Adresse : Village de Thianaba Khabane Tassette, Thiès, Sénégal 
+Téléphone / Email +221 77 575 22 00 / msm@taviset.com 
+Président Fondateur Mohamadou Sidy Mbaye 
+Capital social 10 000 000 FCFA 100% National 
+Secteur d’activité Aviculture 
+Activités Élevage et commercialisation de poulets de chair 
+PRESENTATION DU PROJET 
+Objet du financement de 
+TAVISET 
+Augmenter les bâtiments d’élevage de poulets de 4 à 6 par l’acquisition de 2 nouveaux  bâtiments  fermés  à  ambiance 
+contrôlable, d’une capacité de 35 000 poulets de chair chacun. Accroitre la production annuelle de poulets de 480 000 à 
+900 000. 
+Besoin total de financement 
+• Construction de bâtiment et autres infrastructures connexes : 714 621 400 FCFA 
+• Frais de dossier et d’ouverture de crédit : 20 280 000 FCFA 
+• Crédit spot : 100 000 000 FCFA 
+• Découvert : 50.000.000 FCFA 
+Apport TAVISET 89 901 400 FCFA  
+Conditions du financement 
+sollicité 
+Type de crédit CMT Avance sur factures Découvert 
+Montant 645 000 000 150 000 000 50 000 000 
+Durée remboursement 60 mois 12 mois renouvelable 12 mois renouvelable 
+Taux 9% 10% 10% 
+Échéance/validité Trimestrielle 120 jours 12 mois renouvelable 
+Garanties 
+• Garantie financière FONGIP 60% des concours, soit 500.000.000 FCFA 
+• Dépôt de garantie de 75.000.000 FCFA de TAVISET 
+• Caution hypothécaire de Monsieur Mbaye sur 2 TF à hauteur de 218.000.000 FCFA 
+• Domiciliation irrévocable des contrats de abattoirs 
+
+ 
+8 
+ 
+ 
+DONNEES PREVISIONNELLES PROJET TAVISET 
+ 
+ 
+ 
+2025202620272028202920302031
+MARGE COMMERCIALE-                          -                          -                             -                           -                           -                            -                           
+CHFFRE D'AFFAIRES1 359 450 000      1 767 753 920      2 575 507 950         2 586 853 800       2 583 126 000       2 590 427 700       2 594 651 400      
+VALEUR AJOUTEE432 617 160         594 601 496         920 973 340            916 309 826          901 838 152          894 367 568           883 110 219          
+EXCEDENT BRUT D'EXPLOITATION360 945 275         517 962 197         840 452 209            831 708 782          812 948 890          800 971 025           784 976 006          
+RESULTAT D'EXPLOITATION296 587 415         419 193 737         741 683 749            732 940 322          714 180 431          704 491 416           695 362 946          
+RESULTAT FINANCIER10 524 737 -           27 850 435 -           25 173 933 -             22 099 742 -            19 129 509 -           15 179 725 -            13 767 123 -           
+RESULTAT DES ACTIVITES ORDINAIRES286 062 678         391 343 302         716 509 816            710 840 580          695 050 922          689 311 690           681 595 823          
+RESULTAT HORS ACTIVITES ORDINAIRES-                          -                          -                             -                           -                           -                            -                           
+IMPOTS SUR LE RESULTAT85 818 803 -           117 402 991 -        214 952 945 -           213 252 174 -         208 515 276 -         206 793 507 -          204 478 747 -         
+RESULTAT NET200 243 874         273 940 311         501 556 871            497 588 406          486 535 645          482 518 183           477 117 076          
+2025202620272028202920302031
+1 359 450 000    1 767 753 920    2 575 507 950      2 586 853 800     2 583 126 000    2 590 427 700     2 594 651 400    
+21,7%30,0%45,7%0,4%-0,1%0,3%0,2%
+200 243 874  273 940 311  501 556 871    497 588 406   486 535 645  482 518 183   477 117 076  
+597,5%36,8%83,1%-0,8%-2,2%-0,8%-1,1%
+14,7%15,5%19,5%19,2%18,8%18,6%18,4%
+473,4%5,2%25,7%-1,2%-2,1%-1,1%-1,3%
+264 601 734       372 708 771       600 325 331         596 356 866       585 304 105       578 997 793        566 730 136       
+224,3%40,9%61,1%-0,7%-1,9%-1,1%-2,1%
+346 196 713       718 905 483       1 319 230 815      1 915 587 680     2 500 891 785    3 079 889 578     3 646 619 713    
+324,3%107,7%83,5%45,2%30,6%23,2%18,4%
+CASH FLOWS  CUMULES
+CHFFRE D'AFFAIRES (A)
+RESULTAT NET (B)
+RENTABILITE GLOBALE = (B) / (A)
+CASH FLOW
+
+ 
+9 
+ 
+ 
+I - HISTORIQUE ET PRÉSENTATION DE TAVISET SAS 
+1-1 Présentation du promoteur 
+Cette société a vu le jour en 2014, portant la dénomination de TASSETE GREEN FARM sous la forme d’une Société à Responsabilité Limitée avec un capital 
+de 1.000.000 FCFA. En  juillet 2022, est intervenue un changement de la  dénomination sociale en  TAVISET, une Société  par Actions Simplifiées  avec un 
+capital  porté  à  10.000.000  FCFA  par  compensation  de  compte  courant  associé  entièrement  détenu  par  Monsieur  Mohamadou  Sidy  MBAYE  qui  en  est  le 
+Président. 
+ 
+(CF ANNEXE 1 Documents Juridiques TAVISET) 
+ 
+Mohamadou Sidy MBAYE a été pendant 11 ans Contrôleur Financier dans une société américaine PerryGolf, après avoir été cadre à la Citibank Dakar et à la 
+Chemical Bank de New York. Il a fait ses études diplômantes à l’Université de Management de East Stroudsburg, en Pennsylvanie, USA et sa formation en 
+aviculture à l’Université de Georgia International Poultry Short Course, USA. Il est actuellement le Trésorier National de l’AGROPAS (Association des Gros 
+Producteurs de l’Aviculture Sénégalaise) composée de 23 membres. 
+ 1-2 Objet social et activités  
+ 
+Figure 1 : Localisation Google de la ferme 14°28'35.1"N 17°03'37.7"W 
+Ses activités ont débuté en fin 2015 avec un investissement de 66 millions FCFA sur fonds propres. Elles ont connu des évolutions qui lui ont 
+permis de faire divers investissements pour accroitre sa capacité de production comme ci-dessous : 
+TAVISET   intervient   dans   l’aviculture, 
+précisément  dans  une  ferme  d’exploitation 
+industrielle de poulets de chair, qui s’étend sur 
+une  superficie  de  15,8  hectares,  entièrement 
+sécurisé avec une clôture en dur et grillage, dans 
+le  Village  de  Thianaba  Khabane,  Commune  de 
+Tassette,   Région   de   Thiès   et   propriété   de 
+l’entreprise. 
+ 
+La  conduite  de  l’élevage  se  fait  dans  des 
+bâtiments fermés à ambiance contrôlable 
+
+ 
+10 
+ 
+ 
+• Fin 2018 : Acquisition de deux bâtiments modernes d’une capacite de 20.000 poulets de chair chacun par un investissement de 275 
+millions FCFA pour capter la croissance dans la chaine de valeur avicole. 
+• Fin 2019 : Investissements de 190 millions FCFA dans l’acquisition d’un 3eme bâtiment, d’un poste électrique MTH 160 et d’un 
+bassin de rétention de 135 mètres cubes d’eau. 
+• 2023 : Investissements de 180 millions FCFA dans l’acquisition d’un 4eme bâtiment 
+ 1-3 Le personnel  
+Le Président est soutenu par un personnel composé de 14 employés encadrés par un top management qualifié réparti comme suit : 
+• 1 Directeur d'exploitation 
+• 1 Chef de ferme 
+• 1 Chef de production 
+• Le reste est composé d’ouvriers, techniciens avicoles, personnel technique, chauffeur et gardiens. 
+ 
+L’entreprise utilise en moyenne une trentaine d’employés temporaires qui sont tous originaires des villages environnants en charge du 
+ramassage des poulets et de l’enlèvement de la fiente qui leur est intégralement cédé à titre onéreux. 
+1-4  Les équipements et infrastructures  
+Les équipements et diverses infrastructures disponibles sur la ferme de 15,80 HA, clôturée en mur et grillage sont : 
+4 bâtiments fermés et autocontrôlés d’élevage de 20 000 poulets 
+de chair chacun ; 
+• 1 poste transfo MTH 160 connecté au réseau électrique de la 
+SENELEC ; 
+• groupes électrogènes de 66 KVA ; 
+• 1 piste de liaison ; 
+• 1 forage de 100 mètres d’un débit de 50 à 60 M3 heure ; 
+• 1 bassin d’eau en radié et enterré de 135 m3 ; 
+• 1 château d’eau de 16 m3 ; 
+• 1 réseau d’irrigation goutte à goutte ; 
+• 240 manguiers en pleine production ; 
+• 1 Toyota Prado VX 2023 ; 
+• 1 Toyota pickup double-cabines 2018 ; 
+• 1 building pour le logement des employés. 
+• 4 armoires de commande informatique GENIUS 
+(alimentation, abreuvage et administration des produits véto) 
+• , une dans chaque bâtiment ; 
+• 1 bureau équipé de mobilier et d’ordinateur avec accè à un 
+réseau WIFI dans chaque bâtiment 
+
+ 
+11 
+ 
+ 
+ 
+
+ 
+12 
+ 
+ 
+ 
+Figure 2 : Vue de la ferme de TAVISET 
+
+ 
+13 
+ 
+ 
+1-5 Les principaux fournisseurs 
+ 
+TAVISET collabore essentiellement avec des fournisseurs locaux qui sont : 
+ 
+Raison sociale Produits/ services Modalité de paiement Observations 
+Société Sénégalaise de Phosphates de Thiès 
+Litière Comfortlit en 
+attapulgite 
+Comptant 6 tonnes / bâtiment 
+Zalar, Couvoir Amar, , Poussins d’un jour Comptant Prix moyen de 500 FCFA / poussin 
+NMA, Grands Moulins, Avisen, 
+Aliments de démarrage, 
+croissance et finition 
+Comptant 
+Prix moyen de 350 FCFA le kg 
+Senevet, Globalvet, Generalvet 
+Vaccins, antibiotiques, 
+vitamines et biosécurité 
+Comptant Prix règlementés 
+Tableau 1 : Liste des fournisseurs de TAVISET 
+1-6 La clientèle  
+L’entreprise a signé des contrats annuels de ventes de poulets de chair bord champ avec deux (2) abattoirs Avi Sénégal et AVISEN.  Le 
+contrat conclu avec AVI SENEGAL est toujours en vigueur avec un prix de reprise du poulet de 1 325 FCFA par kilogramme vif. Il porte 
+sur 3 bâtiments. Celui de AVISEN porte sur 18.000 sujets pour un prix de reprise de 1275 FCFA / kilogramme vif. 
+ 
+CF ANNEXE 2 :  Contrat de commercialisation avec les abattoirs et lettre d’intention AVI SENEGAL 
+ 
+Raison sociale Produits Modalité de règlement Part de marché 
+AVI SENEGAL Poulets de chair 60 jours 85% 
+AVISEN Poulet de chair 60 jours 12% 
+Autres clients Poulets de chair Comptant 3% 
+Tableau 2 : Liste des principaux clients de TAVISET 
+ 
+TAVISET est dans une dynamique de croissance. Elle souhaite accroitre sa capacité de production qui nécessite la construction de deux 
+bâtiments supplémentaires pour porter sa capacité de production annuelle de 480.000 à 900.000 poulets de chair. 
+ 
+La mise en place de ces nouvelles infrastructures nécessite une demande de financement bancaire objet de cette étude de financement. 
+
+ 
+14 
+ 
+ 
+II- ANALYSE FINANCIERE DE TAVISET SAS 
+2-1 Activité et rentabilité 
+COMPTE DE  RESULTAT 2 022 2 023 2 024 
+  CHIFFRE  D'AFFAIRES 822 198 179 950 546 817 1 117 479 297 
+Vente de marchandises 822 198 179 950 546 817 1 117 479 297 
+Marge commerciale 822 198 179 950 546 817 1 117 479 297 
+   Achats de matières premières et fournitures liées 548 301 433 617 574 656 771 582 932 
+MARGE BRUTE SUR MATIERES         -548 301 433 -617 574 656 -     771 582 932 
+Autres produits            7 389 971 
+ 
+   Autres achats   36 068 098 42 441 037 42 867 388 
+   Variation stocks 
+   
+  Transports    6 065 271 7 135 655 4 348 987 
+  Services Extérieurs 17 661 559 14 921 777 22 673 341 
+  Impôts et taxes 25 416 407 24 703 954 16 255 886 
+ Autres charges             60 6 103 57 685 
+  VALEUR AJOUTEE         188 692 740 243 764 606 259 693 078 
+  Charges de personnel 62 165 364 69 240 020 72 850 069 
+  EXCEDENT BRUT  D'EXPLOITATION 126 527 376 174 524 586 186 843 009 
+Reprises de provisions 773 124 5 413 287 2 860 663 
+Transferts de charges 
+   
+Dotations aux amortissements et provisions 41 598 393 52 756 605 48 172 134 
+  RESULTAT D'EXPLOITATION 85 702 107 127 181 268 141 531 538 
+  Frais financiers 24 380 456 38 352 920 47 318 735 
+RESULTAT FINANCIER -      24 380 456 -         38 352 920 -       47 318 735 
+  RESULTAT DES ACTIVITES ORDINAIRES 61 321 651 88 828 348 94 212 803 
+HORS ACTIVITE ORDINAIRE 
+   
+RESULTAT HAO - - - 
+Impôt sur le résultat 18 396 495 26 648 504 28 263 841 
+RESULTAT  DE L EXERCICE 42 925 156 62 179 844 65 948 962,0 
+CAPACITE AUTOFINANCEMENT 83 750 425 109 523 162 111 260 433 
+Tableau 3 : Compte de résultat 2022-2023-2024 
+
+ 
+15 
+ 
+ 
+L'analyse des données financières de 2022 à 2024 révèle une croissance substantielle de l'activité, matérialisée par une augmentation de 
+36% de la valeur absolue du chiffre d'affaires. Cette performance est directement corrélée à un doublement de la capacité de production, 
+passant de 240 000 à 480 000 poulets. Cet accroissement de la production a été rendu possible grâce à des investissements ayant permis 
+de doubler le nombre de bâtiments d'élevage. 
+ 
+Parallèlement  à  cette  expansion  de  la  production,  une  maîtrise  rigoureuse  des  charges  de  structure,  notamment  des  coûts  des  matières 
+premières, a été observée. Elle a eu un impact significatif sur la valeur ajoutée, qui a connu une progression constante, passant de 188 692 
+740 en 2022 à 243 764 606FCFA en fin 2023 pour cumuler à 259 693 078 FCFA en fin2024, soit une augmentation de 37,6% en valeur 
+relative sur la période. 
+ 
+L'augmentation  des  charges  de  personnel,  induite  par  l'accroissement  de  la  capacité  de  production,  n'a  pas  eu  d'incidence  négative  sur 
+l'excédent brut d'exploitation (EBE). Celui-ci a suivi la même trajectoire que la valeur ajoutée, affichant une progression de 32%. 
+ 
+Par ailleurs, la dynamique des dotations aux amortissements et des charges financières n'a pas affecté le résultat net qui reste dans une 
+trajectoire ascendante avec une hausse de 54% sur la période. 
+ 
+2-2 Diagnostic de la structure financière 
+2-2-1 Actif du bilan 
+ 
+La  baisse  du  total  actif  entre  2023  (869  818 155  FCFA)  et  2024  (816  190 358 FCFA),  soit  une  diminution  de  53  627 797 FCFA  est 
+principalement  justifiée  par une diminution  significative  de  l'Actif  Immobilisé  (-28  774  300)  liée  à dépréciation comptable  des 
+immobilisations, de la forte diminution de la Trésorerie Actif (-26 563 101 FCFA) expliquée par les remboursements d’emprunt. 
+ 
+2-2-2 Au passif du bilan 
+ 
+Une  croissance  continue  du  passif  total  est  enregistrée  sur  la  période  de  référence.  En  2021  et  2022,  elle  est  tirée par le  recours  à 
+l’endettement bancaire pour soutenir son programme d’investissement et le passif circulant, notamment les dettes fournisseurs.  
+ 
+La mobilisation de concours de trésorerie en 2023, a favorisé la progression en valeur absolue de 294.596.923 FCFA du total passif passant 
+de 768.181.274 FCFA à 869.818.155 FCFA. 
+ 
+ 
+
+ 
+16 
+ 
+ 
+BILAN ACTIF 2 022   2 023   2 024   
+CHARGES IMMOBILISEES 0   0   0   
+Primes de remboursement des obligations       
+ IMMOBILISATIONS INCORPORELLES (Net) 17 605 000   25 255 000   25 760 000   
+Frais de recherche et de développement       
+Brevets, licences et logiciels       
+Fonds commercial       
+Autres immobilisations incorporelles 17 605 000   25 255 000   25 760 000   
+ IMMO.  CORPORELLES  NETTES 527 947 253   542 223 403   512 934 103   
+ Terrains 15 873 198   15 873 198   15 873 198   
+Bâtiments 484 426 782   457 423 155   428 980 903   
+Installations et agencements 19 564 862   14 786 908   27 785 501   
+Matériel 6 668 803   13 809 788   9 769 952   
+AVANCES ET ACOMPTES VERSES SUR IMMOBILISATIONS   
+    
+ IMMOBILISATIONS  FINANCIERES 2 663 890   2 663 890   2 663 890   
+ Titres de participation       
+Autres immobilisations financières 2 663 890   2 663 890   2 663 890   
+ TOTAL  ACTIF IMMOBILISE 548 216 143   570 142 293   541 357 993   
+ACTIF CIRCULANT       
+Actif circulant HAO       
+ STOCKS 0   0   0   
+   Marchandises       
+   Matières premières et autres approvisionnements       
+   En cours       
+   Produits fabriqués       
+CREANCES ET EMPLOIS ASSIMILES 203 904 128   243 386 637   245 106 241   
+Fournisseurs - avances versées       
+Clients  193 063 347   220 263 297   182 621 194   
+Autres créances 10 840 781   23 123 340   62 485 047   
+TOTAL ACTIF CIRCULANT 203 904 128   243 386 637   245 106 241   
+ TRESORERIE ACTIF 16 061 003   56 289 225   29 726 124   
+Banques, chèques postaux, caisse 16 061 003   56 289 225   29 726 124   
+ TOTAL DE  BILAN 768 181 274   869 818 155   816 190 358   
+Tableau 4 : Actif bilans 2022-2023-2024 
+
+ 
+17 
+ 
+ 
+BILAN  PASSIF                        2 022                           2 023                                2 024    
+ CAPITAUX PROPRES ET RESSOURCES ASSIMILEES       
+Capital  10 000 000 10 000 000 10 000 000 
+Actionnaires, capital non appelé 
+   
+Primes et réserves 
+-            1 467 803 41 457 353 103 637 197 
+ Prime d'apport, d'émission, de fusion 
+   
+Ecart de réévaluation 
+   
+Réserves indisponibles 
+   
+Réserves libres 
+   
+Report à Nouveau -               1 467 803 41 457 353 103 637 197 
+Résultat Net de l'exercice 
+42 925 156 62 179 844 65 948 962 
+ AUTRES FONDS PROPRES 44 271 845 39 611 651 37 281 554 
+Subventions d'investissement 44 271 845 39 611 651 37 281 554 
+Provisions règlementées et fonds assimilés 
+   
+TOTAL CAPITAUX PROPRES            95 729 198             153 248 848                  216 867 713    
+ DETTES FINANCIERES ET RESSOURCES ASSIMILEES (1)       
+Emprunts  474 174 645 399 357 725 211 440 381 
+Provisions financières pour risques et charges 753 093 530 566 530 566 
+(1) dont HAO       
+ TOTAL DETTES FINANCIERES          474 927 738             399 888 291                  211 970 947    
+        
+TOTAL RESSOURCES STABLES          570 656 936             553 137 139                  428 838 660    
+PASSIF CIRCULANT       
+Dettes circulantes et ressources assimilées H.A.O              1 468 800                 1 468 800      
+Clients - avances recues       
+Fournisseurs d'exploitation         106 189 894              65 821 850                 110 795 999    
+Dettes fiscales et sociales            13 822 969              10 947 969                   45 766 696    
+Autres dettes dont CCA            67 329 571              75 204 571                   90 611 204    
+TOTAL PASSIF CIRCULANT          188 811 234             153 443 190                  247 173 899    
+TRESORERIE PASSIF       
+Banques, découverts              8 713 104            163 237 826                 140 177 799    
+TOTAL TRESORERIE PASSIF               8 713 104             163 237 826                  140 177 799    
+ TOTAL DE BILAN          768 181 274             869 818 155                  816 190 358    
+Tableau 5 : Passif bilans 2021-2022-2023 
+
+ 
+18 
+ 
+ 
+2-2-3 Le fonds de roulement et besoin en fonds de roulement 
+ 
+ 
+2 022 2 023 2 024 
+ Fonds de roulement 22 440 793 -17 005 154 -112 519 333 
+ Besoin en fonds de roulement 15 092 894 89 943 447 -2 067 658 
+ Trésorerie nette 7 347 899 -106 948 601 -110 451 675 
+Tableau 6 : Evolution FDR, BFR et Trésorerie 
+Le fonds de roulement positif en 2022 fléchit en 2023 et 2024 avec un affichant un déficit de 112.519.333 FCFA en fin 2024 qu’il convient 
+de relativiser au regard de l’implication l’actionnaire unique visible à travers le compte courant associés qui affiche un solde de 
+90  611  204 FCFA. Cette  situation  est  à  mettre  à  l’actif  de  forte  baisse des  ressources  stables  induite  par  les  importantes  sommes 
+remboursées sur les emprunts bancaires. Il est noté également une trésorerie déficitaire en fin 2023, aisément couvert par des concours de 
+trésorerie obtenus de ses partenaires financiers. 
+2-3 Analyse des ratios 
+ 
+Ratios de décision Seuil Mode de calcul 2 022 2 023 2 024 
+Autonomie financière 
+>= 20% 
+Capitaux propres / total passif 
+12,5% 17,6% 26,6% 
+Capacité de remboursement <= 4 ans Dettes financières / CAFG 
+5,7 3,7 1,9 
+Rentabilité globale > 0 Résultat net / Chiffe d'affaires 
+5,2% 6,5% 5,9% 
+Liquidité générale > 1 Actif Court Terme / Passif Court Terme 
+1,1 0,9 0,7 
+Solvabilité >20% Capitaux propres / total bilan 
+12% 18% 27% 
+Tableau 7 : Analyse des ratios de décision 
+L'autonomie financière de l'entreprise a connu une nette amélioration sur la période. Elle est passée de 12,5% en 2022 à 26,6% en 2024 
+dépassant confortablement le seuil de 20%. La capacité de remboursement s'est considérablement améliorée. Elle est passée de 5,7 années 
+en 2021 à seulement 1,9 année en 2023. Cette diminution indique que l'entreprise est capable de rembourser ses dettes financières beaucoup 
+plus rapidement grâce à sa génération de trésorerie. La rentabilité globale se conforte de même que la solvabilité. 
+ 
+CF ANNEXE 3 : États Financiers 2021-2022-2023 
+ 
+ 
+
+ 
+19 
+ 
+ 
+III – RELATIONS BANCAIRES 
+3-1 Analyse des flux créditeurs 
+La CBAO est le principal partenaire financier de TAVISET avec des remises créditrices décomposées ci-dessous : 
+ 
+ 
+2 023 2 024 31/07/2025 
+Total remises créditrices 850 028 734 980 586 935 616 997 858 
+Chiffre d’affaires de l’année 950 546 817 1 117 479 297 719 516 914 
+% de remises dans le chiffre d’affaires 89,4% 87,7% 85,8% 
+Tableau 8 : Evolution des flux créditeurs CBAO 2023 -2024 
+CF ANNEXE 4 : Relevés de comptes CBAO 
+3-2 Analyse des engagements bancaires 
+TAVISET (Ex TASSETE GREEN FARM) bénéficie du soutien de la CBAO qui accompagne le développement de ses activités à travers 
+la mise en place de concours ci-dessous : 
+ 
+Type de concours Montant 
+Date  de  mise  en 
+place 
+Durée /validité Encours au 31/07/2025 Date échéance 
+CMT 180.000.000 24/06/2022 60 mois - 92.768.520 24/10/2027 
+Découvert 40.000.000 15/07/2025 12 mois -   41 823 290 15/07/2026 
+Avance sur factures 75.000.000 15/07/2025 12 mois - 75.000.000 15/07/2026 
+Tableau 9 : Situation des engagements de TAVISET à la CBAO au 31/07/2025 
+Le CMT est remboursable par échéance trimestrielle st à jour. Les lignes de découvert et d’avances sur factures ont été renouvelées              
+en juillet 2025 pour une validité de 12 mois Il s’agit de concours assortis d’un dépôt de garantie de 27.000.000 FCFA assorti d’une 
+Hypothèque de  premier  rang  à  hauteur  de  90.000.000  FCFA sur un  TF du  lot  n°  05  de  l’immeuble  abritant  la  résidence l’Hôtel 
+MEDITOURS » sis à Nord Foire. 
+ 
+Rappelons que l’affaire avait bénéficié de l’accompagnement de ORABANK à travers la mise en place d’un crédit à moyen  terme de 
+180.000.000 FCFA. Ce crédit mis en place le 28/05/2020 pour une durée de remboursement prévue sur 54 mois a été entièrement apuré 
+jour, voir mainlevée en annexe. 
+
+ 
+20 
+ 
+ 
+IV - ANALYSE DU SECTEUR DE L’AVICULTURE 
+ 
+4-1 Présentation générale du secteur 
+ 
+ 
+L'industrie  de  la  production  de  poulets  de  chair  au  Sénégal  a  connu  une  croissance 
+remarquable  en  2022,  avec  un  chiffre  d'affaires  de  182  milliards  de  francs  CFA.  Cette 
+performance témoigne de la vitalité du secteur avicole et de sa contribution significative 
+à l'économie nationale. 
+ 
+La  production  de  viande  de  volaille  a  atteint  146  300  tonnes,  représentant  25%  de  la 
+production  nationale  de  viande  toutes  espèces  confondues.  Ce  volume  équivaut  à 
+70.365.000  poulets  de  chair,  soulignant  l'importance  de  l'élevage  de  volailles  dans 
+l'approvisionnement en protéines animales du pays. 
+ 
+Le secteur avicole affiche un taux de croissance annuel moyen de 11%, ce qui témoigne 
+de son dynamisme et de son potentiel de développement. Cette progression est notamment 
+due à la demande soutenue en viande de volaille, stimulée par les prix élevés des viandes 
+concurrentes. 
+ 
+ 
+ 
+4-2 Facteurs de succès du secteur de l’industrie de production de poulets 
+Plusieurs facteurs expliquent le succès de l'industrie de production de poulets de chair au Sénégal. 
+
+ 
+21 
+ 
+ 
+ 
+Figure 3 : Facteurs de succès de l'aviculture au Sénégal 
+Toutefois, il faut noter que l'industrie de production de poulets de chair au Sénégal est confrontée à une forte concurrence. 
+ 
+
+ 
+22 
+ 
+ 
+4-3 Analyse de la concurrence de la filière de production de poulets 
+On  note  une  forte  concurrence  dans  les  différentes  filières du secteur  avicole que  sont  la  production de  poussins,  les  fournisseurs 
+d’’aliments. Toutefois nous nous intéresserons aux concurrents directs de TAVISET, il s’agit de : 
+ 
+ 
+Ordre 
+Raison 
+sociale 
+Adresse 
+géographique 
+Capacite de production  
+de production en 2022 
+Part de 
+marché 
+1 Gadd Gui 
+Notto Gouye 
+Diama 
+2 500 000 31,3% 
+2 Sedima Rufisque 1 700 000 21,3% 
+3 
+Zalar 
+Sénégal 
+Sandiara 1 620 000 20,3% 
+4 La Ripaille KM 50 720 000 9,0% 
+5 Lani Ndiar 540 000 6,8% 
+6 
+TAVISET 
+SAS 
+Tassette 480 000 6,0% 
+7 
+Retba 
+aviculture 
+Lac Retba 420 000 5,3% 
+ Total  7 980 000 100% 
+ 
+ 
+ 
+ 
+Tableau 10 : Situation des sept plus grands producteurs de poulets de chair 
+On estime la production totale des sept (7) plus grands producteurs modernes de 7.980.000 poulets de chair pour une production nationale 
+estimée 70 365 000 poulets de chair par an. Ce qui met à nue la forte présence du secteur informel. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+23 
+ 
+ 
+V- ANALYSE SWOT DE TAVISET SAS 
+ 
+ 
+ 
+ 
+Figure 4 : Analyse swot TAVISET 
+ 
+ 
+      
+                                           
+                                                      
+               
+                                        
+                         
+                                      
+                                  
+            
+                         
+                                
+         
+                              
+                                
+                    
+                            
+                               
+          
+                              
+                           
+                         
+                               
+                         
+       
+                         
+                           
+                   
+       
+                                    
+                                   
+                
+                               
+                   
+                              
+                                
+    
+        
+
+ 
+24 
+ 
+ 
+VI - ETUDE TECHNIQUE DU PROJET DE TAVISET 
+ 
+Ce  projet  présente  un  volet technique très important dans sa  phase  de mise en œuvre. Dans cette partie, de l’analyse du dossier nous 
+passerons  à  revue  la  présentation du  projet,  ses  principaux  avantages,  le  descriptif  technique  des  installations  et  équipements  et  le 
+chronogramme de déploiement. 
+6-1 Présentation générale du projet  
+Le  projet  consiste à  réaliser des  investissements  supplémentaires sur une  partie  du  site d’exploitation pour augmenter les bâtiments 
+d’élevage de poulets de 4 à 6 par l’acquisition de deux nouveaux bâtiments fermés à ambiance contrôlable, d’une capacite de 35 000 
+poulets de chair chacun. Ainsi, la production annuelle de poulets de chair va passer de 480 000 à 900 000. Ce projet intègre également :  
+• Les aménagements de piste en latérite sur 586 m x 0.15 cm  
+• La construction d’espace bureau, vestiaire dortoir et réfectoire pour le personnel sur 150 m² 
+• Les installations électriques avec 2 groupes électrogènes 110 KVA pour assurer le back-up du back-up 
+• Les installations hydrauliques avec des pompes d’alimentation des bâtiments. 
+ 
+6-2 Descriptif technique des bâtiments fermés 
+Il s’agit de bâtiments moderne présentant les spécifications techniques ci-dessous :  
+Dimensions du bâtiment 
+Largeur du bâtiment intérieur panneaux 18 m50   
+Longueur 122m soit 20 travées de 5m90 + 1 travée de 4ml          
+Hauteur poteaux 2m40     
+Surface 2257 m²  - Pentes du toit 25% 
+Charpente 
+Charpente métallique composée de 23 portiques avec arbalétriers en IPE Et poteaux en IPE, pente 25%, 
+poteaux extérieur, hauteur poteaux 2m40. Protection du fer par une couche peinture époxy 
+Toiture et bardage Longs pans en panneaux sandwich avec isolation de 40mm   
+Alimentation en air 
+Chambre entrer d’air pour pad cooling au départ de chaque long pan 3 chambres de 17,70ml espacées 
+de 29m50  
+Silo de stockage 
+2 silos de stockage avec capacité de 29,11 m3 en tôle ondulée galvanisé. Soit 18 tonnes d’aliment avec 
+un poids spécifique de 650 kg /m3  
+
+ 
+25 
+ 
+ 
+Chaine d’alimentation 
+Par 4 lignes de 114 ml de longueur avec 1 assiette type MULTIBECK de chez LE ROY tous les 1 m 
+pour un total de 456 assiettes  
+Abreuvement 
+ Par 5 lignes de pipettes multi directionnelle inox, longueur 114 ml , soit un total de 3420 pipettes 
+Eclairage 
+Par 3 lignes de 23 réglettes de 20 W leds pour la salle d’élevage et divers éclairages magasin et extérieur. 
+Images du bâtiment fermé et autocontrôlés d’élevage 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+26 
+ 
+ 
+6-3 Présentation du fournisseur Masson & Fils 
+Basée en France, la société Masson & Fils SARL est le partenaire technique qui a été choisi pour son expertise et son savoir-faire pour la 
+réalisation clef en mains des deux (2) bâtiments fermés et autocontrôlés d’élevage. Cette société est connue de TAVISET pour avoir réalisé 
+avec succès les quatre (4) bâtiments existants. 
+ 
+ 
+ 
+40 ans de présence dans la commercialisation de matériel d’élevage avicole. Spécialiste de l’avicole plus précisément dans l’installations 
+de matériel d'élevage.  Elle propose des solutions clef en main dans : 
+• La construction et équipement de bâtiment avicole repro chair et pontes 
+• La construction et équipement de bâtiment pour l'élevage de poulettes (futures pondeuses), 
+• La construction et équipement de bâtiment pour l'élevage de poules pondeuses, bâtiment d'élevage (clair ou fermé), 
+• La  fourniture des matériels  d'élevage  suivants  :  Fabrique  et  stockage  d’aliment,  Remorque  transport d’aliment,  Armoire et 
+automatisme, Ventilation pour tous les types d’élevage, Groupe électrogène, Abattoir pour volailles,  
+• La vente d’abreuvoirs, mangeoires, caisse de transport volailles, débecqueurs, et autres petites fournitures.  
+ 
+Massons est très présente en Afrique et compte à son actif de nombreuses constructions et équipements de bâtiments pour l'élevage de 
+poulet en Algérie, Côte d'Ivoire, Sénégal, Mali, Cameroun, Burkina Faso, Congo, Togo, Angola, Guinée 
+6-4 Renforcement du personnel  
+Pour la mise en œuvre du projet de renforcement de sa capacité de production, il est prévu de renforcer le personnel par un recrutement 
+de 6 éleveurs supplémentaires en raison de 3 par bâtiment comme suit : 
+ 
+Fonction Effectif total 
+Planning de déploiement du personnel additionnel en 2026 
+M1 M2 M3 M4 M5 M6 M7 M8 M9 M10 M11 M12 
+Éleveurs 6 - - - - - - - - 2 2 2  
+
+ 
+27 
+ 
+ 
+6-5 Planning d’exécution du projet 
+Le déploiement du projet devra se faire selon une planification bien établie est reprise dans le chronogramme ci-dessous 
+ 
+ 
+ 
+Figure 5 : Planning d'exécution du projet TAVISET 
+Il ressort du planning de déploiement du projet ci-dessous que la mise en production des deux bâtiments de 35.000 sujets à acquérir dans le cadre du 
+financement, ne pourra se faire qu’à partir du mois de septembre 2006.  
+ 
+ 
+ 
+ 
+ 
+
+ 
+28 
+ 
+ 
+6-6 Cycle d’élevage des 70 000 sujets 
+L’élevage des 70.000 poussins  répartis sur les deux bâtiments, devra se faire dans le cadre d’un circuit d’élevage qui permet d’assurer une production 
+bimensuelle soit, 6 rotations annuelles 
+ 
+ 
+Figure 6 : Cycle d'élevage TAVISET 
+ 
+ 
+ 
+   
+   
+ 
+   
+    
+    
+    
+                                 
+                                             
+                           
+                                                
+    
+    
+    
+                                                
+                                           
+                                              
+                             
+                           
+    
+                                              
+                  
+
+ 
+29 
+ 
+ 
+6-7 Calendrier d’évolution du poids en fonction de l’alimentation 
+ 
+Le tableau ci-dessous décrit l’évolution du poids en fonction de la consommation d’aliments sur la durée de 38 jours calendaires qui devra 
+permettre au sujet d’atteindre un poids de 2 282 grammes pour une consommation d’aliments de 3.823 grammes. 
+ 
+ 
+Figure 7 : Calendrier évolution du poids en fonction de l'alimentation 
+ 
+ ALEN  IE  EGAIN  I SE 
+  ALI EN A I N     LE 
+
+ 
+30 
+ 
+ 
+VII- BESOIN DE FINANCEMENT DE TAVISET 
+ 
+La mise en œuvre du projet d’augmentation de sa capacité de production, va nécessiter des investissements pour la mise en place de 2 
+bâtiments de 35.000 poulets chacun détaillés ci-dessous.   (CF ANNEXE 5 : Factures justificatives) 
+7-1 Coût total d’investissement 
+   Prix Unitaire   Nombre   Montant  Fournisseurs 
+Travaux dallage 2 bâtiments (I) 135 188 000   
+Matériel coffrage et ferraillage 8 750 000 2 17 500 000 BATIMENT NDOUR ET FRERES 
+Main d'œuvre coffrage et ferraillage 11 700 000 2 23 400 000 BATIMENT NDOUR ET FRERES 
+Bêton armé 47 144 000 
+2 
+94 288 000 DAKAR DUR 
+Achat de bâtiments 35.000 poulets de chairs (II) 439 356 400   
+Frais d’achat 2 bâtiments CIF Dakar 205 260 000 2 410 520 000 MASSON & FILS 
+Droits de douane et transport a Tassette 7% après Exo APIX 14 368 200 2 28 736 400  
+A =Total bâtiment clé en main (I)+(II) 
+ 
+574 444 400 
+Autres investissements (aménagements routiers, bureaux & locaux administratifs   
+Aménagements routiers 18 400 000 1 18 400 000 Latérite 
+Bureaux et autres locaux administratifs 38 000 000 2 76 000 000 
+BATIMENT NDOUR ET FRERES 
+B=Total autres investissements 
+ 
+94 400 000 
+Travaux d'électricité (Installation, groupe électrogène)   
+Installations électriques 8 000 000 1 8 000 000 AMADOU FATY SAMB 
+Groupe électrogène 110 KVA 15 871 000 2 31 742 000 SIRMEL - 
+C=Total travaux d'électricité 
+ 
+39 742 000 
+Équipements et installations hydrauliques   
+Installations hydrauliques 5 250 000 1 5 250 000 TOUBA SARR 
+Pompe bâtiments 785 000 1 785 000 TOUBA SARR 
+D= Sous total équipements et installations hydrauliques 6 035 000 
+Cout global des investissements A+B+C+B 
+ 
+714 621 400 
+Tableau 11 : Coût total de l'investissement projet TAVISET 
+
+ 
+31 
+ 
+ 
+7-2 Besoin en fonds de roulement 
+Le besoin en fonds de roulement de 200.000.000 FCFA est destiné à l’acquisition de poussins et d'aliments et permet aussi de faire face 
+aux besoins de trésorerie destinés à faire face aux besoins de trésorerie. 
+7-3 Plan de financement 
+BESOINS Montant en FCFA RESSOURCES Montant en FCFA 
+Matériel coffrage et ferraillage 17 500 000 
+Apport TAVISET 
+89 462 140 
+Main d'œuvre coffrage et ferraillage 23 400 000 Participation investissements immobilisations  
+71 462 140 
+Bêton armé 94 288 000  Frais de dossier et commission de garantie  
+ 12 675 000  
+Frais d’achat 2 bâtiments CIF Dakar  410 520 000  Divers frais divers d'ouverture de crédit   
+ 7 605 000  
+Droits de douane et transport a Tassette    28 736 400   
+Aménagements routiers 18 400 000 
+    
+Bureaux et autres locaux administratifs 76 000 000 
+Installations électriques 8 000 000 
+Groupe électrogène 110 KVA 31 742 000 
+Installations hydrauliques 5 250 000 
+Financement bancaire 
+845 000 000 
+Pompe bâtiments    785 000  Découvert  
+ 50 000 000  
+Frais de dossiers (1%) 
+ 12 675 000  
+ 
+ 
+Frais divers d'ouverture de crédit (3%) 
+ 7 605 000  
+ Avance sur factures 
+ 100 000 000 
+  
+ 
+ Crédit à moyen terme 
+ 645 000 0000 
+Besoin de ligne d'exploitation (spot et avances) 200 000 000   
+ 
+TOTAL EMPLOIS 934 901 400 TOTAL RESSOURCES 934 901 400 
+Tableau 12 : Plan de financement projet TAVISET 
+Il ressort du plan de financement un apport de TAVISET de 89 462 140 FCFA (10,1%) réparti entre une participation en numéraires sur 
+le programme d’investissement 71 462 140 FCFA et frais de dossier et divers frais d’ouverture de crédit pour 20.280.000 FCFA 
+ 
+Le besoin de financement de 845.000.000 FCFA est réparti entre le crédit à moyen de 645.000.000 FCFA et les lignes de fonctionnement 
+totalisant 200.000.000 FCFA (découvert 50.000.000 FCFA et avances sur factures 150.000.000CFA) 
+
+ 
+32 
+ 
+ 
+7-4 Modalités et conditions du financement bancaire 
+Les modalités et conditions des différents concours sollicités par TAVISET sont décomposés comme suit  
+ 
+ Crédit à moyen terme Découvert Avances sur factures 
+Montant 645 000 000 FCFA 50.000.000 FCFA 150.000.000 FCFA 
+Objet du financement 
+Acquisition  de  bâtiment  d’élevage  et 
+divers   travaux   d’aménagement   et 
+équipements nécessaires au projet 
+d’augmentation   de   sa   capacité   de 
+production  
+Pallier  les  décalages  de  trésorerie 
+entre les dépenses et règlements des 
+abattoirs. 
+Mobiliser les créances 
+détenues  sur  les  abattoirs  et  
+autres    clients    de    bonnes 
+signatures 
+Durée / validité 60 mois dont un différé de 12 mois 12 mois renouvelable 12 mois renouvelable 
+Taux d’intérêt 9% 9% 9% 
+Tableau 13 : Modalités et conditions des concours sollicités 
+1 7-5 Garanties proposées 
+Ses concours seront couverts par les garanties ci-dessous : 
+ 
+• Domiciliation des recettes issues de la commercialisation des deux bâtiments dans les livres de la banque partenaire ; 
+ 
+• Déposit de garantie de 75.000.000 FCFA à constituer par TAVISET 
+ 
+• Garantie  Financière du  Fonds de Garantie  des  Investissements  Prioritaire  (FONGIP)  à  hauteur  de  60%  des  concours  soit 
+500.000.000 FCFA (montant plafond de garantie) sous forme de cash collatéral à nantir au profit de la banque partenaire. Le secteur 
+d’activité est éligible au programme ETER pour lequel l’état du Sénégal a reçu des lignes de financement de la part de la SFI. 
+ 
+• Caution hypothécaire de Monsieur Mohamadou Sidy MBAYE de premier rang à hauteur de 218 000 000 FCFA portant sur deux 
+(2) TF, formant les lots N°05 et 08 de respectivement   105 m² et 222 m² d’un immeuble abritant la résidence Hôtel « MEDITOURS.  
+ 
+CF ANNEXE 6 : Les rapports d’expertise des deux appartements proposés en garantie 
+ 
+ 
+
+ 
+33 
+ 
+ 
+VIII -ETUDE FINANCIERE DU PROJET 
+8-1 Hypothèses d’élaboration des prévisions d’activités 
+Les  prévisions  d’activité  ont été  élaborées  à  partir  d’hypothèses  de  travail  articulées  autour  des  données  de  la  production,  des 
+approvisionnements d’intrants et poussins, des conditions de financement. 
+ 
+8-1-1 Hypothèses liées à la production  
+ 
+  2025 2026 2027 2028 2029 2030 2031 
+Bâtiments Type A        
+ Nombre de poulets / bâtiment type A  20 000 20 000 20 000 20 000 20 000 20 000 20 000 
+ Nombre de bâtiments  4 4 4 4 4 4 4 
+ Nombre de rotations  6 6 6 6 6 6 6 
+ Nombre total poulets  480 000 480 000 480 000 480 000 480 000 480 000 480 000 
+ Bâtiments Type B  
+       
+ Nombre de poulets / bâtiment Type B  
+35 000 35 000 35 000 35 000 35 000 35 000 35 000 
+ Nombre de bâtiments  
+- 
+2 
+2 2 2 2 2 
+ Nombre de rotations  
+- 
+2 
+6 6 6 6 6 
+ Nombre total de poulets  
+- 140 000 420 000 420 000 420 000 420 000 420 000 
+ Taux de mortalité  5% 5% 5% 4% 4% 4% 4% 
+ Nombre total de poulets livrés  456 000 589 000 855 000 864 000 864 000 864 000 864 000 
+  2025 2026 2027 2028 2029 2030 2031 
+ Poids moyen / poulets  
+ 2,25    2,26    2,27    2,28    2,28    2,28    2,28   
+ Poids total de poulets annuel  
+ 1 026 000     1 331 140     1 940 850     1 969 920     1 965 600     1 968 192     1 969 920    
+ Prix moyen / kg   
+ 1 325     1 328     1 327     1 327     1 328     1 330     1 331    
+Tableau 14 : Hypothèses liées à la production 
+ 
+ 
+
+ 
+34 
+ 
+ 
+8-1-2 Hypothèses d’approvisionnements poussins, aliments et autres intrants 
+ 
+Achats de poussins 2025 2026 2027 2028 2029 2030 2031 
+Bâtiments A -20 000 sujets             
+ 
+Nombre de poussins achetés 
+ 470 400       470 400       470 400       470 400       470 400       470 400       470 400      
+Bonus 
+ 9 600       9 600       9 600       9 600       9 600       9 600       9 600      
+en% 
+2% 2% 2% 2% 2% 2% 2% 
+Total poussins livrés Bâtiment A 
+ 480 000       480 000       480 000       480 000       480 000       480 000       480 000      
+Bâtiments B - 35000 sujets 
+       
+Nombre de poussins achetés 
+ -       137 200     411 600     411 600     411 600     411 600     411 600    
+Bonus 
+ -    2 800    8 400    8 400    8 400    8 400    8 400   
+en% 
+2% 
+2% 
+2% 2% 2% 2% 2% 
+Total poussins livrés Bâtiment B 
+ -       140 000     420 000     420 000     420 000     420 000     420 000    
+Nombre total de poussins livrés 
+539 000 607 600 882 000 882 000 882 000 882 000 882 000 
+Prix d'achat de poussins 500 510,0 520,2 533,2 549,2 560,2 571,4 
+Taux de croissance prix poussins 
+ 
+2% 2% 3% 3% 2% 2% 
+Achat d'aliments 2025 2026 2027 2028 2029 2030 2031 
+Prix d'achat kg aliments 
+ 344     342     340     340     339     338    337 
+Consommation moyenne / poulets  
+ 3,50    3,51    3,52    3,53    3,54    3,56    3,58   
+Quantité totale d'aliments consommées 
+ 1 646 400      2 132 676     3 104 640     3 113 460     3 122 280     3 139 920     3 157 560    
+Achat de litière 2025 2026 2027 2028 2029 2030 2031 
+Prix d'achat litière (tonne) 44 604 44 604 44 604 44 604 44 604 44 604 44 604 
+Nombre de batiment type A 4 4 4 4 4 4 4 
+Nombre de rotations annuelles 6 6 6 6 6 6 6 
+Quantités / Batiment type A (tonnes) 6 6 6 6 6 6 6 
+Nombre de bâtiments Type B 0 2 2 2 2 2 2 
+Nombre de rotations annuelles  -         1       6       6       6       6       6      
+Quantités / Batiment type B (tonnes)  12       12       12       12       12       12       12      
+Quantité totale de litière  144      192       288       288       288       288       288      
+ 
+
+ 
+35 
+ 
+ 
+Achat prophylaxie 2025 2026 2027 2028 2029 2030 2031 
+Prix par poulet 
+ 21       21       21      21 21 21 21 
+Nombre de poulets 
+ 480 000       620 000       900 000       900 000       900 000       900 000       900 000      
+Transport sur achat 750 000 750 000 760 000 770000 772000 780000 782000 
+Tableau 15 : Hypothèses liées aux approvisionnements aliments et autres achats 
+8-1-3 Hypothèses sur la croissance des charges 
+ 
+Autres achats 2025 2026 2027 2028 2029 2030 2031 
+Produits d'entretien 
+5% 3% 3% 2% 2% 3% 3% 
+Eau 
+3% 3% 3% 3% 3% 5% 5% 
+Électricité 
+4% 4% 4% 4% 4% 3% 3% 
+Autres énergies 
+4% 4% 4% 4% 4% 3% 3% 
+Fournitures d'entretien 
+8% 8% 6% 5% 5% 0% 0% 
+Fourniture de bureau 
+8% 6% 5% 4% 4% 2% 2% 
+Petit matériel et outillages 
+5% 12% 8% 5% 4% 2% 2% 
+Transport 2025 2026 2027 2028 2029 2030 2031 
+Autres transports 
+5% 12% 10% 10% 10% 5% 5% 
+Services Extérieurs 2025 2026 2027 2028 2029 2030 2031 
+Entretien, réparations et maintenance 
+15% 12% 10% 8% 8% 8% 8% 
+Primes d'assurance 
+10% 45% 15% 15% 15% 15% 15% 
+Frais de télécommunications 
+3% 3% 3% 3% 3% 2% 2% 
+Frais bancaires 
+5% 15% 12% 12% 12% 12% 12% 
+Rémunérations d'intermédiaires et de conseils 
+3% 10% 5% 3% 3% 2% 2% 
+Cotisations 
+5% 5% 5% 5% 5% 5% 5% 
+ Impôts et taxes  2025 2026 2027 2028 2029 2030 2031 
+Impôts et taxes directs 
+12% 12% 12% 12% 12% 12% 12% 
+Droits d'enregistrement 
+15% 15% 15% 15% 15% 15% 15% 
+ 
+ 
+ 
+
+ 
+36 
+ 
+ 
+ 
+Charges de personnel  2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+ Rémunérations directes versées au personnel  
+5% 15% 5% 5% 5% 5% 5% 
+ Indemnités forfaitaires versées au personnel  
+5% 15% 5% 5% 5% 5% 5% 
+ Charges sociales  
+5% 5% 8% 8% 8% 8% 8% 
+ Rémunération transférée de personnel extérieur  
+5% 5% 5% 5% 5% 5% 5% 
+Tableau 16 : Hypothèses liées aux charges 
+8-1-4 Hypothèses sur les conditions des concours sollicités 
+ 
+Crédit à moyen terme Données  Ligne avance sur 
+factures 
+2025 2026 2027 2028 2029 2030 2031 
+Montant du prêt (FCFA) 645 000 000  Montant autorisé 100 000 000 FCFA 
+Taux d'intérêt 9,0%  Nombre tirage /an 0 4 4 5 6 6 6 
+Durée de remboursement (mois) 60  Nbre jours 
+débiteurs   / mois 
+0 15 18 20 22 23 25 
+Type de remboursement Trimestriel  Nombre de jours 
+débiteurs / an 
+0 60 72 100 132 138 150 
+Date prévisionnelle de déblocage 30/11/2025   aux d’intérêt  9% 9% 9% 9% 9% 9% 9% 
+Différé (nombre d'échéances) 4          
+ 
+Ligne découvert 2025 2026 2027 2028 2029 2030 2031 
+Montant autorisé 
+ 50 000 000    50 000 000    50 000 000    50 000 000    50 000 000    50 000 000    50 000 000   
+Niveau moyen d'utilisation 
+ -    20 000 000    25 000 000    30 000 000    35 000 000    35 000 000    40 000 000   
+Nombre de jours débiteurs 
+moyen 
+ -   15 16 18 18 20 20 
+Nombre de mois d'utilisation 
+ -   12 12 12 12 12 12 
+Jours débiteurs / an 
+ -   180 192 216 216 240 240 
+Taux d'intérêt sur découvert 10% 
+10% 10% 10% 10% 10% 10% 
+Tableau 17 : Hypothèses liées aux conditions des concours sollicités 
+ 
+
+ 
+37 
+ 
+ 
+8-2 Prévisions de chiffre d’affaires 2025 – 2031 
+Le chiffre d’affaires est constitué des recettes issues de la vente de poulets de chair. La répartition du chiffre d’affaires entre les bâtiments 
+A (de 20 000 sujets) et les bâtiments B (35 000 sujets) permet de faire ressortir l’impact de l’investissement sur l’activité. 
+ 
+Libellées 2025 2026 2027 2028 2029 2030 2031 
+Poids moyen / poulets  2,25    2,26    2,27    2,28    2,28    2,28    2,28   
+Poids total de poulets annuel  1 026 000     1 331 140     1 940 850     1 969 920     1 965 600     1 968 192     1 969 920    
+Prix moyen / kg  1 325     1 328     1 327     1 327     1 328     1 330     1 331    
+ Nombre total de poulets livrés   456 000     589 000     855 000     864 000     864 000     864 000     864 000    
+ Recettes poulets A   1 359 450 000     1 368 583 680     1 373 604 240     1 379 655 360     1 377 667 200     1 381 561 440     1 383 814 080    
+ Recettes poulets B   -       399 170 240     1 201 903 710     1 207 198 440     1 205 458 800     1 208 866 260     1 210 837 320    
+ Recettes totales   1 359 450 000     1 767 753 920     2 575 507 950     2 586 853 800     2 583 126 000     2 590 427 700     2 594 651 400    
+Tableau 18 : Evolution du chiffre d'affaires de 2025 à 20318-3 Les charges prévisionnelles 2025 – 2031  
+8-2-1 Autres charges 
+ 
+Autres achats 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Produits d'entretien  149 806     154 300     158 929     162 107     165 349     170 310     175 419    
+Électricité  26 780 078     27 851 281     28 965 332     30 123 946     31 328 903     32 268 771     33 236 834    
+Autres énergies  8 219 432     8 548 209     8 890 138     9 245 743     9 615 573     9 904 040     10 201 161    
+Fournitures d'entretien  1 340 820     1 448 086     1 534 971     1 611 719     1 692 305     1 692 305     1 692 305    
+Fourniture de bureau  309 581     328 156     344 564     358 346     372 680     380 134     387 736    
+Petit matériel et outillages  17 583 610     19 693 643     21 269 134     22 332 591     23 225 895     23 690 413     24 164 221    
+Achat de litière 
+ 6 422 976     8 563 968     12 845 952     12 845 952     12 845 952     12 845 952     12 845 952    
+Achat de prophylaxie 
+ 10 830 000     13 770 000     19 660 000     19 670 000     19 672 000     19 680 000     19 682 000    
+Total Autres Achats  71 636 302     80 357 642     93 669 019     96 350 405     98 918 658     100 631 924     102 385 629    
+Tableau 19 : Evolution des achats 2025 - 2031 
+Ce  poste  regroupe  les  dépenses  de  fonctionnement  relatives aux produits d’entretien et la consommation d’eau et d’électricité, autres 
+énergies, fournitures d'entretien, Fourniture de bureau, Petit matériel et outillages, achat de litière et prophylaxie. 
+
+ 
+38 
+ 
+ 
+ 
+8-2-2 Transport 
+ 
+Ce poste regroupe l’ensemble des dépenses de transport se rapportant aux missions autres transports effectuées dans le cadre des activités de l’entreprise. 
+ 
+Transport 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Autres transports  4 566 436     5 114 409     5 625 850     6 188 435     6 807 278     7 147 642     7 505 024    
+Total transport  4 566 436     5 114 409     5 625 850     6 188 435     6 807 278     7 147 642     7 505 024    
+Tableau 20 : Evolution du poste transport de 2025 - 2031 
+8-2-3 Services extérieurs 
+ 
+Le poste « Services Extérieurs » prend en charge les frais d’entretien de réparations et maintenance des installations techniques, les primes 
+d'assurance versées aux différentes compagnies d’assurance, les frais de télécommunications, les frais bancaires, les  rémunérations  en 
+faveur d'intermédiaires et de conseils ainsi que diverses cotisations. 
+ 
+ 
+Services Extérieurs 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Entretien, réparations et 
+maintenance 
+8 548 964 9 574 840 10 532 324 11 374 910 12 284 903 13 267 695 14 329 111 
+Primes d'assurance 
+1 745 953 2 531 632 2 911 377 3 348 083 3 850 296 4 427 840 5 092 016 
+Frais de télécommunications 
+6 488 897 6 683 564 6 884 071 7 090 593 7 303 311 7 449 377 7 598 364 
+Frais bancaires 
+948 001 1 090 201 1 221 025 1 367 548 1 531 654 1 715 452 1 921 307 
+Rémunérations d'intermédiaires et 
+de conseils 
+9 516 685 10 468 354 10 991 771 11 321 524 11 661 170 11 894 393 12 132 281 
+Cotisations 
+3 872 818 4 066 459 4 269 782 4 483 271 4 707 434 4 942 806 5 189 946 
+Total services extérieurs  31 121 318      34 415 049      36 810 350      38 985 929      41 338 767      43 697 564      46 263 025     
+Tableau 21 : Evolution services extérieurs 2025 - 2031 
+ 
+ 
+ 
+ 
+
+ 
+39 
+ 
+ 
+8-2-4 Impôts et taxes 
+ 
+Ce poste renvoie aux diverses taxes et impôts sur les frais de personnel et prestataires ainsi que les droits d’enregistrement. 
+ 
+Impôts et taxes  2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Impôts et taxes directs  20 980 819     23 498 517     26 318 339     29 476 540     33 013 724     36 975 371     41 412 416    
+Impôts et taxes indirects  8 611 365     8 611 365     8 611 365     8 611 365     8 611 365     8 611 365     8 611 365    
+Droits d'enregistrement  115 000     132 250     152 088     174 901     201 136     231 306     266 002    
+Total Impôts et taxes   29 707 184      32 242 132      35 081 791      38 262 805      41 826 225      45 818 042      50 289 783     
+Tableau 22 : Evolution impôts et taxes 2025-2027 
+8-2-5 Charges de personnel  
+ 
+Le poste charge de personnel se compose de la rémunération directe versée au personnel, les indemnités forfaitaires, les charges sociales 
+et rémunération aux prestaires et autres prestataires est décrite comme ci-dessous :  
+ 
+Charges de personnel 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Rémunérations directes versées au 
+personnel 
+12 444 198 14 310 828 15 026 369 15 777 687 16 566 572 17 394 900 18 264 645 
+Indemnités forfaitaires versées au 
+personnel 
+1 394 001 1 603 101 1 683 256 1 767 419 1 855 790 1 948 579 2 046 008 
+Charges sociales 1 583 084 1 662 238 1 795 217 1 938 835 2 093 941 2 261 457 2 442 373 
+Rémunération transférée de 
+personnel extérieur 
+56 250 602 59 063 132 62 016 289 65 117 103 68 372 958 71 791 606 75 381 187 
+Total charges de personnel 71 671 885 76 639 299 80 521 131 84 601 044 88 889 261 93 396 543 98 134 214 
+Tableau 23 : Évolution charges de personnel 2025 -2031 
+ 
+8-2-6 Dotations aux amortissements et provisions 
+ 
+Ce poste intègre les dotations aux amortissements des immobilisations existantes et celles à constituer sur les investissements à réaliser 
+dans le cadre du projet de  renforcement de sa capacité de production 
+ 
+ 
+
+ 
+40 
+ 
+ 
+ 
+Dotations aux amortissements et 
+provisions 
+2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Dotations aux amortissements 52 887 660 52 887 660 52 887 660 52 887 660 52 887 660 52 887 660 52 887 660 
+Dotations nouveaux investissements 11 470 200 45 880 800 45 880 800 45 880 800 45 880 800 43 591 950 36 725 400 
+Total Dotations aux amortissements et 
+provisions 
+64 357 860 98 768 460 98 768 460 98 768 460 98 768 460 96 479 610 52 887 660 
+Tableau 24 : Evolution des dotations aux amortissements 2025 – 2031 
+8-2-7 Charges et revenus financiers  
+ 
+Les charges financières concernent les intérêts sur le crédit moyen terme et les lignes d’exploitation sollicitées dans le cadre du projet 
+d’acquisition des deux bâtiments ainsi que les intérêts à percevoir sur le financement en cours de la CBAO et ceux attendus  de  la 
+mobilisation des concours d’exploitations obtenus au niveau de cette banque. 
+ 
+Charges et revenus financiers 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Intérêts des emprunts 7 894 600 21 094 271 17 027 084 12 105 222 7 441 838 2 612 602 - 
+Autres intérêts 
+2 630 137 6 756 164 8 146 849 9 994 521 11 687 671 12 567 123 13 767 123 
+Total Charges et revenus 
+financiers 
+10 524 737 27 850 435 25 173 933 22 099 742 19 129 509 15 179 725 13 767 123 
+Tableau 25 : Evolution des charges financières 2025 – 2031 
+ 
+8-2-8 Impôts sur le résultat  
+ 
+Impôts sur le résultat 2 025 2 026 2 027 2 028 2 029 2 030 2 031 
+Impôts de l’exercice 12 303 137    85 818 803    117 402 991    214 952 945    213 252 174    208 515 276    206 793 507    
+Total Impôts sur le résultat 12 303 137    85 818 803    117 402 991    214 952 945    213 252 174    208 515 276    206 793 507    
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+41 
+ 
+ 
+8-3 Compte d’exploitation prévisionnelle 2025 – 2031 
+ 
+Tableau 26 : Compte d’exploitation prévisionnelle 2025 – 2031 
+ 
+LIBELLES2 025                2 026                2 027                2 028                2 029                2 030                 2 031                
+Ventes de marchandises
+MARGE COMMERCIALE-                    -                    -                    -                    -                    -                     -                    
+Travaux, services vendus1 359 450 000     1 767 753 920     2 575 507 950     2 586 853 800     2 583 126 000     2 590 427 700      2 594 651 400     
+CHIFFRE D'AFFAIRES 1 359 450 000  1 767 753 920  2 575 507 950  2 586 853 800  2 583 126 000  2 590 427 700   2 594 651 400  
+Achats de matières premières et autres fournitures liées789 801 600 -       1 021 023 192 -    1 483 347 600 -    1 490 756 400 -    1 492 396 920 -    1 498 764 960 -     1 505 097 720 -    
+Autres achats71 636 302 -        80 357 642 -        93 669 019 -        96 350 405 -        98 918 658 -        100 631 924 -        102 385 629 -      
+Transports4 566 436 -          5 114 409 -          5 625 850 -          6 188 435 -          6 807 278 -          7 147 642 -           7 505 024 -          
+Services extérieurs31 121 318 -        34 415 049 -        36 810 350 -        38 985 929 -        41 338 767 -        43 697 564 -         46 263 025 -        
+Impôts et taxes29 707 184 -        32 242 132 -        35 081 791 -        38 262 805 -        41 826 225 -        45 818 042 -         50 289 783 -        
+Autres charges
+VALEUR AJOUTEE 432 617 160     594 601 496     920 973 340     916 309 826     901 838 152     894 367 568      883 110 219     
+Charges de personnel71 671 885 -        76 639 299 -        80 521 131 -        84 601 044 -        88 889 261 -        93 396 543 -         98 134 214 -        
+EXCEDENT BRUT D'EXPLOITATION 360 945 275     517 962 197     840 452 209     831 708 782     812 948 890     800 971 025      784 976 006     
+Dotations aux amortissements, aux provisions et dépreciations64 357 860 -        98 768 460 -        98 768 460 -        98 768 460 -        98 768 460 -        96 479 610 -         89 613 060 -        
+RESULTAT D'EXPLOITATION 296 587 415     419 193 737     741 683 749     732 940 322     714 180 431     704 491 416      695 362 946     
+Frais financiers et charges assimilées10 524 737 -        27 850 435 -        25 173 933 -        22 099 742 -        19 129 509 -        15 179 725 -         13 767 123 -        
+RESULTAT FINANCIER10 524 737 -      27 850 435 -      25 173 933 -      22 099 742 -      19 129 509 -      15 179 725 -       13 767 123 -      
+RESULTAT DES ACTIVITES ORDINAIRES286 062 678     391 343 302     716 509 816     710 840 580     695 050 922     689 311 690      681 595 823     
+RESULTAT HORS ACTIVITES ORDINAIRES -                    -                    -                    -                    -                    -                     -                    
+Impots sur le résultat85 818 803 -        117 402 991 -       214 952 945 -       213 252 174 -       208 515 276 -       206 793 507 -        204 478 747 -      
+RESULTAT NET 200 243 874     273 940 311     501 556 871     497 588 406     486 535 645     482 518 183      477 117 076     
+
+ 
+42 
+ 
+ 
+8-4 Analyse des prévisions d’activité 
+8-4-1 Analyse de l’activité 
+ 
+L’activité reste sur la même dynamique de croissance. Sur la période 2025 – 2031, le chiffre d’affaires devrait croitre de 90,9% passant 
+de 1.359.450.000 FCFA à 2025 à 2.594.651.400 FCFA à fin 2031. Ce gain de part de marché se justifie par l’augmentation de sa capacité 
+de production annuelle qui passe de 480.000 sujets en 2024 pour atteindre une pleine capacité de 900.000 poulets de chairs à partir de 
+2026. 
+ 
+ 
+Figure 8 : Evolution du chiffre d'affaires de 2025 à 2031 
+ 
+8-4-2 Évolution de la rentabilité 
+ 
+L’évolution du chiffre d’affaires devrait aussi impacter sur la rentabilité. Il est noté sur toute la période une bonne tenue des différentes 
+soldes intermédiaires de gestion. La rentabilité globale qui est le rapport entre le résultat net et le chiffre d’affaires  reste  dans  une 
+dynamique de croissance avec une moyenne de 18,5% sur la période 2025 – 2029. Niveau largement confortable. Les cash flows cumulés 
+sur  la  période  permettre  de  garantir  une  bonne  couverture  du  financement  en  cours  au  niveau  de  la  CBAO  et  celui  pour  lequel,  le 
+financement est sollicité. 
+
+ 
+43 
+ 
+ 
+Activité - rentabilité 2025 2026 2027 2028 2029 2030 2031 
+Chiffre d'affaires 1 359 450 000 1 767 753 920 2 575 507 950 2 586 853 800 2 583 126 000 2 590 427 700 2 594 651 400 
+% 22% 30% 45,7% 0,4% -0,1% 
+0,3% 
+0% 
+Résultat net 200 243 874 273 940 311 501 556 871 497 588 406 486 535 645 482 518 183 477 117 076 
+% 29% 37% 83,1% -0,8% -2,2% -0,8% -1,1% 
+Rentabilité globale 14,7% 15,5% 19,5% 19,2% 18,8% 18,6% 18,4% 
+Dotations aux amts et provisions 64 357 860 98 768 460 98 768 460 98 768 460 98 768 460 96 479 610 89 613 060 
+Cash flows 264 601 734 372 708 771 600 325 331 596 356 866 585 304 105 578 997 793 566 730 136 
+Couverture de la dette 2025 2026 2027 2028 2029 2030 2031 
+Cash flows 264 601 734 372 708 771 600 325 331 596 356 866 585 304 105 578 997 793 566 730 136 
+Intérêts sur crédit 4 837 500 19 350 000 16 608 450 12 105 222 7 441 838 2 612 602 - 
+TAF 822 375 3 289 500 2 823 436 2 057 888 1 265 112 444 142 - 
+Remboursement principal crédit 
+sollicitées  
+- 36 234 645 148 146 193 153 414 970 158 871 129 164 521 335 - 
+Autres dettes 46 765 976 46 765 976 35 074 482 - - - - 
+Service de la dette 52 425 851 105 640 121 202 652 562 167 578 080 167 578 080 167 578 080 - 
+Cash flow / service de la dette 5,0 3,5 3,0 3,6 3,5 3,5 0 
+VALEUR ACTUELLE NETTE (VAN)  - TAUX DE RENTABILITE INTERNE (TRI) - DELAI RECUPERATION DU CAPITAL INVESTI 
+Valeur actuelle nette (VAN)       1 233 133 504          
+Taux de rentabilité Interne (TRI) 55%   
+  
+Délai de récupération du capital investi (DRCI) 
+Année  Mois   Jours  
+ 
+2 1 9 
+ 
+Tableau 27: Tableau analyse – rentabilité – VAN, TRI et DRCI 
+8-5-3 Test de sensibilité 
+ 
+Les hypothèses ci-dessous qui ont permis d’élaborer ce stress test, sont articulées autour des points ci-dessous : 
+Années 2025 2026 2027 2028 2029 2030 2031 
+ Taux de mortalité  10% 10% 10% 10% 10% 10% 10% 
+Poids moyen du poulet (en kg) 
+2,250 2,250 2,250 2,250 2,250 2,250 2,250 
+Prix d'achat kg aliments (FCFA) 
+ 344     345     346     347     348     349    350 
+Tableau 28 : Critères de détermination du stess test 
+
+ 
+44 
+ 
+ 
+Le compte d’exploitation prévisionnel ci-dessous confirme une activité rentable et en croissance  
+ 
+ 
+29 : Compte d'exploitation prévisionnelle 2025 -2031 après Stress Test 
+Les calculs de la VAN, TRI et DRCI sous une hypothèse moyenne et à la suite du stress test effectué sous les hypothèses décrites ci-dessus 
+confirment la rentabilité du projet avec 
+ 
+Valeur actuelle nette (VAN)     838 419 512      
+Taux de rentabilité Interne (TRI)   43%   
+ 
+ 
+ 
+ 
+LIBELLES2 025                2 026                2 027                2 028                2 029                2 030                 2 031                
+Ventes de marchandises
+MARGE COMMERCIALE-                    -                    -                    -                    -                    -                     -                    
+Travaux, services vendus1 287 900 000     1 667 304 000     2 418 457 500     2 418 457 500     2 420 280 000     2 423 925 000      2 425 747 500     
+CHIFFRE D'AFFAIRES 1 287 900 000  1 667 304 000  2 418 457 500  2 418 457 500  2 420 280 000  2 423 925 000   2 425 747 500  
+Achats de matières premières et autres fournitures liées789 801 600 -       1 027 421 220 -    1 501 975 440 -    1 512 550 620 -    1 520 497 440 -    1 533 304 080 -     1 546 146 000 -    
+Autres achats71 636 302 -        80 357 642 -        93 669 019 -        96 350 405 -        98 918 658 -        100 631 924 -        102 385 629 -      
+Transports4 566 436 -          5 114 409 -          5 625 850 -          6 188 435 -          6 807 278 -          7 147 642 -           7 505 024 -          
+Services extérieurs31 121 318 -        34 415 049 -        36 810 350 -        38 985 929 -        41 338 767 -        43 697 564 -         46 263 025 -        
+Impôts et taxes29 707 184 -        32 242 132 -        35 081 791 -        38 262 805 -        41 826 225 -        45 818 042 -         50 289 783 -        
+Autres charges
+VALEUR AJOUTEE 361 067 160     487 753 548     745 295 050     726 119 306     710 891 632     693 325 748      673 158 039     
+Charges de personnel71 671 885 -        76 639 299 -        80 521 131 -        84 601 044 -        88 889 261 -        93 396 543 -         98 134 214 -        
+EXCEDENT BRUT D'EXPLOITATION 289 395 275     411 114 249     664 773 919     641 518 262     622 002 370     599 929 205      575 023 826     
+Dotations aux amortissements, aux provisions et dépreciations64 357 860 -        98 768 460 -        98 768 460 -        98 768 460 -        98 768 460 -        96 479 610 -         89 613 060 -        
+RESULTAT D'EXPLOITATION 225 037 415     312 345 789     566 005 459     542 749 802     523 233 911     503 449 596      485 410 766     
+Frais financiers et charges assimilées10 524 737 -        27 850 435 -        25 173 933 -        22 099 742 -        19 129 509 -        15 179 725 -         13 767 123 -        
+RESULTAT FINANCIER10 524 737 -      27 850 435 -      25 173 933 -      22 099 742 -      19 129 509 -      15 179 725 -       13 767 123 -      
+RESULTAT DES ACTIVITES ORDINAIRES214 512 678     284 495 354     540 831 526     520 650 060     504 104 402     488 269 870      471 643 643     
+RESULTAT HORS ACTIVITES ORDINAIRES -                    -                    -                    -                    -                    -                     -                    
+Impots sur le résultat64 353 803 -        85 348 606 -        162 249 458 -       156 195 018 -       151 231 320 -       146 480 961 -        141 493 093 -      
+RESULTAT NET 150 158 874     199 146 748     378 582 068     364 455 042     352 873 081     341 788 909      330 150 550     
+
+ 
+45 
+ 
+ 
+IX RISQUES IDENTIFIÉS ET FACTEURS DE MITIGATION 
+ 
+Il ressort de l’analyse économique du projet que sa mise en œuvre devra avoir des effets positifs sur l’ensemble des parties prenantes. 
+ 
+ 
+1 
+Risques de performance Mitigation du risque de performance 
+Il résulte de toutes difficultés nées de la défaillance technique qui pourraient 
+empêcher la société d’assurer un approvisionnement correct au niveau de ses 
+fournisseurs de  poussins  et  aliments ne  pas  être  à  mesure  d’honorer  ses 
+commandes. 
+Pas de difficultés d’approvisionnement de poussins et d’aliments puisque 
+le  contrat de fournitures de poulets  de  chair avec  les  abattoirs lui permet 
+d’assurer une meilleure qualité de production. 
+2 
+Risque commercial Mitigation du risque commercial 
+Ce  risque  se  manifeste  lorsque  les  clients  de  la  société TAVISET  se 
+trouve    dans une situation d’insolvabilité leur empêchant d’honorer 
+leurs engagements après exécution des prestations. 
+La  qualité  de  la  clientèle  rassure.  Elle  est  de  bonne  signature  et 
+honore  parfaitement  leurs  engagements  ce  qui  limite  tout  risque 
+commercial potentiel. 
+3 
+Risque de catastrophes sanitaires Mitigation du risque de catastrophes sanitaires 
+Ce  risque  découle  des nombreuses  maladies  infectieuses  récurrentes 
+dans le secteur avicole liées aux virus, bactéries, parasites et mycoses 
+qui peuvent voir des impacts graves sur la production, la santé publique 
+et la rentabilité.  
+Le client a mis en place un protocole sanitaire assez strict qui permet 
+jusqu’ici de se prémunir contre ce type d’aléas. La souscription à une 
+assurance agricole peut etre un facteur additionnel de mitigation de 
+risque. 
+4 
+Risque de non-remboursement Mitigation risque de non-remboursement 
+Il s’agit du risque de défaillance du débiteur. Il apparait lorsque, en 
+raison d'une dégradation de sa situation financière ou par mauvaise foi, 
+il  n'est  plus  en  mesure  ou  refuse  tout  simplement  de  rembourser  le 
+financement. 
+La confiance des fonds de garantie comme le FONGIP avec la mise 
+en place d’un dépôt de garantie sous forme de cash collatéral en plus 
+de  celui  constitué  par  le  TAVISET  doublé  par  une  sureté  réelle 
+offerte atténuent tout risque de défaillance du promoteur. 
+ 
+
+ 
+46 
+ 
+ 
+X- ETUDE D’IMPACT DU PROJET 
+ 
+ 
+Axe d’impact Résultats attendus (2025-2031) Effets économiques et sociaux 
+Création d’emplois 
+Le projet génère des emplois directs et 
+indirects. 
+5 nouveaux employés en 2025 (portant le total à 20), 
+plus    de    nombreux    emplois    indirects    dans    la 
+distribution. 
+ 
+Lutte contre la pauvreté 
+Distribution importante de revenus pendant 
+2025-2031. 
+568  millions  FCFA  de  salaires/prestations  injectés 
+dans  l’économie,  stimulant  consommation  et 
+réduisant la pauvreté. 
+Croissance du PIB 
+Augmentation de la valeur ajoutée dans le 
+secteur avicole. 
+5.054 millions FCFA de valeur ajoutée cumulée sur 
+2025-2030, renforçant le poids du secteur dans le PIB 
+du Sénégal. 
+Recettes budgétaires 
+Le projet génère des recettes fiscales 
+importantes pour l’État. 
+1.407 millions FCFA en impôts et taxes entre 2025-
+2030,  incluant  impôt  sur  les  sociétés,  TVA,  taxes 
+diverses. 
+Sécurité alimentaire & balance commerciale 
+Augmentation de la production nationale de 
+viande, réduisant la dépendance aux 
+importations. 
+Meilleure autonomie alimentaire, amélioration de la 
+balance    commerciale    grâce    à    la    baisse    des 
+importations de poulets... 
+ 
+CONCLUSION & AVIS 
+ 
+TAVISET est un acteur important du secteur de l’aviculture. Le promoteur a su faire preuve de professionnalisme pour bénéficier  de 
+l’accompagnement des partenaires pour augmenter graduellement sa capacité de production. 
+ 
+L’aviculture est un secteur qui regorge de potentialités avec une très fortement demande non couverte. De plus, le secteur avicole s’impose 
+comme un levier essentiel pour renforcer la souveraineté alimentaire, stimuler l’emploi (notamment rural et féminin), et renforcer  la 
+résilience économique dans la Vision Sénégal 2050. 
+ 
+
+ 
+47 
+ 
+ 
+Le modèle et le savoir-faire de TAVISET a fini de convaincre les abattoirs partenaires qui absorbent la quasi-totalité de sa production.  Le 
+projet d’augmentation de sa capacité de production annuelle de 480.000 à 900.000 sujets est rentable. 
+ 
+Le risque est fortement mitigé par : 
+• des sources de remboursement sécurisées par des contrats signés avec les abattoirs partenaires 
+ (CF ANNEXE 8 : Conformation d’achat de AVI SENEGAL ; 
+• L’intervention du FONGIP à hauteur de 60% puisqu’il s’agit d’une activité éligible au programme ETER ; 
+• Le dépôt de garantie de 75.000.000 FCFA constitué par TAVISET 
+• Une hypothèque à hauteur de premier rang à hauteur 218 millions FCFA. 
+ 
+Notons que TAVISET ambitionne à l’horizon 2030 atteindre une capacité de production annuelle de 1.500.000 poulets de chair qui seront 
+assurés par l’exploitation de 9 bâtiments comme illustré dans le plan TAVISET CAP 2030 ci-dessous. 
+ 
+ 
+ 
+ 

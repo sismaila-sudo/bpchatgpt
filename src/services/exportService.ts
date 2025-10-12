@@ -1,0 +1,847 @@
+/**
+ * Service principal d'export de business plans
+ * Orchestre la création, génération et sauvegarde des exports
+ */
+
+import jsPDF from 'jspdf'
+import autoTable from 'jspdf-autotable'
+import {
+  ExportConfig,
+  ExportSection,
+  ExportTemplate,
+  ExportMetadata,
+  ExportStats,
+  ParsedSection,
+  PDFExportOptions,
+  ExportResult,
+  InstitutionType,
+  SectionType
+} from '@/types/export'
+import { Project } from '@/types/project'
+import { BASE_TEMPLATE } from './templates/baseTemplate'
+import { FONGIP_TEMPLATE } from './templates/fongipTemplate'
+import { FAISE_TEMPLATE } from './templates/faiseTemplate'
+import { BANK_TEMPLATE } from './templates/bankTemplate'
+import { db } from '@/lib/firebase'
+import { doc, setDoc, getDoc, collection, query, where, getDocs } from 'firebase/firestore'
+
+export class ExportService {
+  /**
+   * Récupère le template selon l'institution
+   */
+  static getTemplate(institution: InstitutionType): ExportTemplate {
+    switch (institution) {
+      case 'FONGIP':
+        return FONGIP_TEMPLATE
+      case 'FAISE':
+        return FAISE_TEMPLATE
+      case 'BANK':
+        return BANK_TEMPLATE
+      case 'CUSTOM':
+      default:
+        return BASE_TEMPLATE
+    }
+  }
+
+  /**
+   * Parse les sections du projet
+   */
+  static parseSections(project: Project): ParsedSection[] {
+    const sections: ParsedSection[] = []
+    const bp = project.businessPlan
+    const sec = project.sections
+
+    // Synopsis - from businessPlan (as text content)
+    if (sec?.businessPlan) {
+      sections.push({
+        type: 'synopsis',
+        title: 'Résumé Exécutif',
+        content: sec.businessPlan,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // Identification - from sections
+    if (sec?.identification) {
+      sections.push({
+        type: 'identification',
+        title: 'Identification de l\'Entreprise',
+        content: sec.identification,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // Market Study - from businessPlan or sections
+    if (bp?.marketStudy) {
+      sections.push({
+        type: 'market',
+        title: 'Étude de Marché',
+        content: bp.marketStudy,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    } else if (sec?.marketStudy) {
+      sections.push({
+        type: 'market',
+        title: 'Étude de Marché',
+        content: sec.marketStudy,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // SWOT - from businessPlan or sections
+    if (bp?.swotAnalysis) {
+      sections.push({
+        type: 'swot',
+        title: 'Analyse SWOT',
+        content: bp.swotAnalysis,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    } else if (sec?.swotAnalysis) {
+      sections.push({
+        type: 'swot',
+        title: 'Analyse SWOT',
+        content: sec.swotAnalysis,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // Marketing Plan - from businessPlan
+    if (bp?.marketingPlan) {
+      sections.push({
+        type: 'marketing',
+        title: 'Plan Marketing',
+        content: bp.marketingPlan,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // HR - from businessPlan
+    if (bp?.humanResources) {
+      sections.push({
+        type: 'hr',
+        title: 'Ressources Humaines',
+        content: bp.humanResources,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    // Financial - from sections
+    if (sec?.financialData) {
+      sections.push({
+        type: 'financial',
+        title: 'Plan Financier',
+        content: sec.financialData,
+        completed: true,
+        lastUpdated: new Date()
+      })
+    }
+
+    return sections
+  }
+
+  /**
+   * Crée une configuration d'export à partir d'un projet
+   */
+  static async createExportConfig(
+    project: Project,
+    template: ExportTemplate,
+    userId: string
+  ): Promise<ExportConfig> {
+    const parsedSections = this.parseSections(project)
+
+    const exportSections: ExportSection[] = []
+
+    // Cover (toujours inclus en premier)
+    exportSections.push({
+      id: 'cover',
+      title: 'Page de Couverture',
+      type: 'cover',
+      content: {
+        projectName: project.basicInfo?.name || 'Sans nom',
+        subtitle: project.basicInfo?.description || '',
+        sector: project.basicInfo?.sector || '',
+        location: project.basicInfo?.location?.city || project.basicInfo?.location?.region || '',
+        author: project.ownerId || '',
+        date: new Date()
+      },
+      included: true,
+      editable: false,
+      completed: true,
+      lastUpdated: new Date(),
+      order: 0
+    })
+
+    // TOC (toujours inclus en deuxième)
+    exportSections.push({
+      id: 'toc',
+      title: 'Table des Matières',
+      type: 'toc',
+      content: { autoGenerated: true },
+      included: true,
+      editable: false,
+      completed: true,
+      lastUpdated: new Date(),
+      order: 1
+    })
+
+    // Autres sections selon le template
+    let order = 2
+    for (const parsedSection of parsedSections) {
+      const isRequired = template.requiredSections.includes(parsedSection.type)
+      const isInTemplate = [...template.requiredSections, ...template.optionalSections].includes(parsedSection.type)
+
+      if (isInTemplate) {
+        exportSections.push({
+          id: parsedSection.type,
+          title: parsedSection.title,
+          type: parsedSection.type,
+          content: parsedSection.content,
+          included: isRequired || parsedSection.completed,
+          editable: true,
+          completed: parsedSection.completed,
+          lastUpdated: parsedSection.lastUpdated,
+          order: order++
+        })
+      }
+    }
+
+    // Appendix (optionnel, en dernier)
+    exportSections.push({
+      id: 'appendix',
+      title: 'Annexes',
+      type: 'appendix',
+      content: {
+        documents: [],
+        tables: [],
+        charts: []
+      },
+      included: false,
+      editable: true,
+      completed: false,
+      lastUpdated: new Date(),
+      order: order
+    })
+
+    // Trier selon l'ordre du template
+    const orderedSections = exportSections.sort((a, b) => {
+      const aIndex = template.sectionOrder.indexOf(a.type)
+      const bIndex = template.sectionOrder.indexOf(b.type)
+
+      if (aIndex === -1 && bIndex === -1) return a.order - b.order
+      if (aIndex === -1) return 1
+      if (bIndex === -1) return -1
+      return aIndex - bIndex
+    })
+
+    // Recalculer l'ordre
+    orderedSections.forEach((section, index) => {
+      section.order = index
+    })
+
+    const metadata: ExportMetadata = {
+      title: project.basicInfo?.name || 'Sans nom',
+      subtitle: project.basicInfo?.description || '',
+      author: userId,
+      version: '1.0',
+      projectName: project.basicInfo?.name || 'Sans nom',
+      sector: project.basicInfo?.sector || 'Non spécifié',
+      location: project.basicInfo?.location?.city || project.basicInfo?.location?.region || 'Sénégal',
+      date: new Date(),
+      language: 'fr',
+      confidentialityLevel: 'confidential'
+    }
+
+    const config: ExportConfig = {
+      id: `export-${project.id}-${Date.now()}`,
+      projectId: project.id,
+      template,
+      sections: orderedSections,
+      images: [],
+      metadata,
+      status: 'draft',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+
+    return config
+  }
+
+  /**
+   * Calcule les statistiques d'un export
+   */
+  static calculateStats(config: ExportConfig): ExportStats {
+    const includedSections = config.sections.filter(s => s.included)
+    const completedSections = includedSections.filter(s => s.completed)
+
+    let totalWords = 0
+    let totalCharacters = 0
+
+    includedSections.forEach(section => {
+      if (section.content) {
+        const text = JSON.stringify(section.content)
+        totalCharacters += text.length
+        totalWords += text.split(/\s+/).length
+      }
+    })
+
+    const estimatedPages = Math.ceil(totalWords / 400) // ~400 mots par page
+
+    return {
+      totalSections: includedSections.length,
+      completedSections: completedSections.length,
+      totalWords,
+      totalCharacters,
+      totalImages: config.images.length,
+      estimatedPages,
+      completionPercentage: includedSections.length > 0
+        ? Math.round((completedSections.length / includedSections.length) * 100)
+        : 0
+    }
+  }
+
+  /**
+   * Génère un PDF à partir de la configuration
+   */
+  static async generatePDF(
+    config: ExportConfig,
+    options: Partial<PDFExportOptions> = {}
+  ): Promise<ExportResult> {
+    const startTime = Date.now()
+
+    try {
+      const defaultOptions: PDFExportOptions = {
+        format: 'a4',
+        orientation: 'portrait',
+        quality: 'normal',
+        dpi: 150,
+        compress: true
+      }
+
+      const pdfOptions = { ...defaultOptions, ...options }
+      const { template, metadata } = config
+      const styles = template.styles
+
+      const doc = new jsPDF({
+        orientation: pdfOptions.orientation,
+        unit: 'mm',
+        format: pdfOptions.format
+      })
+
+      // Configuration des couleurs et polices
+      const primaryColor = this.hexToRgb(styles.primaryColor)
+      const secondaryColor = this.hexToRgb(styles.secondaryColor)
+      const textColor = this.hexToRgb(styles.textColor)
+
+      let currentY = styles.pageMargins.top
+
+      // ============================================================
+      // PAGE DE COUVERTURE
+      // ============================================================
+      const coverSection = config.sections.find(s => s.type === 'cover')
+      if (coverSection && coverSection.included) {
+        // Fond de couleur
+        doc.setFillColor(primaryColor.r, primaryColor.g, primaryColor.b)
+        doc.rect(0, 0, 210, 100, 'F')
+
+        // Titre
+        doc.setTextColor(255, 255, 255)
+        doc.setFontSize(styles.fontSizeTitle)
+        doc.setFont('helvetica', 'bold')
+
+        const title = metadata.title || 'Business Plan'
+        const titleLines = doc.splitTextToSize(title, 170)
+        doc.text(titleLines, 105, 40, { align: 'center' })
+
+        // Sous-titre
+        if (metadata.subtitle) {
+          doc.setFontSize(styles.fontSizeHeading)
+          doc.setFont('helvetica', 'normal')
+          const subtitleLines = doc.splitTextToSize(metadata.subtitle, 170)
+          doc.text(subtitleLines, 105, 60, { align: 'center' })
+        }
+
+        // Informations projet
+        currentY = 120
+        doc.setTextColor(textColor.r, textColor.g, textColor.b)
+        doc.setFontSize(styles.fontSizeBody)
+
+        const infos = [
+          { label: 'Secteur', value: metadata.sector },
+          { label: 'Localisation', value: metadata.location },
+          { label: 'Date', value: new Date(metadata.date).toLocaleDateString('fr-FR') },
+          { label: 'Version', value: metadata.version }
+        ]
+
+        infos.forEach(info => {
+          doc.setFont('helvetica', 'bold')
+          doc.text(`${info.label}:`, styles.pageMargins.left, currentY)
+          doc.setFont('helvetica', 'normal')
+          doc.text(info.value, styles.pageMargins.left + 40, currentY)
+          currentY += 8
+        })
+
+        // Footer
+        doc.setFontSize(9)
+        doc.setTextColor(128, 128, 128)
+        doc.text(
+          styles.footerText,
+          105,
+          280,
+          { align: 'center' }
+        )
+
+        doc.addPage()
+      }
+
+      // ============================================================
+      // TABLE DES MATIÈRES
+      // ============================================================
+      const tocSection = config.sections.find(s => s.type === 'toc')
+      if (tocSection && tocSection.included) {
+        currentY = styles.pageMargins.top
+
+        doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
+        doc.setFontSize(styles.fontSizeTitle - 4)
+        doc.setFont('helvetica', 'bold')
+        doc.text('Table des Matières', styles.pageMargins.left, currentY)
+
+        currentY += 15
+
+        doc.setTextColor(textColor.r, textColor.g, textColor.b)
+        doc.setFontSize(styles.fontSizeBody)
+
+        const includedSections = config.sections.filter(s => s.included && s.type !== 'cover' && s.type !== 'toc')
+
+        includedSections.forEach((section, index) => {
+          if (currentY > 260) {
+            doc.addPage()
+            currentY = styles.pageMargins.top
+          }
+
+          doc.setFont('helvetica', 'bold')
+          doc.text(`${index + 1}.`, styles.pageMargins.left, currentY)
+          doc.setFont('helvetica', 'normal')
+          doc.text(section.title, styles.pageMargins.left + 10, currentY)
+
+          // Numéro de page (placeholder)
+          doc.text(`${index + 3}`, 180, currentY, { align: 'right' })
+
+          currentY += 7
+        })
+
+        doc.addPage()
+      }
+
+      // ============================================================
+      // SECTIONS DE CONTENU
+      // ============================================================
+      const contentSections = config.sections.filter(
+        s => s.included && s.type !== 'cover' && s.type !== 'toc'
+      )
+
+      for (const section of contentSections) {
+        currentY = styles.pageMargins.top
+
+        // Titre de section
+        doc.setTextColor(primaryColor.r, primaryColor.g, primaryColor.b)
+        doc.setFontSize(styles.fontSizeHeading + 2)
+        doc.setFont('helvetica', 'bold')
+        doc.text(section.title, styles.pageMargins.left, currentY)
+
+        // Ligne sous le titre
+        currentY += 3
+        doc.setDrawColor(primaryColor.r, primaryColor.g, primaryColor.b)
+        doc.setLineWidth(0.5)
+        doc.line(styles.pageMargins.left, currentY, 190, currentY)
+
+        currentY += 10
+
+        // Contenu de la section
+        doc.setTextColor(textColor.r, textColor.g, textColor.b)
+        doc.setFontSize(styles.fontSizeBody)
+        doc.setFont('helvetica', 'normal')
+
+        currentY = this.renderSectionContent(doc, section, currentY, styles)
+
+        // Page break si configuré
+        if (template.pageBreaks.includes(section.type)) {
+          doc.addPage()
+        }
+      }
+
+      // ============================================================
+      // FOOTER SUR TOUTES LES PAGES
+      // ============================================================
+      const pageCount = doc.internal.pages.length - 1 // -1 car index 0 est null
+
+      for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i)
+
+        if (styles.showPageNumbers) {
+          doc.setFontSize(9)
+          doc.setTextColor(128, 128, 128)
+          doc.text(
+            `Page ${i} / ${pageCount}`,
+            105,
+            287,
+            { align: 'center' }
+          )
+        }
+      }
+
+      // Sauvegarder le PDF
+      const blob = doc.output('blob')
+      const filename = `business-plan-${this.sanitizeFilename(metadata.projectName)}.pdf`
+
+      const duration = Date.now() - startTime
+
+      return {
+        success: true,
+        blob,
+        filename,
+        size: blob.size,
+        exportedAt: new Date(),
+        duration
+      }
+
+    } catch (error) {
+      console.error('Erreur génération PDF:', error)
+
+      return {
+        success: false,
+        filename: '',
+        error: error instanceof Error ? error.message : 'Erreur inconnue',
+        exportedAt: new Date(),
+        duration: Date.now() - startTime
+      }
+    }
+  }
+
+  /**
+   * Rendu du contenu d'une section
+   */
+  private static renderSectionContent(
+    doc: jsPDF,
+    section: ExportSection,
+    startY: number,
+    styles: any
+  ): number {
+    let currentY = startY
+    const maxWidth = 170
+    const lineHeight = 6
+
+    const content = section.content
+
+    if (!content) {
+      doc.setFont('helvetica', 'italic')
+      doc.setTextColor(128, 128, 128)
+      doc.text('Contenu à compléter...', styles.pageMargins.left, currentY)
+      return currentY + lineHeight
+    }
+
+    // Rendu spécifique selon le type de section
+    switch (section.type) {
+      case 'synopsis':
+        if (content.executiveSummary) {
+          currentY = this.addParagraph(doc, 'Résumé Exécutif', content.executiveSummary, currentY, styles, maxWidth)
+        }
+        if (content.vision) {
+          currentY = this.addParagraph(doc, 'Vision', content.vision, currentY, styles, maxWidth)
+        }
+        if (content.mission) {
+          currentY = this.addParagraph(doc, 'Mission', content.mission, currentY, styles, maxWidth)
+        }
+        break
+
+      case 'identification':
+        if (content.companyName) {
+          currentY = this.addParagraph(doc, 'Nom de l\'entreprise', content.companyName, currentY, styles, maxWidth)
+        }
+        if (content.legalForm) {
+          currentY = this.addParagraph(doc, 'Forme juridique', content.legalForm, currentY, styles, maxWidth)
+        }
+        if (content.description) {
+          currentY = this.addParagraph(doc, 'Description', content.description, currentY, styles, maxWidth)
+        }
+        break
+
+      case 'market':
+        if (content.marketAnalysis) {
+          currentY = this.addParagraph(doc, 'Analyse du Marché', content.marketAnalysis, currentY, styles, maxWidth)
+        }
+        if (content.targetCustomers) {
+          currentY = this.addParagraph(doc, 'Clients Cibles', content.targetCustomers, currentY, styles, maxWidth)
+        }
+        if (content.competitiveAnalysis) {
+          currentY = this.addParagraph(doc, 'Analyse Concurrentielle', content.competitiveAnalysis, currentY, styles, maxWidth)
+        }
+        break
+
+      case 'swot':
+        currentY = this.renderSWOT(doc, content, currentY, styles)
+        break
+
+      case 'marketing':
+        if (content.strategy) {
+          currentY = this.addParagraph(doc, 'Stratégie Marketing', content.strategy, currentY, styles, maxWidth)
+        }
+        if (content.channels) {
+          currentY = this.addParagraph(doc, 'Canaux de Distribution', content.channels, currentY, styles, maxWidth)
+        }
+        break
+
+      case 'hr':
+        if (content.team && content.team.length > 0) {
+          currentY = this.renderTeam(doc, content.team, currentY, styles)
+        }
+        break
+
+      case 'financial':
+        if (content.investmentPlan) {
+          currentY = this.renderFinancial(doc, content, currentY, styles)
+        }
+        break
+
+      default:
+        // Rendu générique
+        const text = typeof content === 'string' ? content : JSON.stringify(content, null, 2)
+        const lines = doc.splitTextToSize(text, maxWidth)
+
+        lines.forEach((line: string) => {
+          if (currentY > 270) {
+            doc.addPage()
+            currentY = styles.pageMargins.top
+          }
+          doc.text(line, styles.pageMargins.left, currentY)
+          currentY += lineHeight
+        })
+    }
+
+    return currentY
+  }
+
+  /**
+   * Ajoute un paragraphe avec titre
+   */
+  private static addParagraph(
+    doc: jsPDF,
+    title: string,
+    content: string,
+    startY: number,
+    styles: any,
+    maxWidth: number
+  ): number {
+    let currentY = startY
+
+    // Vérifier espace disponible
+    if (currentY > 270) {
+      doc.addPage()
+      currentY = styles.pageMargins.top
+    }
+
+    // Titre
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(styles.fontSizeBody + 1)
+    doc.text(title, styles.pageMargins.left, currentY)
+    currentY += 7
+
+    // Contenu
+    doc.setFont('helvetica', 'normal')
+    doc.setFontSize(styles.fontSizeBody)
+
+    const lines = doc.splitTextToSize(content, maxWidth)
+
+    lines.forEach((line: string) => {
+      if (currentY > 270) {
+        doc.addPage()
+        currentY = styles.pageMargins.top
+      }
+      doc.text(line, styles.pageMargins.left, currentY)
+      currentY += 5
+    })
+
+    currentY += 5 // Espace après le paragraphe
+
+    return currentY
+  }
+
+  /**
+   * Rendu SWOT
+   */
+  private static renderSWOT(doc: jsPDF, content: any, startY: number, styles: any): number {
+    let currentY = startY
+
+    const swotData = [
+      { title: 'Forces', items: content.strengths || [], color: [16, 185, 129] },
+      { title: 'Faiblesses', items: content.weaknesses || [], color: [239, 68, 68] },
+      { title: 'Opportunités', items: content.opportunities || [], color: [59, 130, 246] },
+      { title: 'Menaces', items: content.threats || [], color: [245, 158, 11] }
+    ]
+
+    swotData.forEach(category => {
+      if (currentY > 250) {
+        doc.addPage()
+        currentY = styles.pageMargins.top
+      }
+
+      // Titre de catégorie
+      doc.setFillColor(category.color[0], category.color[1], category.color[2])
+      doc.rect(styles.pageMargins.left, currentY - 5, 170, 8, 'F')
+
+      doc.setTextColor(255, 255, 255)
+      doc.setFont('helvetica', 'bold')
+      doc.setFontSize(styles.fontSizeBody + 1)
+      doc.text(category.title, styles.pageMargins.left + 3, currentY)
+
+      currentY += 8
+
+      // Items
+      doc.setTextColor(50, 50, 50)
+      doc.setFont('helvetica', 'normal')
+      doc.setFontSize(styles.fontSizeBody)
+
+      if (category.items.length === 0) {
+        doc.setFont('helvetica', 'italic')
+        doc.setTextColor(128, 128, 128)
+        doc.text('Aucun élément', styles.pageMargins.left + 5, currentY)
+        currentY += 6
+      } else {
+        category.items.forEach((item: string) => {
+          if (currentY > 270) {
+            doc.addPage()
+            currentY = styles.pageMargins.top
+          }
+
+          doc.text('•', styles.pageMargins.left + 3, currentY)
+          const lines = doc.splitTextToSize(item, 160)
+          doc.text(lines, styles.pageMargins.left + 8, currentY)
+          currentY += lines.length * 5
+        })
+      }
+
+      currentY += 5
+    })
+
+    return currentY
+  }
+
+  /**
+   * Rendu équipe
+   */
+  private static renderTeam(doc: jsPDF, team: any[], startY: number, styles: any): number {
+    let currentY = startY
+
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(styles.fontSizeBody + 1)
+    doc.text('Équipe', styles.pageMargins.left, currentY)
+    currentY += 8
+
+    team.forEach(member => {
+      if (currentY > 260) {
+        doc.addPage()
+        currentY = styles.pageMargins.top
+      }
+
+      doc.setFont('helvetica', 'bold')
+      doc.text(`${member.name} - ${member.role}`, styles.pageMargins.left, currentY)
+      currentY += 6
+
+      if (member.description) {
+        doc.setFont('helvetica', 'normal')
+        const lines = doc.splitTextToSize(member.description, 165)
+        doc.text(lines, styles.pageMargins.left + 5, currentY)
+        currentY += lines.length * 5
+      }
+
+      currentY += 3
+    })
+
+    return currentY
+  }
+
+  /**
+   * Rendu financier
+   */
+  private static renderFinancial(doc: jsPDF, content: any, startY: number, styles: any): number {
+    let currentY = startY
+
+    if (content.investmentPlan) {
+      doc.setFont('helvetica', 'bold')
+      doc.text('Plan d\'Investissement', styles.pageMargins.left, currentY)
+      currentY += 8
+
+      doc.setFont('helvetica', 'normal')
+      const text = typeof content.investmentPlan === 'string'
+        ? content.investmentPlan
+        : JSON.stringify(content.investmentPlan)
+
+      const lines = doc.splitTextToSize(text, 165)
+      doc.text(lines, styles.pageMargins.left, currentY)
+      currentY += lines.length * 5 + 10
+    }
+
+    return currentY
+  }
+
+  /**
+   * Sauvegarde la configuration dans Firestore
+   */
+  static async saveExportConfig(config: ExportConfig, userId: string): Promise<void> {
+    const exportRef = doc(db, 'exports', config.id)
+
+    await setDoc(exportRef, {
+      ...config,
+      userId,
+      createdAt: config.createdAt,
+      updatedAt: new Date()
+    })
+  }
+
+  /**
+   * Charge une configuration depuis Firestore
+   */
+  static async loadExportConfig(projectId: string, userId: string): Promise<ExportConfig | null> {
+    const exportsRef = collection(db, 'exports')
+    const q = query(
+      exportsRef,
+      where('projectId', '==', projectId),
+      where('userId', '==', userId)
+    )
+
+    const snapshot = await getDocs(q)
+
+    if (snapshot.empty) {
+      return null
+    }
+
+    const doc = snapshot.docs[0]
+    return doc.data() as ExportConfig
+  }
+
+  /**
+   * Utilitaires
+   */
+  private static hexToRgb(hex: string): { r: number; g: number; b: number } {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 0, g: 0, b: 0 }
+  }
+
+  private static sanitizeFilename(name: string): string {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+  }
+}

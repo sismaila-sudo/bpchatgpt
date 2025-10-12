@@ -1,0 +1,28 @@
+
+> bpdesign-firebase@0.1.0 build
+> next build --turbopack
+
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 10
+     ✓ workerThreads
+
+   Creating an optimized production build ...
+   Using tsconfig file: ./tsconfig.json
+ ✓ Finished writing to disk in 261ms
+ ✓ Compiled successfully in 6.4s
+   Skipping linting
+   Checking validity of types ...
+Failed to compile.
+
+./src/app/projects/[id]/marketing/page.tsx:67:9
+Type error: Object literal may only specify known properties, and 'marketingChannels' does not exist in type 'PromotionStrategy'.
+
+[0m [90m 65 |[39m       }[33m,[39m
+ [90m 66 |[39m       promotion[33m:[39m {
+[31m[1m>[22m[39m[90m 67 |[39m         marketingChannels[33m:[39m [][33m,[39m
+ [90m    |[39m         [31m[1m^[22m[39m
+ [90m 68 |[39m         budget[33m:[39m [35m0[39m[33m,[39m
+ [90m 69 |[39m         campaigns[33m:[39m []
+ [90m 70 |[39m       }[0m

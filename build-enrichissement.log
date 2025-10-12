@@ -1,0 +1,516 @@
+
+> bpdesign-firebase@0.1.0 build
+> next build --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\admin\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\admin\Desktop\bpfirebase\package-lock.json
+
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 10
+     ✓ workerThreads
+
+   Creating an optimized production build ...
+   Using tsconfig file: ./tsconfig.json
+ ✓ Finished writing to disk in 828ms
+ ✓ Compiled successfully in 19.2s
+   Skipping validation of types
+   Linting ...
+
+./src/app/analysis/page.tsx
+38:6  Warning: React Hook useEffect has missing dependencies: 'loadAnalyses' and 'loadStats'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/analysis/[id]/page.tsx
+30:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+41:6  Warning: React Hook useEffect has a missing dependency: 'loadAnalysis'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/api/ai/credit-analysis/route.ts
+17:7  Warning: 'OLD_CREDIT_ANALYST_PROMPT' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/api/pdf/export/route.ts
+16:24  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+27:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+32:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+33:62  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+51:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/page.tsx
+24:3  Warning: 'ArrowTrendingUpIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+26:3  Warning: 'AcademicCapIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+27:3  Warning: 'BeakerIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+30:3  Warning: 'StarIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/projects/page.tsx
+29:3  Warning: 'DocumentDuplicateIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+33:17  Warning: 'userProfile' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+134:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/analyse-financiere/page.tsx
+18:3  Warning: 'RatiosDecision' is defined but never used.  @typescript-eslint/no-unused-vars
+28:3  Warning: 'BanknotesIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+68:6  Warning: React Hook useEffect has missing dependencies: 'loadAnalyse' and 'loadProject'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/projects/[id]/edit/page.tsx
+67:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+68:52  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+85:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/projects/[id]/export/page.tsx
+43:10  Warning: 'exportData' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+44:10  Warning: 'previewHTML' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/projects/[id]/fiche-synoptique/page.tsx
+80:6  Warning: React Hook useEffect has missing dependencies: 'loadFicheSynoptique' and 'loadProject'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/projects/[id]/financial-engine/page.tsx
+7:21  Warning: 'useRouter' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'ArrowLeftIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+41:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+45:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+98:59  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/hr/page.tsx
+26:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+28:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+33:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+33:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+34:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+147:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+174:23  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+177:23  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+182:23  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+214:60  Warning: 'section' is defined but never used.  @typescript-eslint/no-unused-vars
+741:86  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+759:87  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/market-study/page.tsx
+36:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:10  Warning: 'marketStudy' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:23  Warning: 'setMarketStudy' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+138:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+461:55  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/marketing/page.tsx
+11:25  Warning: 'ProductStrategy' is defined but never used.  @typescript-eslint/no-unused-vars
+11:42  Warning: 'PricingStrategy' is defined but never used.  @typescript-eslint/no-unused-vars
+11:59  Warning: 'DistributionStrategy' is defined but never used.  @typescript-eslint/no-unused-vars
+11:81  Warning: 'PromotionStrategy' is defined but never used.  @typescript-eslint/no-unused-vars
+27:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+29:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+34:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+34:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+175:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+202:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+203:30  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+210:30  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+215:30  Warning: 'prev' is defined but never used.  @typescript-eslint/no-unused-vars
+247:60  Warning: 'section' is defined but never used.  @typescript-eslint/no-unused-vars
+539:53  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/page.tsx
+17:3  Warning: 'ShareIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'ArchiveBoxIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+23:3  Warning: 'ArrowTrendingUpIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+46:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+61:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+97:43  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/projects/[id]/relations-bancaires/page.tsx
+14:3  Warning: 'RelationsBancaires' is defined but never used.  @typescript-eslint/no-unused-vars
+23:3  Warning: 'ExclamationTriangleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+42:52  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+59:6  Warning: React Hook useEffect has missing dependencies: 'loadData' and 'loadProject'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+137:78  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+143:76  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/projects/[id]/rentabilite/page.tsx
+25:3  Warning: 'BanknotesIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+28:3  Warning: 'ExclamationTriangleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+38:10  Warning: 'loading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+38:19  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+76:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/app/projects/[id]/swot/page.tsx
+21:3  Warning: 'DocumentPlusIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+32:9  Warning: 'router' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+35:10  Warning: 'swotAnalysis' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+35:24  Warning: 'setSWOTAnalysis' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+65:6  Warning: React Hook useEffect has a missing dependency: 'loadProject'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+459:9  Warning: 'updateAction' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+605:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+809:41  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/app/projects/[id]/tableaux-financiers/page.tsx
+18:3  Warning: 'TableCellsIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+43:62  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+49:9  Warning: 'showFinanceDebug' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+78:6  Warning: React Hook useEffect has missing dependencies: 'loadData' and 'loadProject'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+88:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+89:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+181:92  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+190:84  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+569:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/app/templates/page.tsx
+15:3  Warning: 'FolderIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'CogIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+20:3  Warning: 'UserGroupIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+104:17  Warning: 'userProfile' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/SystemSettings.tsx
+3:20  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'EyeIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+89:10  Warning: 'showLogs' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+89:20  Warning: 'setShowLogs' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+287:91  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+481:96  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+541:82  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/admin/TemplateManagement.tsx
+9:3  Warning: 'TrashIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+50:10  Warning: 'editingTemplate' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+214:90  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/admin/UserManagement.tsx
+8:3  Warning: 'TrashIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+10:3  Warning: 'CheckIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+14:3  Warning: 'ExclamationTriangleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/AIAssistant.tsx
+4:10  Warning: 'BusinessPlanAssistantRequest' is defined but never used.  @typescript-eslint/no-unused-vars
+5:59  Warning: 'CheckIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+13:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+14:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+20:3  Warning: 'sector' is defined but never used.  @typescript-eslint/no-unused-vars
+22:3  Warning: 'currentData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/AnimatedTransitions.tsx
+221:1  Warning: Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+./src/components/BusinessPlanAIAssistant.tsx
+5:26  Warning: 'AIResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+113:6  Warning: React Hook useEffect has a missing dependency: 'messages.length'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+194:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/DocumentUploader.tsx
+6:28  Warning: 'DocumentIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+6:42  Warning: 'XMarkIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/EnhancedToast.tsx
+211:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+264:1  Warning: Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+./src/components/ExportPDFDialog.tsx
+41:10  Warning: 'loading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+57:6  Warning: React Hook useEffect has a missing dependency: 'loadAvailableSections'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+147:52  Warning: 'fileName' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/finance/BFRFDRTNSection.tsx
+36:20  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+53:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+54:28  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+55:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+67:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+67:78  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+68:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+68:68  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:8  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/FinancialEngine.tsx
+323:9  Warning: 'addInvestment' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+338:9  Warning: 'updateInvestment' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+347:9  Warning: 'removeInvestment' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+415:50  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+506:55  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+508:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+510:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+519:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+523:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+642:93  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/ImageUpload.tsx
+6:32  Warning: 'CheckIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+67:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+114:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/ModernSidebar.tsx
+14:3  Warning: 'UsersIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'CurrencyDollarIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+22:3  Warning: 'ClipboardDocumentListIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+26:3  Warning: 'Bars3Icon' is defined but never used.  @typescript-eslint/no-unused-vars
+35:16  Warning: 'UsersSolid' is defined but never used.  @typescript-eslint/no-unused-vars
+36:25  Warning: 'CurrencyDollarSolid' is defined but never used.  @typescript-eslint/no-unused-vars
+38:32  Warning: 'ClipboardDocumentListSolid' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/PDFExportDialog.tsx
+14:3  Warning: 'CheckIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/RichTextEditor.tsx
+188:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/SkeletonLoaders.tsx
+216:1  Warning: Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+./src/components/SynopticSheet.tsx
+39:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/hooks/useAPICache.ts
+37:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+180:6  Warning: React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./src/hooks/useAutoSave.ts
+5:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/lib/businessValidation.ts
+92:9  Warning: 'totalChecks' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+159:42  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+243:9  Warning: 'totalChecks' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+402:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+403:59  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/lib/__tests__/validation.test.ts
+5:10  Warning: 'z' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/analyseFinanciereHistoriqueService.ts
+2:3  Warning: 'collection' is defined but never used.  @typescript-eslint/no-unused-vars
+33:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+34:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+40:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+40:99  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:99  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/analysisExportService.ts
+365:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+401:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+478:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+516:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+540:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+573:20  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+593:26  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+732:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/analysisService.ts
+125:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+157:62  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/businessPlanAI.ts
+479:34  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+513:40  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/calculsFinanciersAvancesService.ts
+167:13  Warning: 'cfCourant' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/completePDFExportService.ts
+12:10  Warning: 'CalculsFinanciersAvancesService' is defined but never used.  @typescript-eslint/no-unused-vars
+66:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+67:25  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+68:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+70:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+71:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+72:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+407:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+435:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+682:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+716:66  Warning: 'options' is defined but never used.  @typescript-eslint/no-unused-vars
+756:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+758:42  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+767:52  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+796:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+821:64  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+852:57  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+872:65  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+928:90  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+969:83  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+972:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1044:77  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1047:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1074:64  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1113:36  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+1122:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1146:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1169:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1183:53  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1199:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1223:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1237:55  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1251:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1263:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1284:54  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1298:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+1310:91  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/documentServiceServer.ts
+13:5  Warning: 'userId' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/exportService.ts
+7:8  Warning: 'autoTable' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'SectionType' is defined but never used.  @typescript-eslint/no-unused-vars
+26:23  Warning: 'getDoc' is defined but never used.  @typescript-eslint/no-unused-vars
+340:13  Warning: 'secondaryColor' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+535:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+639:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+679:50  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+679:79  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+739:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+739:78  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+773:55  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+773:84  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/ficheSynoptiqueService.ts
+2:3  Warning: 'collection' is defined but never used.  @typescript-eslint/no-unused-vars
+8:3  Warning: 'Timestamp' is defined but never used.  @typescript-eslint/no-unused-vars
+177:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/financialEngine.ts
+327:35  Warning: 'i' is defined but never used.  @typescript-eslint/no-unused-vars
+431:11  Warning: 'totalInvestment' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/financialRatiosAdvanced.ts
+97:31  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+208:20  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/financialService.ts
+12:3  Warning: 'SensitivityAnalysis' is defined but never used.  @typescript-eslint/no-unused-vars
+14:3  Warning: 'Currency' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/financialTablesBundleBuilder.ts
+28:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+31:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+133:1  Warning: Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+./src/services/fongipScoringService.ts
+253:44  Warning: 'projectId' is defined but never used.  @typescript-eslint/no-unused-vars
+342:47  Warning: 'projectId' is defined but never used.  @typescript-eslint/no-unused-vars
+366:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+374:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+382:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/openaiService.ts
+18:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+101:16  Warning: 'parseError' is defined but never used.  @typescript-eslint/no-unused-vars
+157:16  Warning: 'parseError' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/pdfExportService.ts
+8:34  Warning: 'SENEGAL_REGIONS' is defined but never used.  @typescript-eslint/no-unused-vars
+705:38  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+717:44  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+729:41  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+741:37  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/pdfService.ts
+15:34  Warning: 'SENEGAL_REGIONS' is defined but never used.  @typescript-eslint/no-unused-vars
+257:67  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+618:31  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+623:32  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+628:27  Warning: 'project' is defined but never used.  @typescript-eslint/no-unused-vars
+628:45  Warning: 'financials' is defined but never used.  @typescript-eslint/no-unused-vars
+655:34  Warning: 'template' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/projectService.ts
+353:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/ragService.ts
+243:23  Warning: 'includeContext' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/relationsBancairesService.ts
+2:3  Warning: 'collection' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/tableauxFinanciersService.ts
+2:3  Warning: 'collection' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'VariationBFR' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'BilanPrevisionnel' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'SeuilRentabilite' is defined but never used.  @typescript-eslint/no-unused-vars
+20:3  Warning: 'RatiosStructure' is defined but never used.  @typescript-eslint/no-unused-vars
+21:3  Warning: 'InvestissementDetaille' is defined but never used.  @typescript-eslint/no-unused-vars
+22:3  Warning: 'SourceFinancement' is defined but never used.  @typescript-eslint/no-unused-vars
+91:87  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+204:5  Warning: 'tauxTVA' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/webScrapingService.ts
+7:13  Warning: 'cheerio' is defined but never used.  @typescript-eslint/no-unused-vars
+14:24  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+30:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+169:13  Warning: 'urls' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+320:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+334:42  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/services/webSearchService.ts
+6:10  Warning: 'tavily' is defined but never used.  @typescript-eslint/no-unused-vars
+26:25  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+96:69  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+128:46  Warning: 'includeStatistics' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+169:5  Warning: 'options' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/services/__tests__/financialEngine.test.ts
+7:27  Warning: 'RevenueStream' is defined but never used.  @typescript-eslint/no-unused-vars
+7:42  Warning: 'CostItem' is defined but never used.  @typescript-eslint/no-unused-vars
+7:52  Warning: 'Loan' is defined but never used.  @typescript-eslint/no-unused-vars
+155:13  Warning: 'projections' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/tests/financial.test.ts
+12:3  Warning: 'FAISE_CRITERIA' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/analyseFinanciereHistorique.ts
+270:18  Warning: An interface declaring no members is equivalent to its supertype.  @typescript-eslint/no-empty-object-type
+
+./src/types/businessPlan.ts
+4:10  Warning: 'BusinessSector' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/export.ts
+5:10  Warning: 'Project' is defined but never used.  @typescript-eslint/no-unused-vars
+100:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+255:12  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/types/ficheSynoptique.ts
+93:18  Warning: An interface declaring no members is equivalent to its supertype.  @typescript-eslint/no-empty-object-type
+
+./src/types/relationsBancaires.ts
+305:51  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/tableauxFinanciers.ts
+431:48  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+⚠️ Tavily search temporarily disabled
+⚠️ Tavily search temporarily disabled
+   Generating static pages (0/12) ...
+
+> Build error occurred
+Error [DataCloneError]: ()=>null could not be cloned.
+    at new Promise (<anonymous>) {
+  code: 25,
+  INDEX_SIZE_ERR: 1,
+  DOMSTRING_SIZE_ERR: 2,
+  HIERARCHY_REQUEST_ERR: 3,
+  WRONG_DOCUMENT_ERR: 4,
+  INVALID_CHARACTER_ERR: 5,
+  NO_DATA_ALLOWED_ERR: 6,
+  NO_MODIFICATION_ALLOWED_ERR: 7,
+  NOT_FOUND_ERR: 8,
+  NOT_SUPPORTED_ERR: 9,
+  INUSE_ATTRIBUTE_ERR: 10,
+  INVALID_STATE_ERR: 11,
+  SYNTAX_ERR: 12,
+  INVALID_MODIFICATION_ERR: 13,
+  NAMESPACE_ERR: 14,
+  INVALID_ACCESS_ERR: 15,
+  VALIDATION_ERR: 16,
+  TYPE_MISMATCH_ERR: 17,
+  SECURITY_ERR: 18,
+  NETWORK_ERR: 19,
+  ABORT_ERR: 20,
+  URL_MISMATCH_ERR: 21,
+  QUOTA_EXCEEDED_ERR: 22,
+  TIMEOUT_ERR: 23,
+  INVALID_NODE_TYPE_ERR: 24,
+  DATA_CLONE_ERR: 25
+}

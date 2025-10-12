@@ -1,0 +1,41 @@
+src/app/projects/[id]/rentabilite/page.tsx(76,34): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<number>'.
+src/app/projects/[id]/rentabilite/page.tsx(77,30): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<number>'.
+src/app/projects/[id]/rentabilite/page.tsx(78,24): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<number>'.
+src/app/projects/[id]/rentabilite/page.tsx(79,25): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<number>'.
+src/app/projects/[id]/rentabilite/page.tsx(80,22): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<CashFlow[]>'.
+src/app/projects/[id]/rentabilite/page.tsx(84,33): error TS2345: Argument of type '{}' is not assignable to parameter of type 'SetStateAction<AnalyseRentabilite | null>'.
+src/components/FinancialEngine.tsx(782,64): error TS2322: Type '"monthly" | "annual"' is not assignable to type '"monthly" | "quarterly" | "yearly" | undefined'.
+  Type '"annual"' is not assignable to type '"monthly" | "quarterly" | "yearly" | undefined'.
+src/components/FinancialEngine.tsx(803,41): error TS2367: This comparison appears to be unintentional because the types '"monthly" | "quarterly" | "yearly"' and '"annual"' have no overlap.
+src/components/FinancialEngine.tsx(881,43): error TS2339: Property 'date' does not exist on type 'InvestmentItem'.
+src/components/FinancialEngine.tsx(882,76): error TS2353: Object literal may only specify known properties, and 'date' does not exist in type 'Partial<InvestmentItem>'.
+src/lib/__tests__/businessValidation.test.ts(11,10): error TS2724: '"@/types/financial"' has no exported member named 'FinancialProjections'. Did you mean 'FinancialRatios'?
+src/lib/__tests__/businessValidation.test.ts(82,22): error TS2554: Expected 3 arguments, but got 1.
+src/lib/__tests__/businessValidation.test.ts(97,22): error TS2554: Expected 3 arguments, but got 1.
+src/lib/__tests__/businessValidation.test.ts(109,22): error TS2554: Expected 3 arguments, but got 1.
+src/services/__tests__/financialEngine.test.ts(7,10): error TS2305: Module '"@/types/financial"' has no exported member 'FinancialInputs'.
+src/services/__tests__/financialEngine.test.ts(7,27): error TS2305: Module '"@/types/financial"' has no exported member 'RevenueStream'.
+src/services/__tests__/financialEngine.test.ts(7,42): error TS2305: Module '"@/types/financial"' has no exported member 'CostItem'.
+src/services/__tests__/financialEngine.test.ts(7,52): error TS2305: Module '"@/types/financial"' has no exported member 'Loan'.
+src/services/__tests__/financialEngine.test.ts(482,28): error TS2339: Property 'costs' does not exist on type 'FinancialProjections'.
+src/services/__tests__/projectService.test.ts(63,65): error TS2345: Argument of type '{ name: string; description: string; sector: BusinessSector; projectType: ProjectType; location: { country: string; city: string; region: string; }; timeline: { startDate: Date; endDate: Date; }; }' is not assignable to parameter of type 'ProjectBasicInfo'.
+  Property 'companySize' is missing in type '{ name: string; description: string; sector: BusinessSector; projectType: ProjectType; location: { country: string; city: string; region: string; }; timeline: { startDate: Date; endDate: Date; }; }' but required in type 'ProjectBasicInfo'.
+src/services/__tests__/projectService.test.ts(114,65): error TS2345: Argument of type '{ name: string; description: string; sector: BusinessSector; projectType: ProjectType; location: { country: string; city: string; region: string; }; timeline: { startDate: Date; endDate: Date; }; }' is not assignable to parameter of type 'ProjectBasicInfo'.
+  Property 'companySize' is missing in type '{ name: string; description: string; sector: BusinessSector; projectType: ProjectType; location: { country: string; city: string; region: string; }; timeline: { startDate: Date; endDate: Date; }; }' but required in type 'ProjectBasicInfo'.
+src/services/businessPlanAI.ts(435,56): error TS2339: Property 'breakEvenDate' does not exist on type '{ startDate: Date; projectedLaunch?: Date | undefined; duration: number; }'.
+src/services/businessPlanAI.ts(436,45): error TS2339: Property 'breakEvenDate' does not exist on type '{ startDate: Date; projectedLaunch?: Date | undefined; duration: number; }'.
+src/services/businessPlanAI.ts(440,43): error TS2339: Property 'investmentAmount' does not exist on type 'ProjectBasicInfo'.
+src/services/businessPlanAI.ts(441,30): error TS2339: Property 'investmentAmount' does not exist on type 'ProjectBasicInfo'.
+src/services/businessPlanAI.ts(536,35): error TS7006: Parameter 'q' implicitly has an 'any' type.
+src/services/businessPlanAI.ts(536,38): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/services/businessPlanAI.ts(539,40): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/services/businessPlanAI.ts(542,35): error TS7006: Parameter 'o' implicitly has an 'any' type.
+src/services/businessPlanAI.ts(545,32): error TS7006: Parameter 'm' implicitly has an 'any' type.
+src/tests/financial.test.ts(43,36): error TS2339: Property 'grace' does not exist on type 'number | { grace: number; normal: number; }'.
+  Property 'grace' does not exist on type 'number'.
+src/tests/financial.test.ts(46,36): error TS2339: Property 'normal' does not exist on type 'number | { grace: number; normal: number; }'.
+  Property 'normal' does not exist on type 'number'.
+src/tests/financial.test.ts(65,57): error TS2345: Argument of type 'number | { grace: number; normal: number; }' is not assignable to parameter of type 'number | bigint'.
+  Type '{ grace: number; normal: number; }' is not assignable to type 'number | bigint'.
+src/tests/financial.test.ts(479,63): error TS2345: Argument of type 'Record<string, unknown>' is not assignable to parameter of type 'ProjectFinancials'.
+  Type 'Record<string, unknown>' is missing the following properties from type 'ProjectFinancials': id, projectId, currency, planningHorizon, and 10 more.

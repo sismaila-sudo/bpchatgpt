@@ -1,0 +1,29 @@
+
+> bpdesign-firebase@0.1.0 build
+> next build --turbopack
+
+   ▲ Next.js 15.5.4 (Turbopack)
+   - Environments: .env.local, .env.production
+   - Experiments (use with caution):
+     · cpus: 10
+     ✓ workerThreads
+
+   Creating an optimized production build ...
+   Using tsconfig file: ./tsconfig.json
+ ✓ Finished writing to disk in 244ms
+ ✓ Compiled successfully in 6.3s
+   Skipping linting
+   Checking validity of types ...
+Failed to compile.
+
+./src/app/projects/[id]/page.tsx:93:44
+Type error: Argument of type 'Record<string, unknown>' is not assignable to parameter of type 'FinancialInputs'.
+  Type 'Record<string, unknown>' is missing the following properties from type 'FinancialInputs': revenueStreams, fixedCosts, variableCosts, initialInvestments, and 7 more.
+
+[0m [90m 91 |[39m       [36mconst[39m financialData [33m=[39m [36mawait[39m projectService[33m.[39mgetFinancialData(projectId[33m,[39m user[33m![39m[33m.[39muid)
+ [90m 92 |[39m       [36mif[39m (financialData) {
+[31m[1m>[22m[39m[90m 93 |[39m         [36mconst[39m engine [33m=[39m [36mnew[39m [33mFinancialEngine[39m(financialData)
+ [90m    |[39m                                            [31m[1m^[22m[39m
+ [90m 94 |[39m         [36mconst[39m projections [33m=[39m engine[33m.[39mcalculateProjections()
+ [90m 95 |[39m         setFinancialProjections(projections)
+ [90m 96 |[39m       }[0m

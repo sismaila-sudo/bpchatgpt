@@ -1,0 +1,8 @@
+src/services/financialTablesCalculator.ts(355,49): error TS1005: ',' expected.
+src/services/financialTablesCalculator.ts(355,55): error TS1005: ',' expected.
+src/types/financialTables.ts(378,5): error TS1131: Property or signature expected.
+src/types/financialTables.ts(379,3): error TS1128: Declaration or statement expected.
+src/types/financialTables.ts(382,26): error TS1011: An element access expression should take an argument.
+src/types/financialTables.ts(385,28): error TS1011: An element access expression should take an argument.
+src/types/financialTables.ts(395,37): error TS1011: An element access expression should take an argument.
+src/types/financialTables.ts(397,1): error TS1128: Declaration or statement expected.

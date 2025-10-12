@@ -1,0 +1,284 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ========== HELPER FUNCTIONS ==========
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function isProjectOwner(projectId) {
+      return isAuthenticated() &&
+        get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid;
+    }
+
+    function isProjectCollaborator(projectId) {
+      return isAuthenticated() &&
+        request.auth.uid in get(/databases/$(database)/documents/projects/$(projectId)).data.collaborators;
+    }
+
+    function hasProjectAccess(projectId) {
+      return isProjectOwner(projectId) || isProjectCollaborator(projectId) || isAdmin();
+    }
+
+    // ========== COLLECTIONS RACINES ==========
+
+    // 1. PROJECTS (collection principale)
+    match /projects/{projectId} {
+      // Lecture pour owner, collaborateurs et admin
+      allow read: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid ||
+        request.auth.uid in resource.data.collaborators ||
+        isAdmin()
+      );
+
+      // Création par le propriétaire uniquement
+      allow create: if isAuthenticated() && request.auth.uid == request.resource.data.ownerId;
+
+      // Update avec contraintes
+      allow update: if isAuthenticated() && (
+        (
+          // propriétaire ou admin
+          (resource.data.ownerId == request.auth.uid || isAdmin())
+          &&
+          // ownerId immuable
+          request.resource.data.ownerId == resource.data.ownerId
+        )
+        ||
+        (
+          // collaborateur avec contraintes strictes
+          request.auth.uid in resource.data.collaborators
+          &&
+          request.resource.data.ownerId == resource.data.ownerId
+          &&
+          request.resource.data.collaborators == resource.data.collaborators
+        )
+      );
+
+      // Suppression owner/admin
+      allow delete: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid || isAdmin()
+      );
+    }
+
+    // 2. USERS (profils utilisateurs)
+    match /users/{userId} {
+      // Lecture: own profile ou admin
+      allow read: if isOwner(userId) || isAdmin();
+
+      // Création sans élévation de rôle
+      allow create: if isAuthenticated() &&
+        request.auth.uid == userId &&
+        (
+          !('role' in request.resource.data) ||
+          request.resource.data.role == 'user'
+        );
+
+      // Update sans modifier son rôle (sauf admin)
+      allow update: if (
+        (isOwner(userId) && request.resource.data.role == resource.data.role) ||
+        isAdmin()
+      );
+
+      // Delete admin uniquement
+      allow delete: if isAdmin();
+
+      // ✅ SOUS-COLLECTION : users/{userId}/projects/{projectId}
+      match /projects/{projectId} {
+        allow read, write: if isOwner(userId);
+
+        // ✅ SOUS-COLLECTION : users/{userId}/projects/{projectId}/sections/{sectionId}
+        match /sections/{sectionId} {
+          allow read, write: if isOwner(userId);
+        }
+
+        // ✅ SOUS-COLLECTION : users/{userId}/projects/{projectId}/customExports/{exportId}
+        match /customExports/{exportId} {
+          allow read, write: if isOwner(userId);
+
+          // ✅ SOUS-COLLECTION : history/{actionId}
+          match /history/{actionId} {
+            allow read, write: if isOwner(userId);
+          }
+        }
+      }
+    }
+
+    // 3. TEMPLATES (lecture seule pour users, écriture admin)
+    match /templates/{templateId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // 4. DOCUMENTS (fichiers uploadés)
+    match /documents/{documentId} {
+      allow read: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid || isAdmin()
+      );
+
+      allow create: if isAuthenticated() &&
+        request.auth.uid == request.resource.data.ownerId;
+
+      allow update: if isAuthenticated() && (
+        (resource.data.ownerId == request.auth.uid || isAdmin())
+        &&
+        request.resource.data.ownerId == resource.data.ownerId
+      );
+
+      allow delete: if isAuthenticated() && (
+        resource.data.ownerId == request.auth.uid || isAdmin()
+      );
+    }
+
+    // 5. PROJECT ANALYSES
+    match /projectAnalyses/{analysisId} {
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin() ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'financial_analyst'
+      );
+
+      allow create: if isAuthenticated() && (
+        request.auth.uid == request.resource.data.userId ||
+        isAdmin() ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'financial_analyst'
+      );
+
+      allow update: if isAuthenticated() && (
+        (resource.data.userId == request.auth.uid ||
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'financial_analyst'])
+        &&
+        request.resource.data.userId == resource.data.userId
+      );
+
+      allow delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+    }
+
+    // 6. EXPORTS (configurations d'export globales)
+    match /exports/{exportId} {
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+
+      allow create: if isAuthenticated() &&
+        request.auth.uid == request.resource.data.userId;
+
+      allow update: if isAuthenticated() && (
+        (resource.data.userId == request.auth.uid || isAdmin())
+        &&
+        request.resource.data.userId == resource.data.userId
+      );
+
+      allow delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid || isAdmin()
+      );
+    }
+
+    // ========== COLLECTIONS LIÉES AUX PROJETS ==========
+    // ✅ CORRECTION CRITIQUE : Ces collections utilisent projectId comme docId
+    // Elles doivent vérifier le ownerId du projet parent
+
+    // 7. FICHES SYNOPTIQUES
+    match /fichesSynoptiques/{projectId} {
+      // ✅ NOUVELLE RÈGLE : Vérifier accès au projet parent
+      allow read: if hasProjectAccess(projectId);
+
+      allow create: if isAuthenticated() &&
+        isProjectOwner(projectId);
+
+      allow update: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+
+      allow delete: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+    }
+
+    // 8. ANALYSES FINANCIÈRES HISTORIQUES
+    match /analysesFinancieresHistoriques/{projectId} {
+      // ✅ NOUVELLE RÈGLE : Vérifier accès au projet parent
+      allow read: if hasProjectAccess(projectId);
+
+      allow create: if isAuthenticated() &&
+        isProjectOwner(projectId);
+
+      allow update: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+
+      allow delete: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+    }
+
+    // 9. TABLEAUX FINANCIERS
+    match /tableauxFinanciers/{projectId} {
+      // ✅ NOUVELLE RÈGLE : Vérifier accès au projet parent
+      allow read: if hasProjectAccess(projectId);
+
+      allow create: if isAuthenticated() &&
+        isProjectOwner(projectId);
+
+      allow update: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+
+      allow delete: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+    }
+
+    // 10. RELATIONS BANCAIRES
+    match /relationsBancaires/{projectId} {
+      // ✅ NOUVELLE RÈGLE : Vérifier accès au projet parent
+      allow read: if hasProjectAccess(projectId);
+
+      allow create: if isAuthenticated() &&
+        isProjectOwner(projectId);
+
+      allow update: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+
+      allow delete: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+    }
+
+    // 11. ANALYSE RENTABILITÉ (VAN/TRI/DRCI)
+    match /analyseRentabilite/{projectId} {
+      // ✅ NOUVELLE RÈGLE : Vérifier accès au projet parent
+      allow read: if hasProjectAccess(projectId);
+
+      allow create: if isAuthenticated() &&
+        isProjectOwner(projectId);
+
+      allow update: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+
+      allow delete: if isAuthenticated() && (
+        isProjectOwner(projectId) || isAdmin()
+      );
+    }
+
+    // ========== RÈGLES PAR DÉFAUT ==========
+    // Refuser tout accès non spécifié explicitement
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
